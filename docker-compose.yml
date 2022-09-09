@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    volumes:
+      - type: bind
+        source: data/
+        target: /data/
+    init: true
