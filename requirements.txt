@@ -1,1 +1,1 @@
-PixivPy3==3.7.1
+PixivPy3==3.7.2
