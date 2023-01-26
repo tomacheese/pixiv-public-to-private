@@ -1,66 +1,297 @@
 # 任意のレジストリに Docker image を公開orビルドする。
-# master/mainのプッシュ時、プルリクの作成・更新時、リリース時に動作する。
+# プルリクの作成・更新時に動作する。
 
 name: Docker
 
 on:
-  push:
-    branches:
-      - main
-      - master
   pull_request:
     branches:
       - main
       - master
-  release:
     types:
-      - published
+      - opened
+      - synchronize
+    paths:
+      - .github/workflows/docker.yml
+  pull_request_target:
+    branches:
+      - main
+      - master
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - closed
 
 env:
   REGISTRY: ghcr.io
   DOCKER_USERNAME: ${{ github.actor }}
   DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
-  IMAGE_NAME: ${{ github.repository }}
   PLATFORMS: linux/amd64,linux/arm64
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.merged == true && 'master' || github.event.pull_request.head.sha }}
+
 jobs:
-  job:
-    name: Build
+  # バージョンを計算する
+  calc-version:
+    name: Calculate next version
     runs-on: ubuntu-latest
+
+    outputs:
+      # バージョンタグ
+      tag: ${{ steps.tag-version.outputs.new_tag }}
+      # リリースノート
+      changelog: ${{ steps.tag-version.outputs.changelog }}
+      # プラットフォーム(アーキテクチャ)のマトリクス
+      platform-matrix: ${{ steps.platform-matrix.outputs.matrix }}
+      # latestタグへのマージが必要かどうか (複数のプラットフォームがある時は必要)
+      need-merge: ${{ steps.platform-matrix.outputs.need-merge }}
 
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
+        with:
+          # マージされていない時には github.event.pull_request.head.sha を使い、マージされた時にはmasterを使う
+          ref: ${{ github.event.pull_request.merged == true && 'master' || github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Bump version and push tag
+        id: tag-version
+        uses: mathieudutour/github-tag-action@v6.1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          default_bump: 'minor'
+          custom_release_rules: 'feat:minor:✨ Features,fix:patch:🐛 Fixes,docs:patch:📰 Docs,chore:patch:🎨 Chore,pref:patch:🎈 Performance improvements,refactor:patch:🧹 Refactoring,build:patch:🔍 Build,ci:patch:🔍 CI,revert:patch:⏪ Revert,style:patch:🧹 Style,test:patch:👀 Test,release:major:📦 Release'
+          dry_run: ${{ github.event.pull_request.merged == false }}
+
+      - name: Set platform matrix
+        id: platform-matrix
+        run: |
+          # shellcheck disable=SC2312
+          echo "matrix=[$(echo "$PLATFORMS" | sed -r -e 's/([^,]+)/\"\1\"/g' -e 's/([^,]+),/\1,/g')]" >> $GITHUB_OUTPUT
+          # ,があるときはneed-merge=true
+          echo "need-merge=$(echo "$PLATFORMS" | grep -q ',' && echo true || echo false)" >> $GITHUB_OUTPUT
+
+  # Dockerイメージをビルドする
+  build:
+    name: Docker build (${{ fromJson(matrix.target).file }}, ${{ matrix.platform }})
+    runs-on: ubuntu-latest
+    needs: calc-version
+
+    strategy:
+      fail-fast: false
+      matrix:
+        # ビルドするプラットフォーム
+        platform: ${{ fromJson(needs.calc-version.outputs.platform-matrix) }}
+        # ビルドするDockerfile
+        target:
+          - '{ imageName: "tomacheese/pixiv-public-to-private", file: "Dockerfile", packageName: "pixiv-public-to-private" }'
+
+    steps:
+      - name: Remove platform prefix
+        id: platform
+        run:
+          echo "shortPlatform=$(echo "${{ matrix.platform }}" | sed -r -e 's/^[^\/]+\///')" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub deployment
+        uses: chrnorm/deployment-action@v2.0.5
+        if: github.event.pull_request.merged == true
+        id: deployment
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ needs.calc-version.outputs.tag }}
+          environment: '${{ fromJson(matrix.target).packageName }}:${{ steps.platform.outputs.shortPlatform }}'
+          environment-url: https://github.com/${{ github.repository }}/pkgs/container/${{ fromJson(matrix.target).packageName }}
+
+      - name: Update deployment status (in_progress)
+        uses: chrnorm/deployment-status@v2.0.1
+        if: github.event.pull_request.merged == true
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          state: in_progress
+          deployment-id: ${{ steps.deployment.outputs.deployment_id }}
+
+      - name: Check out the repo
+        uses: actions/checkout@v3
+        with:
+          # マージされていない時には github.event.pull_request.head.sha を使い、マージされた時にはmasterを使う
+          ref: ${{ github.event.pull_request.merged == false && github.event.pull_request.head.sha || 'refs/heads/master' }}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
-        with:
-          install: true
 
       - name: Login to ${{ env.REGISTRY }}
-        if: github.event_name == 'release'
+        if: github.event.pull_request.merged == true
         uses: docker/login-action@v2.1.0
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ env.DOCKER_USERNAME }}
           password: ${{ env.DOCKER_PASSWORD }}
 
+      - name: package.json update version
+        run: |
+          sed -r -i "1,/version/s/\"version\": \".+\"/\"version\": \"${{ needs.calc-version.outputs.tag }}\"/" package.json
+          git diff
+
+      - name: Set tag suffix value
+        id: tag
+        run: |
+          if [ "${{ fromJson(needs.calc-version.outputs.need-merge) }}" = "true" ]; then
+            echo "suffix=-${{ steps.platform.outputs.shortPlatform }}" >> $GITHUB_OUTPUT
+          else
+            echo "suffix=" >> $GITHUB_OUTPUT
+          fi
+
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v4.3.0
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: ${{ env.REGISTRY }}/${{ fromJson(matrix.target).imageName }}
+          tags: |
+            # need-mergeがtrueの時はshortPlatformを含める (latest-arm64)
+            # need-mergeがfalseの時はshortPlatformを含めない (latest)
+            type=raw,value=${{ needs.calc-version.outputs.tag }}${{ steps.tag.outputs.suffix }}
+            type=raw,value=latest${{ steps.tag.outputs.suffix }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v3.3.0
         with:
           context: .
-          push: ${{ github.event_name == 'release' }}
-          platforms: ${{ env.PLATFORMS }}
+          file: ${{ fromJson(matrix.target).file }}
+          push: ${{ github.event.pull_request.merged == true }}
+          platforms: ${{ matrix.platform }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          cache-from: type=gha,scope=${{ fromJson(matrix.target).packageName }}-${{ steps.platform.outputs.shortPlatform }}
+          cache-to: type=gha,mode=max,scope=${{ fromJson(matrix.target).packageName }}-${{ steps.platform.outputs.shortPlatform }}
+          provenance: false
+
+      - name: Update deployment status (success)
+        uses: chrnorm/deployment-status@v2.0.1
+        if: ${{ success() && github.event.pull_request.merged == true }}
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          state: success
+          deployment-id: ${{ steps.deployment.outputs.deployment_id }}
+
+      - name: Update deployment status (failure)
+        if: ${{ failure() && github.event.pull_request.merged == true }}
+        uses: chrnorm/deployment-status@v2.0.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          state: failure
+          deployment-id: ${{ steps.deployment.outputs.deployment_id }}
+
+  # 各プラットフォームのlatestからlatestタグにマージしてイメージを作成
+  merge-latest:
+    name: Merge latest (${{ fromJson(matrix.target).file }})
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    needs:
+      - calc-version
+      - build
+
+    strategy:
+      fail-fast: false
+      matrix:
+        # ビルドするDockerfile
+        target:
+          - '{ imageName: "tomacheese/pixiv-public-to-private", file: "Dockerfile", packageName: "pixiv-public-to-private" }'
+
+    steps:
+      - name: Login to ${{ env.REGISTRY }}
+        if: github.event.pull_request.merged == true
+        uses: docker/login-action@v2.1.0
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ env.DOCKER_USERNAME }}
+          password: ${{ env.DOCKER_PASSWORD }}
+
+      - name: Create extra-images list
+        id: extra-images
+        run: |
+          # linux/amd64,linux/arm64 -> ${{ env.REGISTRY }}/tomacheese/my-pixiv:latest-amd64,${{ env.REGISTRY }}/tomacheese/my-pixiv:latest-arm64
+          echo "images=$(echo "$PLATFORMS" | sed -r 's#([a-z]+)\/([a-z0-9]+)#${{ env.REGISTRY }}\/${{ fromJson(matrix.target).imageName }}:latest-\2#g')" >> $GITHUB_OUTPUT
+
+      - name: Create and push manifest images (latest)
+        uses: Noelware/docker-manifest-action@v0.2.3
+        # プラットフォームがひとつの場合はマージ処理を行わない
+        if: ${{ needs.calc-version.outputs.need-merge == 'true' }}
+        with:
+          base-image: ${{ env.REGISTRY }}/${{ fromJson(matrix.target).imageName }}:latest
+          extra-images: ${{ steps.extra-images.outputs.images }}
+          push: true
+
+      - name: Create and push manifest images (version)
+        uses: Noelware/docker-manifest-action@v0.2.3
+        # プラットフォームがひとつの場合はマージ処理を行わない
+        if: ${{ needs.calc-version.outputs.need-merge == 'true' }}
+        with:
+          base-image: ${{ env.REGISTRY }}/${{ fromJson(matrix.target).imageName }}:${{ needs.calc-version.outputs.tag }}
+          extra-images: ${{ steps.extra-images.outputs.images }}
+          push: true
+
+  release:
+    name: Release ${{ needs.calc-version.outputs.tag }}
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    needs:
+      - calc-version
+      - build
+      - merge-latest
+
+    outputs:
+      upload_url: ${{ steps.create_release.outputs.upload_url }}
+
+    steps:
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ needs.calc-version.outputs.tag }}
+          release_name: ${{ needs.calc-version.outputs.tag }}
+          body: ${{ needs.calc-version.outputs.changelog }}
+          draft: false
+          prerelease: false
+
+  upload-package:
+    name: Upload package ${{ needs.calc-version.outputs.tag }}
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    needs:
+      - calc-version
+      - build
+      - merge-latest
+      - release
+
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+        with:
+          # マージされていない時には github.event.pull_request.head.sha を使い、マージされた時にはmasterを使う
+          ref: ${{ github.event.pull_request.merged == true && 'master' || github.event.pull_request.head.sha }}
+
+      - name: 🏗 Setup node env
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: 🎁 Run package
+        run: yarn package
+
+      - name: Upload Release Asset
+        uses: shogo82148/actions-upload-release-asset@v1.6.3
+        with:
+          upload_url: ${{ needs.release.outputs.upload_url }}
+          asset_path: output/index.js
+          asset_name: index.js
+          asset_content_type: text/javascript
