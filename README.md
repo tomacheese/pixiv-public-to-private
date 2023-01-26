@@ -15,11 +15,13 @@ version: "3"
 
 services:
   app:
-    image: ghcr.io/tomacheese/pixiv-public-to-private
+    image: ghcr.io/tomacheese/pixiv-public-to-private:latest
     volumes:
       - type: bind
         source: ./data/
         target: /data/
+    environment:
+      PIXIV_USER_ID: 1234556789
     restart: always
     init: true
 ```
@@ -34,12 +36,6 @@ Then, write the refresh token (`<REFRESH-TOKEN>`) in `data/token.json` in the fo
   "refresh_token": "<REFRESH-TOKEN>"
 }
 ```
-
-### 3. Write configuration file
-
-Describe the settings in the `data/config.json` file with reference to the following configuration items.
-
-- `user_id`: ID of pixiv users to be monitored
 
 ### 4. Build and Run
 

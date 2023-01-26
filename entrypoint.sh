@@ -2,9 +2,8 @@
 
 while :
 do
-  python -m src
+  node index.js || true
 
-  # wait 5 minutes
-  echo Waiting 5 minutes...
-  sleep 300
+  # wait 10 minutes
+  sleep 600
 done
