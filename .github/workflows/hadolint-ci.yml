@@ -1,0 +1,21 @@
+name: hadolint
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  hadolint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v3
+
+      - uses: hadolint/hadolint-action@v3.0.0
