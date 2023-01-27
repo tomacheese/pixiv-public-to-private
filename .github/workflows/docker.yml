@@ -246,7 +246,7 @@ jobs:
           echo "images=$(echo "$PLATFORMS" | sed -r 's#([a-z]+)\/([a-z0-9]+)#${{ env.REGISTRY }}\/${{ matrix.target.imageName }}:latest-\2#g')" >> $GITHUB_OUTPUT
 
       - name: Create and push manifest images (latest)
-        uses: Noelware/docker-manifest-action@v0.3.0
+        uses: Noelware/docker-manifest-action@0.3.1
         # プラットフォームがひとつの場合はマージ処理を行わない
         if: ${{ needs.calc-version.outputs.need-merge == 'true' }}
         with:
@@ -255,7 +255,7 @@ jobs:
           push: true
 
       - name: Create and push manifest images (version)
-        uses: Noelware/docker-manifest-action@v0.3.0
+        uses: Noelware/docker-manifest-action@0.3.1
         # プラットフォームがひとつの場合はマージ処理を行わない
         if: ${{ needs.calc-version.outputs.need-merge == 'true' }}
         with:
