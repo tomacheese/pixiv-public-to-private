@@ -12,10 +12,5 @@ on:
 
 jobs:
   hadolint:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout 🛎
-        uses: actions/checkout@v3
-
-      - uses: hadolint/hadolint-action@v3.1.0
+    name: hadolint
+    uses: book000/templates/.github/workflows/reusable-hadolint-ci.yml@master
