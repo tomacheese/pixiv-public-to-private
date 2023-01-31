@@ -26,8 +26,8 @@
   "devDependencies": {
     "@types/node": "18.11.18",
     "@types/qs": "6.9.7",
-    "@typescript-eslint/eslint-plugin": "5.49.0",
-    "@typescript-eslint/parser": "5.49.0",
+    "@typescript-eslint/eslint-plugin": "5.50.0",
+    "@typescript-eslint/parser": "5.50.0",
     "@vercel/ncc": "0.36.1",
     "axios": "1.2.6",
     "eslint": "8.33.0",
