@@ -72,7 +72,7 @@ export class Pixiv {
   private constructor(
     userId: string,
     accessToken: string,
-    refreshToken: string
+    refreshToken: string,
   ) {
     this.userId = userId
     this.accessToken = accessToken
@@ -260,8 +260,8 @@ export async function loadPixiv() {
         },
         // eslint-disable-next-line unicorn/no-null
         null,
-        2
-      )
+        2,
+      ),
     )
   }
 
