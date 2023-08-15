@@ -27,7 +27,7 @@ async function main() {
   })
   if (bookmarkIllusts.status !== 200) {
     throw new Error(
-      `Failed to get illust bookmarks: ${bookmarkIllusts.status} ${bookmarkIllusts.data}`
+      `Failed to get illust bookmarks: ${bookmarkIllusts.status} ${bookmarkIllusts.data}`,
     )
   }
   for (const illust of bookmarkIllusts.data.illusts) {
@@ -39,7 +39,7 @@ async function main() {
     })
     if (result.status !== 200) {
       console.error(
-        `Failed to add illust bookmark: ${result.status} ${result.data}`
+        `Failed to add illust bookmark: ${result.status} ${result.data}`,
       )
     }
   }
@@ -50,7 +50,7 @@ async function main() {
   })
   if (bookmarkNovels.status !== 200) {
     throw new Error(
-      `Failed to get novel bookmarks: ${bookmarkNovels.status} ${bookmarkNovels.data}`
+      `Failed to get novel bookmarks: ${bookmarkNovels.status} ${bookmarkNovels.data}`,
     )
   }
   for (const novel of bookmarkNovels.data.novels) {
@@ -62,7 +62,7 @@ async function main() {
     })
     if (result.status !== 200) {
       console.error(
-        `Failed to add novel bookmark: ${result.status} ${result.data}`
+        `Failed to add novel bookmark: ${result.status} ${result.data}`,
       )
     }
   }
