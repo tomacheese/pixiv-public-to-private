@@ -146,6 +146,8 @@ async function main() {
       continue
     }
   }
+
+  await pixiv.close()
 }
 
 ;(async () => {

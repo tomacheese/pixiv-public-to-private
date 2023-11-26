@@ -4,3 +4,5 @@ services:
     volumes:
       - ./data:/data
     init: true
+    env_file:
+      - .env
