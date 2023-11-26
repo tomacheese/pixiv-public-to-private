@@ -1,11 +1,11 @@
 env:
-  es2021: true
+  es2020: true
   node: true
 extends:
   - standard
   - plugin:@typescript-eslint/recommended
-  - prettier
   - plugin:unicorn/recommended
+  - prettier
 parser: '@typescript-eslint/parser'
 parserOptions:
   ecmaVersion: latest
@@ -15,5 +15,7 @@ plugins:
   - '@typescript-eslint'
 rules:
   '@typescript-eslint/no-explicit-any': off
+  '@typescript-eslint/ban-ts-comment': off
   'unicorn/prefer-top-level-await': off
-  'unicorn/number-literal-case': off
+  'unicorn/no-null': off
+  'no-console': error

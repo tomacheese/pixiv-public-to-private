@@ -1,2 +1,5 @@
 dist
+output
 node_modules
+data
+logs
