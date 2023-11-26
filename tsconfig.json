@@ -1,10 +1,9 @@
 {
-  "ts-node": { "files": true },
   "compilerOptions": {
-    "target": "es6",
+    "target": "es2020",
     "module": "commonjs",
     "moduleResolution": "Node",
-    "lib": ["ESNext", "ESNext.AsyncIterable", "DOM"],
+    "lib": ["ESNext", "esnext.AsyncIterable"],
     "outDir": "./dist",
     "removeComments": true,
     "esModuleInterop": true,

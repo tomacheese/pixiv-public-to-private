@@ -1,0 +1,45 @@
+{
+  "name": "pixiv-public-to-private",
+  "customizations": {
+    "settings": {
+      "git.branchProtection": [
+        "main",
+        "master"
+      ],
+      "[typescript]": {
+        "editor.codeActionsOnSave": {
+          "source.organizeImports": false
+        },
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      },
+      "editor.formatOnSave": true
+    },
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode"
+      ],
+      "settings": {
+        "git.branchProtection": [
+          "main",
+          "master"
+        ],
+        "[typescript]": {
+          "editor.codeActionsOnSave": {
+            "source.organizeImports": false
+          },
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "editor.formatOnSave": true
+      }
+    },
+    "extensions": [
+      "esbenp.prettier-vscode"
+    ]
+  },
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:0-18",
+  "postCreateCommand": "pnpm install",
+  "waitFor": "postCreateCommand",
+  "otherPortAttributes": {
+    "onAutoForward": "silent"
+  }
+}
