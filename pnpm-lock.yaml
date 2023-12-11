@@ -6,8 +6,8 @@ settings:
 
 devDependencies:
   '@book000/node-utils':
-    specifier: 1.11.14
-    version: 1.11.14
+    specifier: 1.11.15
+    version: 1.11.15
   '@book000/pixivts':
     specifier: 0.22.9
     version: 0.22.9(typescript@5.3.3)
@@ -90,8 +90,8 @@ packages:
       regenerator-runtime: 0.14.0
     dev: true
 
-  /@book000/node-utils@1.11.14:
-    resolution: {integrity: sha512-D/hokb/B4kahFPBqYxAmcGHnpZk+vVZWQxACm6THN5S58yAjTmyI5ScdaibPxvVkUEi5Le6+Jt7y6dBXylG5Kg==}
+  /@book000/node-utils@1.11.15:
+    resolution: {integrity: sha512-vmn9i2T7zryVhPa0/Qxk4GgM3V/Nii2MVsYaqGrcLGRGu1xF3LQnhcVen98/gvyBPTYJU8fDsyRP7/pvV65WTA==}
     dependencies:
       axios: 1.6.2
       cycle: 1.0.3
