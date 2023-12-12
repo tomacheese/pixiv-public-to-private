@@ -6,8 +6,8 @@ settings:
 
 devDependencies:
   '@book000/node-utils':
-    specifier: 1.11.15
-    version: 1.11.15
+    specifier: 1.12.0
+    version: 1.12.0
   '@book000/pixivts':
     specifier: 0.22.10
     version: 0.22.10(typescript@5.3.3)
@@ -90,16 +90,15 @@ packages:
       regenerator-runtime: 0.14.0
     dev: true
 
-  /@book000/node-utils@1.11.15:
-    resolution: {integrity: sha512-vmn9i2T7zryVhPa0/Qxk4GgM3V/Nii2MVsYaqGrcLGRGu1xF3LQnhcVen98/gvyBPTYJU8fDsyRP7/pvV65WTA==}
+  /@book000/node-utils@1.12.0:
+    resolution: {integrity: sha512-iqyBy00Fa0tdSMgUXBx8IGAG4j+SJJl7o2V/7oGb8DHsPuj0Q2TDYDKph+BgVPgkbiLHhyl4YhQreKZOSYbowA==}
     dependencies:
       axios: 1.6.2
       cycle: 1.0.3
-      date-fns: 2.30.0
-      date-fns-tz: 2.0.0(date-fns@2.30.0)
       form-data: 4.0.0
       jsonc-parser: 3.2.0
       logform: 2.6.0
+      moment-timezone: 0.5.43
       winston: 3.11.0
       winston-daily-rotate-file: 4.7.1(winston@3.11.0)
     transitivePeerDependencies:
@@ -959,14 +958,6 @@ packages:
   /cycle@1.0.3:
     resolution: {integrity: sha512-TVF6svNzeQCOpjCqsy0/CSy8VgObG3wXusJ73xW2GbG5rGx7lC8zxDSURicsXI2UsGdi2L0QNRCi745/wUDvsA==}
     engines: {node: '>=0.4.0'}
-    dev: true
-
-  /date-fns-tz@2.0.0(date-fns@2.30.0):
-    resolution: {integrity: sha512-OAtcLdB9vxSXTWHdT8b398ARImVwQMyjfYGkKD2zaGpHseG2UPHbHjXELReErZFxWdSLph3c2zOaaTyHfOhERQ==}
-    peerDependencies:
-      date-fns: '>=2.0.0'
-    dependencies:
-      date-fns: 2.30.0
     dev: true
 
   /date-fns@2.30.0:
@@ -2156,6 +2147,12 @@ packages:
     resolution: {integrity: sha512-+hEnITedc8LAtIP9u3HJDFIdcLV2vXP33sqLLIzkv1Db1zO/1OxbvYf0Y1OC/S/Qo5dxHXepofhmxL02PsKe+A==}
     engines: {node: '>=10'}
     hasBin: true
+    dev: true
+
+  /moment-timezone@0.5.43:
+    resolution: {integrity: sha512-72j3aNyuIsDxdF1i7CEgV2FfxM1r6aaqJyLB2vwb33mXYyoyLly+F1zbWqhA3/bVIoJ4szlUoMbUnVdid32NUQ==}
+    dependencies:
+      moment: 2.29.4
     dev: true
 
   /moment@2.29.4:
