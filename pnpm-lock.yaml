@@ -9,8 +9,8 @@ devDependencies:
     specifier: 1.12.7
     version: 1.12.7
   '@book000/pixivts':
-    specifier: 0.25.11
-    version: 0.25.11(typescript@5.3.3)
+    specifier: 0.25.12
+    version: 0.25.12(typescript@5.3.3)
   '@types/node':
     specifier: 20.10.0
     version: 20.10.0
@@ -105,10 +105,10 @@ packages:
       - debug
     dev: true
 
-  /@book000/pixivts@0.25.11(typescript@5.3.3):
-    resolution: {integrity: sha512-Ri2CyWZnFBQM+y5TNNpI6VYGGOm0H9n/6dzK06KEMf3v1hPen3shpEz2CrL33tumeG0No+E9BKWE3ImOPypS3g==}
+  /@book000/pixivts@0.25.12(typescript@5.3.3):
+    resolution: {integrity: sha512-0v17tM+vzJCo7ezLJBkKz5ROmm/1IveHA0ZNQk/CiqJpGLElkJUlltsSCQ/FiMXYWX2IwtwYHEX6T7X8So0dWw==}
     dependencies:
-      '@types/qs': 6.9.10
+      '@types/qs': 6.9.11
       axios: 1.6.2
       mysql2: 3.6.5
       qs: 6.11.2
@@ -457,8 +457,8 @@ packages:
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
     dev: true
 
-  /@types/qs@6.9.10:
-    resolution: {integrity: sha512-3Gnx08Ns1sEoCrWssEgTSJs/rsT2vhGP+Ja9cnnk9k4ALxinORlQneLXFeFKOTJMOeZUFD1s7w+w2AphTpvzZw==}
+  /@types/qs@6.9.11:
+    resolution: {integrity: sha512-oGk0gmhnEJK4Yyk+oI7EfXsLayXatCWPHary1MtcmbAifkobT9cM9yutG/hZKIseOU0MqbIwQ/u2nn/Gb+ltuQ==}
     dev: true
 
   /@types/semver@7.5.6:
