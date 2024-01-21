@@ -1,5 +1,3 @@
 {
-  "extends": [
-    "github>book000/templates//renovate/base"
-  ]
+  "extends": ["github>book000/templates//renovate/base-public"]
 }
