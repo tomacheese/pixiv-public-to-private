@@ -9,8 +9,8 @@ devDependencies:
     specifier: 1.12.38
     version: 1.12.38
   '@book000/pixivts':
-    specifier: 0.26.0
-    version: 0.26.0(typescript@5.3.3)
+    specifier: 0.26.1
+    version: 0.26.1(typescript@5.3.3)
   '@types/node':
     specifier: 20.11.7
     version: 20.11.7
@@ -98,15 +98,15 @@ packages:
       - debug
     dev: true
 
-  /@book000/pixivts@0.26.0(typescript@5.3.3):
-    resolution: {integrity: sha512-/qquj71pkLxG+rIhTeB0EzdoNQMlnvLTafW83ImdPIH5dD5RrmrGnDHriE4ZK6ACdNGBV+i15KJnLB6HwoGwog==}
+  /@book000/pixivts@0.26.1(typescript@5.3.3):
+    resolution: {integrity: sha512-V5fht5tnbucYmyJ1EAQI9UhgYixK8f8Lkau4T5zqXcfUyrwzUs1+zlqmjgsoIrAh/p5lBgIhwgaohYFtTRikZg==}
     dependencies:
       '@types/qs': 6.9.11
       axios: 1.6.5
-      mysql2: 3.7.1
+      mysql2: 3.8.0
       qs: 6.11.2
       snake-camel-types: 1.0.1(typescript@5.3.3)
-      typeorm: 0.3.19(mysql2@3.7.1)
+      typeorm: 0.3.19(mysql2@3.8.0)
       typeorm-naming-strategies: 4.1.0(typeorm@0.3.19)
     transitivePeerDependencies:
       - '@google-cloud/spanner'
@@ -2245,8 +2245,8 @@ packages:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
     dev: true
 
-  /mysql2@3.7.1:
-    resolution: {integrity: sha512-4EEqYu57mnkW5+Bvp5wBebY7PpfyrmvJ3knHcmLkp8FyBu4kqgrF2GxIjsC2tbLNZWqJaL21v/MYH7bU5f03oA==}
+  /mysql2@3.8.0:
+    resolution: {integrity: sha512-rC9J/Wy9TCaoQWhk/p4J0Jd+WCDYghniuawi7pheDqhQOEJyDfiWGiWOR3iPgTFJaOK3GezC7dmCki7cP1HFkQ==}
     engines: {node: '>= 8.0'}
     dependencies:
       denque: 2.1.0
@@ -3055,10 +3055,10 @@ packages:
     peerDependencies:
       typeorm: ^0.2.0 || ^0.3.0
     dependencies:
-      typeorm: 0.3.19(mysql2@3.7.1)
+      typeorm: 0.3.19(mysql2@3.8.0)
     dev: true
 
-  /typeorm@0.3.19(mysql2@3.7.1):
+  /typeorm@0.3.19(mysql2@3.8.0):
     resolution: {integrity: sha512-OGelrY5qEoAU80mR1iyvmUHiKCPUydL6xp6bebXzS7jyv/X70Gp/jBWRAfF4qGOfy2A7orMiGRfwsBUNbEL65g==}
     engines: {node: '>= 12.9.0'}
     hasBin: true
@@ -3126,7 +3126,7 @@ packages:
       dotenv: 16.4.1
       glob: 10.3.10
       mkdirp: 2.1.6
-      mysql2: 3.7.1
+      mysql2: 3.8.0
       reflect-metadata: 0.1.14
       sha.js: 2.4.11
       tslib: 2.6.2
