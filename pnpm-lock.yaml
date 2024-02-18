@@ -6,8 +6,8 @@ settings:
 
 devDependencies:
   '@book000/node-utils':
-    specifier: 1.12.62
-    version: 1.12.62
+    specifier: 1.12.63
+    version: 1.12.63
   '@book000/pixivts':
     specifier: 0.27.2
     version: 0.27.2(typescript@5.3.3)
@@ -83,8 +83,8 @@ packages:
       js-tokens: 4.0.0
     dev: true
 
-  /@book000/node-utils@1.12.62:
-    resolution: {integrity: sha512-67k2hhm6l4BTb0fbzBebth+67HS8fz8zcpPqJkWM6t3ar4sQYOav/z0rgQEmtjdwEEp1ZQdOzOLnAZegwrliYQ==}
+  /@book000/node-utils@1.12.63:
+    resolution: {integrity: sha512-Rf5eQCU+fpH7560FSPnTmq7asZgXjoOVYRP/Zj/FE3uIj11jomKwjZL4AFYRTekTfYj3eQJTbFSyhEY+Ywch/w==}
     dependencies:
       axios: 1.6.7
       cycle: 1.0.3
