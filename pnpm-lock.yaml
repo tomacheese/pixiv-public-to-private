@@ -9,8 +9,8 @@ devDependencies:
     specifier: 1.12.67
     version: 1.12.67
   '@book000/pixivts':
-    specifier: 0.28.2
-    version: 0.28.2(typescript@5.3.3)
+    specifier: 0.28.4
+    version: 0.28.4(typescript@5.3.3)
   '@types/node':
     specifier: 20.11.19
     version: 20.11.19
@@ -98,8 +98,8 @@ packages:
       - debug
     dev: true
 
-  /@book000/pixivts@0.28.2(typescript@5.3.3):
-    resolution: {integrity: sha512-V46H3MuW3KhRZ1gTBbgfAqNAK8mkZ4OeQReZKNLo4U+0bgfzEFEoSd7VSfdv38Fe6OyQiU9iepn/J5L5w26kZg==}
+  /@book000/pixivts@0.28.4(typescript@5.3.3):
+    resolution: {integrity: sha512-kgOTQQktnDsmR15bRGSzOiqmD1HI0aWt2Gt6BCYeoOFHcwNNYt5E4V2+cocCyE8iw7Ae92oxDMYha/Xu9XJseg==}
     dependencies:
       '@types/qs': 6.9.11
       axios: 1.6.7
