@@ -26,7 +26,7 @@
     "lint:prettier": "prettier --check src"
   },
   "devDependencies": {
-    "@book000/node-utils": "1.12.72",
+    "@book000/node-utils": "1.12.73",
     "@book000/pixivts": "0.28.13",
     "@types/node": "20.11.20",
     "@typescript-eslint/eslint-plugin": "7.1.0",
