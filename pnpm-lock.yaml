@@ -9,8 +9,8 @@ devDependencies:
     specifier: 1.12.103
     version: 1.12.103
   '@book000/pixivts':
-    specifier: 0.29.13
-    version: 0.29.13(typescript@5.4.3)
+    specifier: 0.29.14
+    version: 0.29.14(typescript@5.4.3)
   '@types/node':
     specifier: 20.11.30
     version: 20.11.30
@@ -99,15 +99,15 @@ packages:
       - debug
     dev: true
 
-  /@book000/pixivts@0.29.13(typescript@5.4.3):
-    resolution: {integrity: sha512-8o34IiBqhVAOhyJqVFNXzoe/nqa8Geg44LaP9c4/I9CTy81Mseat2FUwy+BD5vogU+Lcjw3DXqIceuHQ+ehxog==}
+  /@book000/pixivts@0.29.14(typescript@5.4.3):
+    resolution: {integrity: sha512-kQv6KK3tK1YQyR+NhCZ/PqJA7xbcOL9YWJcor5Q4u16NfIjeQT3pu/vDungGhAZZKVsGDh4g1zmh7uTjngBifg==}
     dependencies:
       '@types/qs': 6.9.14
       axios: 1.6.8
-      mysql2: 3.9.2
+      mysql2: 3.9.3
       qs: 6.12.0
       snake-camel-types: 1.0.1(typescript@5.4.3)
-      typeorm: 0.3.20(mysql2@3.9.2)
+      typeorm: 0.3.20(mysql2@3.9.3)
       typeorm-naming-strategies: 4.1.0(typeorm@0.3.20)
     transitivePeerDependencies:
       - '@google-cloud/spanner'
@@ -2318,8 +2318,8 @@ packages:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
     dev: true
 
-  /mysql2@3.9.2:
-    resolution: {integrity: sha512-3Cwg/UuRkAv/wm6RhtPE5L7JlPB877vwSF6gfLAS68H+zhH+u5oa3AieqEd0D0/kC3W7qIhYbH419f7O9i/5nw==}
+  /mysql2@3.9.3:
+    resolution: {integrity: sha512-+ZaoF0llESUy7BffccHG+urErHcWPZ/WuzYAA9TEeLaDYyke3/3D+VQDzK9xzRnXpd0eMtRf0WNOeo4Q1Baung==}
     engines: {node: '>= 8.0'}
     dependencies:
       denque: 2.1.0
@@ -3142,10 +3142,10 @@ packages:
     peerDependencies:
       typeorm: ^0.2.0 || ^0.3.0
     dependencies:
-      typeorm: 0.3.20(mysql2@3.9.2)
+      typeorm: 0.3.20(mysql2@3.9.3)
     dev: true
 
-  /typeorm@0.3.20(mysql2@3.9.2):
+  /typeorm@0.3.20(mysql2@3.9.3):
     resolution: {integrity: sha512-sJ0T08dV5eoZroaq9uPKBoNcGslHBR4E4y+EBHs//SiGbblGe7IeduP/IH4ddCcj0qp3PHwDwGnuvqEAnKlq/Q==}
     engines: {node: '>=16.13.0'}
     hasBin: true
@@ -3213,7 +3213,7 @@ packages:
       dotenv: 16.4.5
       glob: 10.3.10
       mkdirp: 2.1.6
-      mysql2: 3.9.2
+      mysql2: 3.9.3
       reflect-metadata: 0.2.1
       sha.js: 2.4.11
       tslib: 2.6.2
