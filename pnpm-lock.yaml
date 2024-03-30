@@ -9,8 +9,8 @@ devDependencies:
     specifier: 1.12.106
     version: 1.12.106
   '@book000/pixivts':
-    specifier: 0.29.16
-    version: 0.29.16(typescript@5.4.3)
+    specifier: 0.29.17
+    version: 0.29.17(typescript@5.4.3)
   '@types/node':
     specifier: 20.12.2
     version: 20.12.2
@@ -99,8 +99,8 @@ packages:
       - debug
     dev: true
 
-  /@book000/pixivts@0.29.16(typescript@5.4.3):
-    resolution: {integrity: sha512-sDxqLI1N6S/H8R4mWMKfmleBeFIrNFoMxMvIxZYuIdjDEKUsCYqHvC4CSVSjAQjb5POXXlHMo1TYgV+N1qeBaQ==}
+  /@book000/pixivts@0.29.17(typescript@5.4.3):
+    resolution: {integrity: sha512-nxvJ610dJeU4Zc4USuIybELA/slVJcjiAZXtrAZfilDb9boKQt/FpRuT1NgfeBk5xFcQASSsc6i5pPGvvwZqHw==}
     dependencies:
       '@types/qs': 6.9.14
       axios: 1.6.8
@@ -2633,6 +2633,7 @@ packages:
 
   /reflect-metadata@0.2.1:
     resolution: {integrity: sha512-i5lLI6iw9AU3Uu4szRNPPEkomnkjRTaVt9hy/bn5g/oSzekBSMeLZblcjP74AW0vBabqERLLIrz+gR8QYR54Tw==}
+    deprecated: This version has a critical bug in fallback handling. Please upgrade to reflect-metadata@0.2.2 or newer.
     dev: true
 
   /regexp-tree@0.1.27:
