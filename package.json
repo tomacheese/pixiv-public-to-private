@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@book000/node-utils": "1.12.111",
-    "@book000/pixivts": "0.29.22",
+    "@book000/pixivts": "0.29.23",
     "@types/node": "20.12.3",
     "@typescript-eslint/eslint-plugin": "7.5.0",
     "@typescript-eslint/parser": "7.5.0",
