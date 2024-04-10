@@ -41,7 +41,7 @@
     "prettier": "3.2.5",
     "run-z": "2.0.0",
     "tsx": "4.7.2",
-    "typescript": "5.4.4"
+    "typescript": "5.4.5"
   },
   "packageManager": "pnpm@8.15.6"
 }
