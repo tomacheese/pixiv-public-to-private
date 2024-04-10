@@ -6,8 +6,8 @@ settings:
 
 devDependencies:
   '@book000/node-utils':
-    specifier: 1.12.120
-    version: 1.12.120
+    specifier: 1.12.121
+    version: 1.12.121
   '@book000/pixivts':
     specifier: 0.29.34
     version: 0.29.34(typescript@5.4.4)
@@ -84,8 +84,8 @@ packages:
       picocolors: 1.0.0
     dev: true
 
-  /@book000/node-utils@1.12.120:
-    resolution: {integrity: sha512-YP4JvHZJfgvPWhICC130el9b4aKrtvwfUotUuMyeSKklApIyXcrnDyZADi4hn/DTUbuDdYpFUrTPDVNC+hOsLw==}
+  /@book000/node-utils@1.12.121:
+    resolution: {integrity: sha512-UnrB8H2d1uti+UEPhEN2qsO5ZIpmr/2MVO2c7gGAoSWdBZ0kVUkkf7wKMr+pbZQz0EAr8Rkr+pihYmL7/tIeZQ==}
     dependencies:
       axios: 1.6.8
       cycle: 1.0.3
