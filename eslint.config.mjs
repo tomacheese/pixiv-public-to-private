@@ -1,5 +1,5 @@
 // @ts-check
-import eslint from '@eslint/js'
+import { FlatCompat } from '@eslint/eslintrc'
 import tseslintParser from '@typescript-eslint/parser'
 import eslintPrettier from 'eslint-config-prettier'
 import eslintNode from 'eslint-plugin-n'
@@ -7,8 +7,10 @@ import unicorn from 'eslint-plugin-unicorn'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
+const compat = new FlatCompat()
+
 export default tseslint.config(
-  eslint.configs.recommended,
+  ...compat.extends('eslint-config-standard'),
   ...tseslint.configs.recommended,
   eslintNode.configs['flat/recommended-script'],
   // @ts-expect-error flat/recommendedの返すpluginsがstring[]なことでエラーになるため
