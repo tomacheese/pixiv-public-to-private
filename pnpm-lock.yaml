@@ -12,8 +12,8 @@ importers:
         specifier: 1.12.127
         version: 1.12.127
       '@book000/pixivts':
-        specifier: 0.29.44
-        version: 0.29.44(typescript@5.4.5)
+        specifier: 0.29.45
+        version: 0.29.45(typescript@5.4.5)
       '@types/node':
         specifier: 20.12.7
         version: 20.12.7
@@ -78,8 +78,8 @@ packages:
   '@book000/node-utils@1.12.127':
     resolution: {integrity: sha512-j5s8716u+tZCSKwbCAU6bST/F1YYA1bsLW6dNL/BmuK1EIQ9gmbQGuOnz0CAGdDFgkYdym63OuMzlc67saXTiQ==}
 
-  '@book000/pixivts@0.29.44':
-    resolution: {integrity: sha512-i6nI+KLhlrIofhqX0J40sQMr0r6V/p4PlZ3k3piBGYTeLKTBN1T3rkB5XP3j0+6eORdnmUVG9Zl593/HEA5/Sw==}
+  '@book000/pixivts@0.29.45':
+    resolution: {integrity: sha512-ID4rCkvJn5nFtM8b9sW/nksJiatd45Ek9YgzmI7P981sU67dmxVHrYmTmrTT0ioegkd5DlEvIlz5dgdTlqwf6g==}
 
   '@colors/colors@1.6.0':
     resolution: {integrity: sha512-Ir+AOibqzrIsL6ajt3Rz3LskB7OiMVHqltZmspbW/TJuTVuyOMirVqAkjfY6JISiLHgyNqicAC8AyHHGzNd/dA==}
@@ -290,8 +290,8 @@ packages:
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
 
-  '@types/qs@6.9.14':
-    resolution: {integrity: sha512-5khscbd3SwWMhFqylJBLQ0zIu7c1K6Vz0uBIt915BI3zV0q1nfjRQD3RqSBcPaO6PHEF4ov/t9y89fSiyThlPA==}
+  '@types/qs@6.9.15':
+    resolution: {integrity: sha512-uXHQKES6DQKKCLh441Xv/dwxOq1TVS3JPUMlEqoEglvlhR6Mxnlew/Xq/LRVHpLyk7iK3zODe1qYHIMltO7XGg==}
 
   '@types/semver@7.5.8':
     resolution: {integrity: sha512-I8EUhyrgfLrcTkzV3TSsGyl1tSuPrEDzr0yd5m90UgNxQkyDXULk3b6MlQqTCpZpNtWe1K0hzclnZkTcLBe2UQ==}
@@ -1927,9 +1927,9 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@book000/pixivts@0.29.44(typescript@5.4.5)':
+  '@book000/pixivts@0.29.45(typescript@5.4.5)':
     dependencies:
-      '@types/qs': 6.9.14
+      '@types/qs': 6.9.15
       axios: 1.6.8
       mysql2: 3.9.4
       qs: 6.12.1
@@ -2105,7 +2105,7 @@ snapshots:
 
   '@types/normalize-package-data@2.4.4': {}
 
-  '@types/qs@6.9.14': {}
+  '@types/qs@6.9.15': {}
 
   '@types/semver@7.5.8': {}
 
