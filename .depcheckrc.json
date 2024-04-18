@@ -1,3 +1,7 @@
 {
-  "ignores": ["@types/node", "run-z"]
+  "ignores": [
+    "@types/node",
+    "run-z",
+    "eslint-config-standard"
+  ]
 }
