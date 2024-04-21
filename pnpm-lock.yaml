@@ -15,8 +15,8 @@ importers:
         specifier: 1.13.3
         version: 1.13.3
       '@book000/pixivts':
-        specifier: 0.30.4
-        version: 0.30.4(typescript@5.4.5)
+        specifier: 0.30.5
+        version: 0.30.5(typescript@5.4.5)
       '@types/node':
         specifier: 20.12.7
         version: 20.12.7
@@ -66,8 +66,8 @@ packages:
   '@book000/node-utils@1.13.3':
     resolution: {integrity: sha512-WmUin8kc9c+8cViB5w84gnhrdX6hqpDSQe47IJlbPick1vR6t6Cn6meNgHrfUggdYYOpZoQF2DBerrGVOyHpsg==}
 
-  '@book000/pixivts@0.30.4':
-    resolution: {integrity: sha512-DuNORzRJXgzO0hH9EgT2bNzDo4zmGcNcAIdHpjhJzdajlnfGV+vXdej7+XYJ40DKHW2e1a/8MsDztx33T29zyg==}
+  '@book000/pixivts@0.30.5':
+    resolution: {integrity: sha512-MdGG0F8i3y4WdX+1fw7RWjRq7w2wnGSl5r9SDcO2W7zCeKUtBmRnca8vXK6DYpND556m7AUB/d0jKyTI1QJ79Q==}
 
   '@colors/colors@1.6.0':
     resolution: {integrity: sha512-Ir+AOibqzrIsL6ajt3Rz3LskB7OiMVHqltZmspbW/TJuTVuyOMirVqAkjfY6JISiLHgyNqicAC8AyHHGzNd/dA==}
@@ -1266,8 +1266,8 @@ packages:
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
-  mysql2@3.9.6:
-    resolution: {integrity: sha512-9NYUMLQv6yXnu+5hUh8PZ5CdKoG6VWDzXbojIdTyob8upNZXU3rBNQK9viaEqfgw+LMifhd+53VEZPxZk3bTWA==}
+  mysql2@3.9.7:
+    resolution: {integrity: sha512-KnJT8vYRcNAZv73uf9zpXqNbvBG7DJrs+1nACsjZP1HMJ1TgXEy8wnNilXAn/5i57JizXKtrUtwDB7HxT9DDpw==}
     engines: {node: '>= 8.0'}
 
   mz@2.7.0:
@@ -1925,15 +1925,15 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@book000/pixivts@0.30.4(typescript@5.4.5)':
+  '@book000/pixivts@0.30.5(typescript@5.4.5)':
     dependencies:
       '@types/qs': 6.9.15
       axios: 1.6.8
-      mysql2: 3.9.6
+      mysql2: 3.9.7
       qs: 6.12.1
       snake-camel-types: 1.0.1(typescript@5.4.5)
-      typeorm: 0.3.20(mysql2@3.9.6)
-      typeorm-naming-strategies: 4.1.0(typeorm@0.3.20(mysql2@3.9.6))
+      typeorm: 0.3.20(mysql2@3.9.7)
+      typeorm-naming-strategies: 4.1.0(typeorm@0.3.20(mysql2@3.9.7))
     transitivePeerDependencies:
       - '@google-cloud/spanner'
       - '@sap/hana-client'
@@ -3222,7 +3222,7 @@ snapshots:
 
   ms@2.1.3: {}
 
-  mysql2@3.9.6:
+  mysql2@3.9.7:
     dependencies:
       denque: 2.1.0
       generate-function: 2.3.1
@@ -3697,11 +3697,11 @@ snapshots:
       is-typed-array: 1.1.13
       possible-typed-array-names: 1.0.0
 
-  typeorm-naming-strategies@4.1.0(typeorm@0.3.20(mysql2@3.9.6)):
+  typeorm-naming-strategies@4.1.0(typeorm@0.3.20(mysql2@3.9.7)):
     dependencies:
-      typeorm: 0.3.20(mysql2@3.9.6)
+      typeorm: 0.3.20(mysql2@3.9.7)
 
-  typeorm@0.3.20(mysql2@3.9.6):
+  typeorm@0.3.20(mysql2@3.9.7):
     dependencies:
       '@sqltools/formatter': 1.2.5
       app-root-path: 3.1.0
@@ -3719,7 +3719,7 @@ snapshots:
       uuid: 9.0.1
       yargs: 17.7.2
     optionalDependencies:
-      mysql2: 3.9.6
+      mysql2: 3.9.7
     transitivePeerDependencies:
       - supports-color
 
