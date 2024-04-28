@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@book000/eslint-config':
-        specifier: 1.6.2
-        version: 1.6.2(eslint-config-standard@17.1.0(eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.7.1(eslint@9.1.1)(typescript@5.4.5))(eslint@9.1.1))(eslint-plugin-n@16.6.2(eslint@9.1.1))(eslint-plugin-promise@6.1.1(eslint@9.1.1))(eslint@9.1.1))(eslint@9.1.1)(typescript@5.4.5)
+        specifier: 1.6.3
+        version: 1.6.3(eslint-config-standard@17.1.0(eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.7.1(eslint@9.1.1)(typescript@5.4.5))(eslint@9.1.1))(eslint-plugin-n@16.6.2(eslint@9.1.1))(eslint-plugin-promise@6.1.1(eslint@9.1.1))(eslint@9.1.1))(eslint@9.1.1)(typescript@5.4.5)
       '@book000/node-utils':
         specifier: 1.13.13
         version: 1.13.13
@@ -57,8 +57,8 @@ packages:
     resolution: {integrity: sha512-Yac1ao4flkTxTteCDZLEvdxg2fZfz1v8M4QpaGypq/WPDqg3ijHYbDfs+LG5hvzSoqaSZ9/Z9lKSP3CjZjv+pA==}
     engines: {node: '>=6.9.0'}
 
-  '@book000/eslint-config@1.6.2':
-    resolution: {integrity: sha512-zyAAWhk6ZgYPVFuhAW8fVBXjH9uKUKCBG2QPY29Y6xzq84xd/HSfAOLQMo+tOHOktsftrjQmpTEgUDMzJo7cKw==}
+  '@book000/eslint-config@1.6.3':
+    resolution: {integrity: sha512-1jJKsltM6H5M7xd3QrE703qRFiH9c6a6pBvduNzyDSpg5hQPHihOMzineP0VkQpHVjCteSBRfBIAPhhUrhoaLQ==}
     peerDependencies:
       eslint: 9.1.1
       eslint-config-standard: 17.1.0
@@ -1894,7 +1894,7 @@ snapshots:
       js-tokens: 4.0.0
       picocolors: 1.0.0
 
-  '@book000/eslint-config@1.6.2(eslint-config-standard@17.1.0(eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.7.1(eslint@9.1.1)(typescript@5.4.5))(eslint@9.1.1))(eslint-plugin-n@16.6.2(eslint@9.1.1))(eslint-plugin-promise@6.1.1(eslint@9.1.1))(eslint@9.1.1))(eslint@9.1.1)(typescript@5.4.5)':
+  '@book000/eslint-config@1.6.3(eslint-config-standard@17.1.0(eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.7.1(eslint@9.1.1)(typescript@5.4.5))(eslint@9.1.1))(eslint-plugin-n@16.6.2(eslint@9.1.1))(eslint-plugin-promise@6.1.1(eslint@9.1.1))(eslint@9.1.1))(eslint@9.1.1)(typescript@5.4.5)':
     dependencies:
       '@eslint/eslintrc': 3.0.2
       '@typescript-eslint/parser': 7.7.1(eslint@9.1.1)(typescript@5.4.5)
