@@ -36,7 +36,7 @@
       "esbenp.prettier-vscode"
     ]
   },
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:0-18",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-18",
   "postCreateCommand": "pnpm install",
   "waitFor": "postCreateCommand",
   "otherPortAttributes": {
