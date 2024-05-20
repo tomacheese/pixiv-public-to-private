@@ -15,8 +15,8 @@ importers:
         specifier: 1.13.67
         version: 1.13.67
       '@book000/pixivts':
-        specifier: 0.30.53
-        version: 0.30.53(typescript@5.4.5)
+        specifier: 0.30.55
+        version: 0.30.55(typescript@5.4.5)
       '@types/node':
         specifier: 20.12.12
         version: 20.12.12
@@ -62,8 +62,8 @@ packages:
   '@book000/node-utils@1.13.67':
     resolution: {integrity: sha512-p/lkm57FduHAYN6Pr6dhOzUTkgW/cmWmJlsqNPbGEq8rMxwgy6Ilh8OnI+O0OLbhmKtQOlDToFn+mdNYnDW1UQ==}
 
-  '@book000/pixivts@0.30.53':
-    resolution: {integrity: sha512-YB+qKmnwSQqoC3C6iNMY8ijsKZX0T7pWFDb9+PZ65tfrsFLbhoDtgj9zNfw8aDxR+9r3Cm8ZW7Aa6vNp818UfQ==}
+  '@book000/pixivts@0.30.55':
+    resolution: {integrity: sha512-RVfSf9ZSDbeUfyslpMHMFoU/6lB01AyBH7OZuayXZbJInKj/ffNcyud3xsbn3TEqQFSAPmMQXsRB0GCijFtMYQ==}
 
   '@colors/colors@1.6.0':
     resolution: {integrity: sha512-Ir+AOibqzrIsL6ajt3Rz3LskB7OiMVHqltZmspbW/TJuTVuyOMirVqAkjfY6JISiLHgyNqicAC8AyHHGzNd/dA==}
@@ -424,11 +424,11 @@ packages:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
     engines: {node: '>= 0.4'}
 
-  axios@1.6.8:
-    resolution: {integrity: sha512-v/ZHtJDU39mDpyBoFVkETcd/uNdxrWRrg3bKpOKzXFA6Bvqopts6ALSMU3y6ijYxbw2B+wPrIv46egTzJXCLGQ==}
-
   axios@1.7.0:
     resolution: {integrity: sha512-IiB0wQeKyPRdsFVhBgIo31FbzOyf2M6wYl7/NVutFwFBRMiAbjNiydJIHKeLmPugF4kJLfA1uWZ82Is2QzqqFA==}
+
+  axios@1.7.1:
+    resolution: {integrity: sha512-+LV37nQcd1EpFalkXksWNBiA17NZ5m5/WspmHGmZmdx1qBOg/VNq/c4eRJiA9VQQHBOs+N0ZhhdU10h2TyNK7Q==}
 
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
@@ -1900,10 +1900,10 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@book000/pixivts@0.30.53(typescript@5.4.5)':
+  '@book000/pixivts@0.30.55(typescript@5.4.5)':
     dependencies:
       '@types/qs': 6.9.15
-      axios: 1.6.8
+      axios: 1.7.1
       mysql2: 3.9.7
       qs: 6.12.1
       snake-camel-types: 1.0.1(typescript@5.4.5)
@@ -2256,7 +2256,7 @@ snapshots:
     dependencies:
       possible-typed-array-names: 1.0.0
 
-  axios@1.6.8:
+  axios@1.7.0:
     dependencies:
       follow-redirects: 1.15.6
       form-data: 4.0.0
@@ -2264,7 +2264,7 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  axios@1.7.0:
+  axios@1.7.1:
     dependencies:
       follow-redirects: 1.15.6
       form-data: 4.0.0
