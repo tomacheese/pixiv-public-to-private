@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@book000/eslint-config':
-        specifier: 1.7.2
-        version: 1.7.2(eslint-config-standard@17.1.0(eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.13.0(eslint@9.5.0)(typescript@5.4.5))(eslint@9.5.0))(eslint-plugin-n@16.6.2(eslint@9.5.0))(eslint-plugin-promise@6.2.0(eslint@9.5.0))(eslint@9.5.0))(eslint@9.5.0)(typescript@5.4.5)
+        specifier: 1.7.3
+        version: 1.7.3(eslint-config-standard@17.1.0(eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.13.0(eslint@9.5.0)(typescript@5.4.5))(eslint@9.5.0))(eslint-plugin-n@16.6.2(eslint@9.5.0))(eslint-plugin-promise@6.2.0(eslint@9.5.0))(eslint@9.5.0))(eslint@9.5.0)(typescript@5.4.5)
       '@book000/node-utils':
         specifier: 1.13.128
         version: 1.13.128
@@ -53,8 +53,8 @@ packages:
     resolution: {integrity: sha512-EStJpq4OuY8xYfhGVXngigBJRWxftKX9ksiGDnmlY3o7B/V7KIAc9X4oiK87uPJSc/vs5L869bem5fhZa8caZw==}
     engines: {node: '>=6.9.0'}
 
-  '@book000/eslint-config@1.7.2':
-    resolution: {integrity: sha512-YFF/byJUj1bQDytPfvrJz7baNxOZs/Noe8sz0Xt+52/ZRrlSsSe7pH2wWdmjTxhj7RWoAP6+TzMWXYstztgP9A==}
+  '@book000/eslint-config@1.7.3':
+    resolution: {integrity: sha512-lLHIsx3+5AgBrIdxv7zUZDvwjKCr/6EY3lAMBlSzVRWKrSwqUs5v2wfwxM+BbW7miUAfgyqVheibcSJe3gClbQ==}
     peerDependencies:
       eslint: 9.5.0
       eslint-config-standard: 17.1.0
@@ -916,8 +916,8 @@ packages:
     resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
     engines: {node: '>=18'}
 
-  globals@15.5.0:
-    resolution: {integrity: sha512-r7/9tQj5RylGxt/BKGv0D2SvehYvRFYg4ukSNk+EuZxvWI7uK/MJFmOCLq8aKvgh3EVBYFbBlOMAtaITXZr80w==}
+  globals@15.6.0:
+    resolution: {integrity: sha512-UzcJi88Hw//CurUIRa9Jxb0vgOCcuD/MNjwmXp633cyaRKkCWACkoqHCtfZv43b1kqXGg/fpOa8bwgacCeXsVg==}
     engines: {node: '>=18'}
 
   globalthis@1.0.4:
@@ -1872,7 +1872,7 @@ snapshots:
       js-tokens: 4.0.0
       picocolors: 1.0.1
 
-  '@book000/eslint-config@1.7.2(eslint-config-standard@17.1.0(eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.13.0(eslint@9.5.0)(typescript@5.4.5))(eslint@9.5.0))(eslint-plugin-n@16.6.2(eslint@9.5.0))(eslint-plugin-promise@6.2.0(eslint@9.5.0))(eslint@9.5.0))(eslint@9.5.0)(typescript@5.4.5)':
+  '@book000/eslint-config@1.7.3(eslint-config-standard@17.1.0(eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.13.0(eslint@9.5.0)(typescript@5.4.5))(eslint@9.5.0))(eslint-plugin-n@16.6.2(eslint@9.5.0))(eslint-plugin-promise@6.2.0(eslint@9.5.0))(eslint@9.5.0))(eslint@9.5.0)(typescript@5.4.5)':
     dependencies:
       '@eslint/eslintrc': 3.1.0
       '@typescript-eslint/parser': 7.13.0(eslint@9.5.0)(typescript@5.4.5)
@@ -1880,7 +1880,7 @@ snapshots:
       eslint-config-prettier: 9.1.0(eslint@9.5.0)
       eslint-config-standard: 17.1.0(eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.13.0(eslint@9.5.0)(typescript@5.4.5))(eslint@9.5.0))(eslint-plugin-n@16.6.2(eslint@9.5.0))(eslint-plugin-promise@6.2.0(eslint@9.5.0))(eslint@9.5.0)
       eslint-plugin-unicorn: 54.0.0(eslint@9.5.0)
-      globals: 15.5.0
+      globals: 15.6.0
       typescript-eslint: 7.13.0(eslint@9.5.0)(typescript@5.4.5)
     transitivePeerDependencies:
       - supports-color
@@ -2883,7 +2883,7 @@ snapshots:
 
   globals@14.0.0: {}
 
-  globals@15.5.0: {}
+  globals@15.6.0: {}
 
   globalthis@1.0.4:
     dependencies:
