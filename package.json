@@ -28,7 +28,7 @@
   "devDependencies": {
     "@book000/eslint-config": "1.7.6",
     "@book000/node-utils": "1.13.135",
-    "@book000/pixivts": "0.30.113",
+    "@book000/pixivts": "0.30.116",
     "@types/node": "20.14.7",
     "eslint": "9.5.0",
     "eslint-config-standard": "17.1.0",
