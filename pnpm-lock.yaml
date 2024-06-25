@@ -12,8 +12,8 @@ importers:
         specifier: 1.7.8
         version: 1.7.8(eslint-config-standard@17.1.0(eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.14.1(eslint@9.5.0)(typescript@5.5.2))(eslint@9.5.0))(eslint-plugin-n@16.6.2(eslint@9.5.0))(eslint-plugin-promise@6.2.0(eslint@9.5.0))(eslint@9.5.0))(eslint@9.5.0)(typescript@5.5.2)
       '@book000/node-utils':
-        specifier: 1.13.143
-        version: 1.13.143
+        specifier: 1.13.144
+        version: 1.13.144
       '@book000/pixivts':
         specifier: 0.30.124
         version: 0.30.124(typescript@5.5.2)
@@ -59,8 +59,8 @@ packages:
       eslint: 9.5.0
       eslint-config-standard: 17.1.0
 
-  '@book000/node-utils@1.13.143':
-    resolution: {integrity: sha512-yYDjEPQyVfLFWom2CRM6nFoB/cqbEQBGYkgVtOpfKFph9HoLCGYo4zQ2+jm8t8etGII1pT5grn5pcgWeNYP0rw==}
+  '@book000/node-utils@1.13.144':
+    resolution: {integrity: sha512-caSDp/N2eTQZ+IcXFEZeA+Fx0k3J24Gb/G4ArMUXEGZoAh4v3I52KiBd6WZmRGejG7Ban02NO8lnyiy3VCRokg==}
 
   '@book000/pixivts@0.30.124':
     resolution: {integrity: sha512-y50kKMP83GwJhmRIax/ZqMsiFtnqtCvs0X74+BjHHEJG9gDj+QUYX/QhClNcToY05MdIN5puQCJ5BreveLkM8w==}
@@ -1145,8 +1145,8 @@ packages:
     resolution: {integrity: sha512-g1MWMLBiz8FKi1e4w0UyVL3w+iJceWAFBAaBnnGKOpNa5f8TLktkbre1+s6oICydWAm+HRUGTmI+//xv2hvXYA==}
     hasBin: true
 
-  jsonc-parser@3.2.1:
-    resolution: {integrity: sha512-AilxAyFOAcK5wA1+LeaySVBrHsGQvUFCDWXKpZjzaL0PqW+xfBOttn8GNtWKFWqneyMZj41MWF9Kl6iPWLwgOA==}
+  jsonc-parser@3.3.1:
+    resolution: {integrity: sha512-HUgH65KyejrUFPvHFPbqOY0rsFip3Bo5wb4ngvdi1EpCYWUQDC5V+Y7mZws+DLkr4M//zQJoanu1SP+87Dv1oQ==}
 
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
@@ -1891,12 +1891,12 @@ snapshots:
       - supports-color
       - typescript
 
-  '@book000/node-utils@1.13.143':
+  '@book000/node-utils@1.13.144':
     dependencies:
       axios: 1.7.2
       cycle: 1.0.3
       form-data: 4.0.0
-      jsonc-parser: 3.2.1
+      jsonc-parser: 3.3.1
       moment-timezone: 0.5.45
       winston: 3.13.0
       winston-daily-rotate-file: 5.0.0(winston@3.13.0)
@@ -3081,7 +3081,7 @@ snapshots:
     dependencies:
       minimist: 1.2.8
 
-  jsonc-parser@3.2.1: {}
+  jsonc-parser@3.3.1: {}
 
   keyv@4.5.4:
     dependencies:
