@@ -108,7 +108,13 @@ async function main() {
       illustId: illust.id,
       restrict: BookmarkRestrict.PRIVATE,
     })
-    if (result.status !== 200) {
+
+    if (result.status === 404) {
+      // If the illust is not found, skip it
+      logger.error(`🚨 Illust not found: ${illust.id}`)
+      continue
+    } else if (result.status !== 200) {
+      // If the request failed, log the error and continue
       logger.error(`🚨 Failed to add bookmark: ${result.status}`)
       logger.error(JSON.stringify(result.data))
       process.exitCode = 1
@@ -139,7 +145,12 @@ async function main() {
       novelId: novel.id.toString(),
       restrict: BookmarkRestrict.PRIVATE,
     })
-    if (result.status !== 200) {
+    if (result.status === 404) {
+      // If the novel is not found, skip it
+      logger.error(`🚨 Novel not found: ${novel.id}`)
+      continue
+    } else if (result.status !== 200) {
+      // If the request failed, log the error and continue
       logger.error(`🚨 Failed to add bookmark: ${result.status}`)
       logger.error(JSON.stringify(result.data))
       process.exitCode = 1
