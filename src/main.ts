@@ -73,6 +73,121 @@ async function getPixiv() {
   return pixiv
 }
 
+async function processIllusts(pixiv: Pixiv) {
+  const logger = Logger.configure('processIllusts')
+
+  let maxBookmarkId: number | undefined
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+  while (true) {
+    const publicBookmarkIllusts = await pixiv.userBookmarksIllust({
+      userId: Number(pixiv.userId),
+      restrict: BookmarkRestrict.PUBLIC,
+      maxBookmarkId,
+    })
+    if (publicBookmarkIllusts.status !== 200) {
+      logger.error(
+        `🚨 Failed to get public bookmark illusts: ${publicBookmarkIllusts.status}`
+      )
+      logger.error(JSON.stringify(publicBookmarkIllusts.data))
+      process.exitCode = 1
+      return
+    }
+
+    const illusts = publicBookmarkIllusts.data.illusts
+    logger.info(`🖼️ Public illust bookmarks: ${illusts.length}`)
+    for (const illust of illusts) {
+      logger.info(`🖼️ Illust: ${illust.title} (${illust.id})`)
+
+      const result = await pixiv.illustBookmarkAdd({
+        illustId: illust.id,
+        restrict: BookmarkRestrict.PRIVATE,
+      })
+
+      if (result.status === 404) {
+        // If the illust is not found, skip it
+        logger.error(`🚨 Illust not found: ${illust.id}`)
+        continue
+      } else if (result.status === 403) {
+        // Rate limit exceeded
+        logger.error(`🚨 Rate limit exceeded: ${result.status}`)
+        break
+      } else if (result.status !== 200) {
+        // If the request failed, log the error and continue
+        logger.error(`🚨 Failed to add bookmark: ${result.status}`)
+        logger.error(JSON.stringify(result.data))
+        process.exitCode = 1
+        continue
+      }
+    }
+
+    if (!publicBookmarkIllusts.data.next_url) {
+      break
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 1000))
+
+    const qs = Pixiv.parseQueryString(publicBookmarkIllusts.data.next_url)
+    maxBookmarkId = Number(qs.max_bookmark_id)
+  }
+}
+
+async function processNovels(pixiv: Pixiv) {
+  const logger = Logger.configure('processNovels')
+
+  let maxBookmarkId: number | undefined
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+  while (true) {
+    const publicBookmarkNovels = await pixiv.userBookmarksNovel({
+      userId: Number(pixiv.userId),
+      restrict: BookmarkRestrict.PUBLIC,
+      maxBookmarkId,
+    })
+    if (publicBookmarkNovels.status !== 200) {
+      logger.error(
+        `🚨 Failed to get public bookmark novels: ${publicBookmarkNovels.status}`
+      )
+      logger.error(JSON.stringify(publicBookmarkNovels.data))
+      process.exitCode = 1
+      return
+    }
+
+    const novels = publicBookmarkNovels.data.novels
+    logger.info(`📕 Public novel bookmarks: ${novels.length}`)
+    for (const novel of novels) {
+      logger.info(`📕 Novel: ${novel.title} (${novel.id})`)
+
+      const result = await pixiv.novelBookmarkAdd({
+        novelId: novel.id.toString(),
+        restrict: BookmarkRestrict.PRIVATE,
+      })
+      if (result.status === 404) {
+        // If the novel is not found, skip it
+        logger.error(`🚨 Novel not found: ${novel.id}`)
+        continue
+      } else if (result.status === 403) {
+        // Rate limit exceeded
+        logger.error(`🚨 Rate limit exceeded: ${result.status}`)
+        break
+      } else if (result.status !== 200) {
+        // If the request failed, log the error and continue
+        logger.error(`🚨 Failed to add bookmark: ${result.status}`)
+        logger.error(JSON.stringify(result.data))
+        process.exitCode = 1
+        continue
+      }
+    }
+
+    if (!publicBookmarkNovels.data.next_url) {
+      break
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 1000))
+
+    const qs = Pixiv.parseQueryString(publicBookmarkNovels.data.next_url)
+    maxBookmarkId = Number(qs.max_bookmark_id)
+  }
+}
+
 async function main() {
   const logger = Logger.configure('main')
 
@@ -86,77 +201,10 @@ async function main() {
   logger.info(`📝 PIXIV_USER_ID: ${pixivUserId}`)
 
   // Illusts
-  const publicBookmarkIllusts = await pixiv.userBookmarksIllust({
-    userId: Number(pixivUserId),
-    restrict: BookmarkRestrict.PUBLIC,
-  })
-  if (publicBookmarkIllusts.status !== 200) {
-    logger.error(
-      `🚨 Failed to get public bookmark illusts: ${publicBookmarkIllusts.status}`
-    )
-    logger.error(JSON.stringify(publicBookmarkIllusts.data))
-    process.exitCode = 1
-    return
-  }
-
-  const illusts = publicBookmarkIllusts.data.illusts
-  logger.info(`🖼️ Public illust bookmarks: ${illusts.length}`)
-  for (const illust of illusts) {
-    logger.info(`🖼️ Illust: ${illust.title} (${illust.id})`)
-
-    const result = await pixiv.illustBookmarkAdd({
-      illustId: illust.id,
-      restrict: BookmarkRestrict.PRIVATE,
-    })
-
-    if (result.status === 404) {
-      // If the illust is not found, skip it
-      logger.error(`🚨 Illust not found: ${illust.id}`)
-      continue
-    } else if (result.status !== 200) {
-      // If the request failed, log the error and continue
-      logger.error(`🚨 Failed to add bookmark: ${result.status}`)
-      logger.error(JSON.stringify(result.data))
-      process.exitCode = 1
-      continue
-    }
-  }
+  await processIllusts(pixiv)
 
   // Novels
-  const publicBookmarkNovels = await pixiv.userBookmarksNovel({
-    userId: Number(pixivUserId),
-    restrict: BookmarkRestrict.PUBLIC,
-  })
-  if (publicBookmarkNovels.status !== 200) {
-    logger.error(
-      `🚨 Failed to get public bookmark novels: ${publicBookmarkNovels.status}`
-    )
-    logger.error(JSON.stringify(publicBookmarkNovels.data))
-    process.exitCode = 1
-    return
-  }
-
-  const novels = publicBookmarkNovels.data.novels
-  logger.info(`📕 Public novel bookmarks: ${novels.length}`)
-  for (const novel of novels) {
-    logger.info(`📕 Novel: ${novel.title} (${novel.id})`)
-
-    const result = await pixiv.novelBookmarkAdd({
-      novelId: novel.id.toString(),
-      restrict: BookmarkRestrict.PRIVATE,
-    })
-    if (result.status === 404) {
-      // If the novel is not found, skip it
-      logger.error(`🚨 Novel not found: ${novel.id}`)
-      continue
-    } else if (result.status !== 200) {
-      // If the request failed, log the error and continue
-      logger.error(`🚨 Failed to add bookmark: ${result.status}`)
-      logger.error(JSON.stringify(result.data))
-      process.exitCode = 1
-      continue
-    }
-  }
+  await processNovels(pixiv)
 
   await pixiv.close()
 }
