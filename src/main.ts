@@ -73,7 +73,10 @@ async function getPixiv() {
   return pixiv
 }
 
-async function processIllusts(pixiv: Pixiv) {
+async function processIllusts(
+  pixiv: Pixiv,
+  isDeleteBookmarkForDeleted: boolean
+) {
   const logger = Logger.configure('processIllusts')
 
   let maxBookmarkId: number | undefined
@@ -106,6 +109,12 @@ async function processIllusts(pixiv: Pixiv) {
       if (result.status === 404) {
         // If the illust is not found, skip it
         logger.error(`🚨 Illust not found: ${illust.id}`)
+        if (isDeleteBookmarkForDeleted) {
+          logger.info(`🚨 Deleting bookmark: ${illust.id}`)
+          await pixiv.illustBookmarkDelete({
+            illustId: illust.id.toString(),
+          })
+        }
         continue
       } else if (result.status === 403) {
         // Rate limit exceeded
@@ -131,7 +140,10 @@ async function processIllusts(pixiv: Pixiv) {
   }
 }
 
-async function processNovels(pixiv: Pixiv) {
+async function processNovels(
+  pixiv: Pixiv,
+  isDeleteBookmarkForDeleted: boolean
+) {
   const logger = Logger.configure('processNovels')
 
   let maxBookmarkId: number | undefined
@@ -163,6 +175,12 @@ async function processNovels(pixiv: Pixiv) {
       if (result.status === 404) {
         // If the novel is not found, skip it
         logger.error(`🚨 Novel not found: ${novel.id}`)
+        if (isDeleteBookmarkForDeleted) {
+          logger.info(`🚨 Deleting bookmark: ${novel.id}`)
+          await pixiv.novelBookmarkDelete({
+            novelId: novel.id.toString(),
+          })
+        }
         continue
       } else if (result.status === 403) {
         // Rate limit exceeded
@@ -200,11 +218,19 @@ async function main() {
   const pixivUserId = pixiv.userId
   logger.info(`📝 PIXIV_USER_ID: ${pixivUserId}`)
 
+  const isDeleteBookmarkForDeleted =
+    process.env.DELETE_BOOKMARK_FOR_DELETED_ITEMS === 'true'
+  if (isDeleteBookmarkForDeleted) {
+    logger.info(
+      '🗑️ If the bookmarked item has been deleted, delete the bookmark.'
+    )
+  }
+
   // Illusts
-  await processIllusts(pixiv)
+  await processIllusts(pixiv, isDeleteBookmarkForDeleted)
 
   // Novels
-  await processNovels(pixiv)
+  await processNovels(pixiv, isDeleteBookmarkForDeleted)
 
   await pixiv.close()
 }
