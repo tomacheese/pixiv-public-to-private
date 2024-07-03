@@ -41,6 +41,19 @@ Please save the obtained refresh token in `data/token.json`.
 }
 ```
 
+### Environment variables
+
+The following environment variables are available:
+
+- `PIXIV_TOKEN_PATH`: pixiv token file path (default value: data/token.json)
+- `RESPONSE_DB_HOSTNAME`: Whether to save the response to the DB for storage or not
+  - `RESPONSE_DB_HOSTNAME`
+  - `RESPONSE_DB_PORT`
+  - `RESPONSE_DB_USERNAME`
+  - `RESPONSE_DB_PASSWORD`
+  - `RESPONSE_DB_DATABASE`
+- `DELETE_BOOKMARK_FOR_DELETED_ITEMS`: If you have bookmarked a deleted item, whether to unbookmark it or not
+
 ## License
 
 The license for this project is [MIT License](LICENSE).
