@@ -4,7 +4,7 @@ Changes all illustrations and novels publicly bookmarked on pixiv to private boo
 
 ## Requirements
 
-- Native Node.js or Docker
+- Docker Compose
 - Valid pixiv refresh token: Please refer to these to retrieve
   - [Retrieving Auth Token (with browser dev console) by ZipFile](https://gist.github.com/ZipFile/c9ebedb224406f4f11845ab700124362)
   - [Retrieving Auth Token (with Selenium) by upbit](https://gist.github.com/upbit/6edda27cb1644e94183291109b8a5fde)
