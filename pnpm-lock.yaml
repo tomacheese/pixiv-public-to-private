@@ -12,8 +12,8 @@ importers:
         specifier: 1.7.33
         version: 1.7.33(eslint-config-standard@17.1.0(eslint-plugin-import@2.29.1(@typescript-eslint/parser@8.0.1(eslint@9.8.0)(typescript@5.5.4))(eslint@9.8.0))(eslint-plugin-n@16.6.2(eslint@9.8.0))(eslint-plugin-promise@6.6.0(eslint@9.8.0))(eslint@9.8.0))(eslint@9.8.0)(typescript@5.5.4)
       '@book000/node-utils':
-        specifier: 1.13.207
-        version: 1.13.207
+        specifier: 1.13.208
+        version: 1.13.208
       '@book000/pixivts':
         specifier: 0.30.199
         version: 0.30.199(typescript@5.5.4)
@@ -59,8 +59,8 @@ packages:
       eslint: 9.8.0
       eslint-config-standard: 17.1.0
 
-  '@book000/node-utils@1.13.207':
-    resolution: {integrity: sha512-Emak2LZ7lghDX7R7fW6ajiv8Jh5PjcWL/ombMblcLwaGIml9bD9zZCHPCFBcwZNpgv36hwfytGca0APUjYRz9Q==}
+  '@book000/node-utils@1.13.208':
+    resolution: {integrity: sha512-/TuwqYo9EEK65lz/+HK/eAerovakXL0351R7pNy+IZ+iHUbHUpOKB7MftCDuTUh+cpE8fWou2kplCObZhrGdSg==}
 
   '@book000/pixivts@0.30.199':
     resolution: {integrity: sha512-wYDT3n90BdS/hv4+0i46RFtnyWrPkr4wILgdtmsi+uavU7bo4KUAgcBZkR2RJqB1+QypvJWCQx6Y3P/2jRmx0w==}
@@ -1820,8 +1820,8 @@ packages:
     resolution: {integrity: sha512-wQCXXVgfv/wUPOfb2x0ruxzwkcZfxcktz6JIMUaPLmcNhO4bZTwA/WtDWK74xV3F2dKu8YadrFv0qhwYjVEwhA==}
     engines: {node: '>= 12.0.0'}
 
-  winston@3.13.1:
-    resolution: {integrity: sha512-SvZit7VFNvXRzbqGHsv5KSmgbEYR5EiQfDAL9gxYkRqa934Hnk++zze0wANKtMHcy/gI4W/3xmSDwlhf865WGw==}
+  winston@3.14.0:
+    resolution: {integrity: sha512-XEJvmKJglhTW2TgfpKdkpj0119Yn5AClR7LJ0rBNUQFx20mNQj3s1ukTA1i77q+YBaHYbcKtXpxgPqfdUPCIYA==}
     engines: {node: '>= 12.0.0'}
 
   word-wrap@1.2.5:
@@ -1890,15 +1890,15 @@ snapshots:
       - supports-color
       - typescript
 
-  '@book000/node-utils@1.13.207':
+  '@book000/node-utils@1.13.208':
     dependencies:
       axios: 1.7.3
       cycle: 1.0.3
       form-data: 4.0.0
       jsonc-parser: 3.3.1
       moment-timezone: 0.5.45
-      winston: 3.13.1
-      winston-daily-rotate-file: 5.0.0(winston@3.13.1)
+      winston: 3.14.0
+      winston-daily-rotate-file: 5.0.0(winston@3.14.0)
     transitivePeerDependencies:
       - debug
 
@@ -3727,12 +3727,12 @@ snapshots:
     dependencies:
       isexe: 2.0.0
 
-  winston-daily-rotate-file@5.0.0(winston@3.13.1):
+  winston-daily-rotate-file@5.0.0(winston@3.14.0):
     dependencies:
       file-stream-rotator: 0.6.1
       object-hash: 3.0.0
       triple-beam: 1.4.1
-      winston: 3.13.1
+      winston: 3.14.0
       winston-transport: 4.7.1
 
   winston-transport@4.7.1:
@@ -3741,7 +3741,7 @@ snapshots:
       readable-stream: 3.6.2
       triple-beam: 1.4.1
 
-  winston@3.13.1:
+  winston@3.14.0:
     dependencies:
       '@colors/colors': 1.6.0
       '@dabh/diagnostics': 2.0.3
