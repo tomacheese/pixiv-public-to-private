@@ -12,8 +12,8 @@ importers:
         specifier: 1.7.36
         version: 1.7.36(eslint-config-standard@17.1.0(eslint-plugin-import@2.29.1(@typescript-eslint/parser@8.1.0(eslint@9.9.0)(typescript@5.5.4))(eslint@9.9.0))(eslint-plugin-n@16.6.2(eslint@9.9.0))(eslint-plugin-promise@6.6.0(eslint@9.9.0))(eslint@9.9.0))(eslint@9.9.0)(typescript@5.5.4)
       '@book000/node-utils':
-        specifier: 1.13.215
-        version: 1.13.215
+        specifier: 1.13.216
+        version: 1.13.216
       '@book000/pixivts':
         specifier: 0.30.207
         version: 0.30.207(typescript@5.5.4)
@@ -59,8 +59,8 @@ packages:
       eslint: 9.9.0
       eslint-config-standard: 17.1.0
 
-  '@book000/node-utils@1.13.215':
-    resolution: {integrity: sha512-qEjq29aekyGSqk68A4JGOaFhgrPlz4/1jiXax43ZgRU5GxXju4L3NRqbH8ssF/XUziQvhsmBayA1/5uwKAb/UQ==}
+  '@book000/node-utils@1.13.216':
+    resolution: {integrity: sha512-jkJev4mZksfvhuUQuPJHWkPYkfFN3s6ESymHwX4TACwlLElJ7XeUuZzz/0FM5nCp5IrGI2I3ZVQwwzDHedhFNQ==}
 
   '@book000/pixivts@0.30.207':
     resolution: {integrity: sha512-2BU5aox9OEQykf+1Ug9Jol8zZj4cOlTv72SMhJD/ZLL9QDtv4sX89SO1ux+QiXYVZ6d7XHjl0pDmzPYgnsk3jQ==}
@@ -436,6 +436,9 @@ packages:
 
   axios@1.7.3:
     resolution: {integrity: sha512-Ar7ND9pU99eJ9GpoGQKhKf58GpUOgnzuaB7ueNQ5BMi0p+LZ5oaEnfF999fAArcTIBwXTCHAmGcHOZJaWPq9Nw==}
+
+  axios@1.7.4:
+    resolution: {integrity: sha512-DukmaFRnY6AzAALSH4J2M3k6PkaC+MfaAGdEERRWcC9q3/TWQwLpHR8ZRLKTdQ3aBDL64EdluRDjJqKw+BPZEw==}
 
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
@@ -1901,9 +1904,9 @@ snapshots:
       - supports-color
       - typescript
 
-  '@book000/node-utils@1.13.215':
+  '@book000/node-utils@1.13.216':
     dependencies:
-      axios: 1.7.3
+      axios: 1.7.4
       cycle: 1.0.3
       form-data: 4.0.0
       jsonc-parser: 3.3.1
@@ -2275,6 +2278,14 @@ snapshots:
   aws-ssl-profiles@1.1.1: {}
 
   axios@1.7.3:
+    dependencies:
+      follow-redirects: 1.15.6
+      form-data: 4.0.0
+      proxy-from-env: 1.1.0
+    transitivePeerDependencies:
+      - debug
+
+  axios@1.7.4:
     dependencies:
       follow-redirects: 1.15.6
       form-data: 4.0.0
