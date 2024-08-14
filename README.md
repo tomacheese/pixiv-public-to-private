@@ -2,6 +2,11 @@
 
 Changes all illustrations and novels publicly bookmarked on pixiv to private bookmarks.
 
+This application is intended to change the visibility of bookmarks on an ongoing schedule.  
+If you expect to make temporary batch changes, you can use the following script created in the browser devtool.
+
+- [toggleAllRestrict.js - Gist](https://gist.github.com/book000/f300385613d2d78125fa86fa78432828)
+
 ## Requirements
 
 - Docker Compose
