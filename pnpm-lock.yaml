@@ -15,8 +15,8 @@ importers:
         specifier: 1.13.246
         version: 1.13.246
       '@book000/pixivts':
-        specifier: 0.30.255
-        version: 0.30.255(typescript@5.6.2)
+        specifier: 0.30.256
+        version: 0.30.256(typescript@5.6.2)
       '@types/node':
         specifier: 20.16.5
         version: 20.16.5
@@ -62,8 +62,8 @@ packages:
   '@book000/node-utils@1.13.246':
     resolution: {integrity: sha512-QRXsiYQBOsLPEiCk/RXO8eeTCSOAn216Cn/rBVJbrQh74kqnt4V4RgQF8rlXb7f5gAZ1NoVyaWqbGnpyRaKGZw==}
 
-  '@book000/pixivts@0.30.255':
-    resolution: {integrity: sha512-ljuI1S6J83DskS5mJQ675NLazXe3KkhzCA1mQPZOZ8GxYimAh71CxWVOP+IBmKVADXKTLJfrHzqA5iB3L7QsHA==}
+  '@book000/pixivts@0.30.256':
+    resolution: {integrity: sha512-eAaEacE1KgYxHhDZGJxN4e2Lnj5zxJIIeGbSpdfELAaQKlXAvQuoKOiXzQLA5Nqx+NQhnQAB/Ts2ZYEm5xmcdw==}
 
   '@colors/colors@1.6.0':
     resolution: {integrity: sha512-Ir+AOibqzrIsL6ajt3Rz3LskB7OiMVHqltZmspbW/TJuTVuyOMirVqAkjfY6JISiLHgyNqicAC8AyHHGzNd/dA==}
@@ -289,8 +289,8 @@ packages:
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
 
-  '@types/qs@6.9.15':
-    resolution: {integrity: sha512-uXHQKES6DQKKCLh441Xv/dwxOq1TVS3JPUMlEqoEglvlhR6Mxnlew/Xq/LRVHpLyk7iK3zODe1qYHIMltO7XGg==}
+  '@types/qs@6.9.16':
+    resolution: {integrity: sha512-7i+zxXdPD0T4cKDuxCUXJ4wHcsJLwENa6Z3dCu8cfCK743OGy5Nu1RmAGqDPsoTDINVEcdXKRvR/zre+P2Ku1A==}
 
   '@types/triple-beam@1.3.5':
     resolution: {integrity: sha512-6WaYesThRMCl19iryMYP7/x2OVgCtbIVflDGFpWnb9irXI3UjYE4AzmYuiUKY1AJstGijoY+MgUszMgRxIYTYw==}
@@ -1897,9 +1897,9 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@book000/pixivts@0.30.255(typescript@5.6.2)':
+  '@book000/pixivts@0.30.256(typescript@5.6.2)':
     dependencies:
-      '@types/qs': 6.9.15
+      '@types/qs': 6.9.16
       axios: 1.7.7
       mysql2: 3.11.2
       qs: 6.13.0
@@ -2084,7 +2084,7 @@ snapshots:
 
   '@types/normalize-package-data@2.4.4': {}
 
-  '@types/qs@6.9.15': {}
+  '@types/qs@6.9.16': {}
 
   '@types/triple-beam@1.3.5': {}
 
