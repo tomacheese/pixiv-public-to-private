@@ -12,8 +12,8 @@ importers:
         specifier: 1.7.71
         version: 1.7.71(eslint-config-standard@17.1.0(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.9.0(eslint@9.12.0)(typescript@5.6.3))(eslint@9.12.0))(eslint-plugin-n@16.6.2(eslint@9.12.0))(eslint-plugin-promise@6.6.0(eslint@9.12.0))(eslint@9.12.0))(eslint@9.12.0)(typescript@5.6.3)
       '@book000/node-utils':
-        specifier: 1.13.298
-        version: 1.13.298
+        specifier: 1.13.299
+        version: 1.13.299
       '@book000/pixivts':
         specifier: 0.30.304
         version: 0.30.304(typescript@5.6.3)
@@ -59,8 +59,8 @@ packages:
       eslint: 9.12.0
       eslint-config-standard: 17.1.0
 
-  '@book000/node-utils@1.13.298':
-    resolution: {integrity: sha512-1TJS2NhNETO57JChSSkmuNUZoRcc5sA2lyJM75rI85Y9Bjqq2BywkbrZEw+ffqjv+ka2Nn/W2kwg3U9oYsHUAA==}
+  '@book000/node-utils@1.13.299':
+    resolution: {integrity: sha512-rdtY/uHl7PsBI7CudP0/ha8g1KgaRPcprZIgbxCgaoV3Ud42L5I9MUmd1lagut1fodh6mW16xxACBQV8SerS3w==}
 
   '@book000/pixivts@0.30.304':
     resolution: {integrity: sha512-G/jeteqHkER09vZV+iZGcSBDtEWLnCIw55+t2lVocv9eiDn471ZBAfLReJf7G2RlkSKzTJuHqTEjx14q7yuH2g==}
@@ -1935,7 +1935,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@book000/node-utils@1.13.298':
+  '@book000/node-utils@1.13.299':
     dependencies:
       axios: 1.7.7
       cycle: 1.0.3
