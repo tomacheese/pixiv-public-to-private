@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@book000/eslint-config':
-        specifier: 1.7.119
-        version: 1.7.119(eslint-config-standard@17.1.0(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.18.2(eslint@9.17.0)(typescript@5.7.2))(eslint@9.17.0))(eslint-plugin-n@16.6.2(eslint@9.17.0))(eslint-plugin-promise@6.6.0(eslint@9.17.0))(eslint@9.17.0))(eslint@9.17.0)(typescript@5.7.2)
+        specifier: 1.7.120
+        version: 1.7.120(eslint-config-standard@17.1.0(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.18.2(eslint@9.17.0)(typescript@5.7.2))(eslint@9.17.0))(eslint-plugin-n@16.6.2(eslint@9.17.0))(eslint-plugin-promise@6.6.0(eslint@9.17.0))(eslint@9.17.0))(eslint@9.17.0)(typescript@5.7.2)
       '@book000/node-utils':
         specifier: 1.13.404
         version: 1.13.404
@@ -49,8 +49,8 @@ packages:
     resolution: {integrity: sha512-Ed61U6XJc3CVRfkERJWDz4dJwKe7iLmmJsbOGu9wSloNSFttHV0I8g6UAgb7qnK5ly5bGLPd4oXZlxCdANBOWQ==}
     engines: {node: '>=6.9.0'}
 
-  '@book000/eslint-config@1.7.119':
-    resolution: {integrity: sha512-a/7yECmsjmmOdKUb636nEts2fDd47RE2d3G+9Jc3KI/264KGgROZk96CVTKI1YpfDEuuEdflYC7B5UZjn+HJIQ==}
+  '@book000/eslint-config@1.7.120':
+    resolution: {integrity: sha512-muooo8hkCL3IsgNPLInoG7iQeDp07HNcqwWFrlHiZdPAWrEAOoU+jtWJUfAWdr+qQpRCuwdVYpza0czvxcKlHQ==}
     peerDependencies:
       eslint: 9.17.0
       eslint-config-standard: 17.1.0
@@ -1945,7 +1945,7 @@ snapshots:
 
   '@babel/helper-validator-identifier@7.25.9': {}
 
-  '@book000/eslint-config@1.7.119(eslint-config-standard@17.1.0(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.18.2(eslint@9.17.0)(typescript@5.7.2))(eslint@9.17.0))(eslint-plugin-n@16.6.2(eslint@9.17.0))(eslint-plugin-promise@6.6.0(eslint@9.17.0))(eslint@9.17.0))(eslint@9.17.0)(typescript@5.7.2)':
+  '@book000/eslint-config@1.7.120(eslint-config-standard@17.1.0(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.18.2(eslint@9.17.0)(typescript@5.7.2))(eslint@9.17.0))(eslint-plugin-n@16.6.2(eslint@9.17.0))(eslint-plugin-promise@6.6.0(eslint@9.17.0))(eslint@9.17.0))(eslint@9.17.0)(typescript@5.7.2)':
     dependencies:
       '@eslint/eslintrc': 3.2.0
       '@typescript-eslint/parser': 8.18.2(eslint@9.17.0)(typescript@5.7.2)
