@@ -15,8 +15,8 @@ importers:
         specifier: 1.13.420
         version: 1.13.420
       '@book000/pixivts':
-        specifier: 0.31.16
-        version: 0.31.16(typescript@5.7.3)
+        specifier: 0.31.17
+        version: 0.31.17(typescript@5.7.3)
       '@types/node':
         specifier: 22.10.5
         version: 22.10.5
@@ -58,8 +58,8 @@ packages:
   '@book000/node-utils@1.13.420':
     resolution: {integrity: sha512-n1mMkxFiXduT9AL93nQGMsng2aACjHtqGJbRnfL6R/0OoM1JL52T64c4OL0DA7KnkQYCEzmpkwCUMtmamPMdXw==}
 
-  '@book000/pixivts@0.31.16':
-    resolution: {integrity: sha512-XxPUzUn+s828Q9/Sn7SEaNEQ7WvRBu6ld1W6Z+L8w+4dUWkLsJgsAJb0F8ekNmDSK0NNO2kCb7sbfrBg+nMjVg==}
+  '@book000/pixivts@0.31.17':
+    resolution: {integrity: sha512-zl3jouQagi8SEwW5sDedkXmLNj8eKeblszYsfo2u50hZb1nquDUSybnoCErzUbD37im4wbJP/4uGcrWLTmICzA==}
 
   '@colors/colors@1.6.0':
     resolution: {integrity: sha512-Ir+AOibqzrIsL6ajt3Rz3LskB7OiMVHqltZmspbW/TJuTVuyOMirVqAkjfY6JISiLHgyNqicAC8AyHHGzNd/dA==}
@@ -1979,7 +1979,7 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@book000/pixivts@0.31.16(typescript@5.7.3)':
+  '@book000/pixivts@0.31.17(typescript@5.7.3)':
     dependencies:
       '@types/qs': 6.9.17
       axios: 1.7.9
