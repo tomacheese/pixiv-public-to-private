@@ -10,6 +10,7 @@ RUN apk update && \
   cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
   echo "Asia/Tokyo" > /etc/timezone && \
   apk del tzdata && \
+  npm install -g corepack@latest && \
   corepack enable
 
 WORKDIR /app
