@@ -15,8 +15,8 @@ importers:
         specifier: 1.14.1
         version: 1.14.1
       '@book000/pixivts':
-        specifier: 0.31.88
-        version: 0.31.88(typescript@5.7.3)
+        specifier: 0.31.89
+        version: 0.31.89(typescript@5.7.3)
       '@types/node':
         specifier: 22.13.5
         version: 22.13.5
@@ -58,8 +58,8 @@ packages:
   '@book000/node-utils@1.14.1':
     resolution: {integrity: sha512-83r2q3yU4TGlRegQ++YFy36Q4EeZvVPACD7B/374BVrCFLc26FkzhR/+hWCcsbMOhY2cJxuAp7lK3kA/hzl5Nw==}
 
-  '@book000/pixivts@0.31.88':
-    resolution: {integrity: sha512-P7vjPSezJV0ONmk4M+hCXs4ESCnX8UoX6vc946IaUDW7j5breH9FY8zYzXMhFBOhDzwpyC9Fc8pT651g8nmCaA==}
+  '@book000/pixivts@0.31.89':
+    resolution: {integrity: sha512-PJaez8664/2Z2BlOkc3D8Op9vwrPpQuUaTLa6tDbIxX5TGMJwamz0A4sQjVKe7ivcHjg/t/MKTzlkbPB0ZfPCA==}
 
   '@colors/colors@1.6.0':
     resolution: {integrity: sha512-Ir+AOibqzrIsL6ajt3Rz3LskB7OiMVHqltZmspbW/TJuTVuyOMirVqAkjfY6JISiLHgyNqicAC8AyHHGzNd/dA==}
@@ -451,8 +451,8 @@ packages:
     resolution: {integrity: sha512-NZKeq9AfyQvEeNlN0zSYAaWrmBffJh3IELMZfRpJVWgrpEbtEpnjvzqBPf+mxoI287JohRDoa+/nsfqqiZmF6g==}
     engines: {node: '>= 6.0.0'}
 
-  axios@1.7.9:
-    resolution: {integrity: sha512-LhLcE7Hbiryz8oMDdDptSrWowmB4Bl6RCt6sIJKpRB4XtVf0iEgewX3au/pJqm+Py1kCASkb/FFKjxQaLtxJvw==}
+  axios@1.8.0:
+    resolution: {integrity: sha512-AS3x1klSQ4VeoeAaOyITVjomjITxIRgpKVgAXhE8QFJiNiYliuU+cW0p7XpqvlwNKmiwE57aNEyhPtsfAxERqg==}
 
   axios@1.8.1:
     resolution: {integrity: sha512-NN+fvwH/kV01dYUQ3PTOZns4LWtWhOFCAhQ/pHb88WQ1hNe5V/dvFwc4VJcDL11LT9xSX0QtsR8sWUuyOuOq7g==}
@@ -1981,10 +1981,10 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@book000/pixivts@0.31.88(typescript@5.7.3)':
+  '@book000/pixivts@0.31.89(typescript@5.7.3)':
     dependencies:
       '@types/qs': 6.9.18
-      axios: 1.7.9
+      axios: 1.8.0
       mysql2: 3.12.0
       qs: 6.14.0
       snake-camel-types: 1.0.1(typescript@5.7.3)
@@ -2362,7 +2362,7 @@ snapshots:
 
   aws-ssl-profiles@1.1.2: {}
 
-  axios@1.7.9:
+  axios@1.8.0:
     dependencies:
       follow-redirects: 1.15.9
       form-data: 4.0.2
