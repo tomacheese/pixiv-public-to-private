@@ -15,8 +15,8 @@ importers:
         specifier: 1.14.27
         version: 1.14.27
       '@book000/pixivts':
-        specifier: 0.31.106
-        version: 0.31.106(reflect-metadata@0.2.2)(typescript@5.8.2)
+        specifier: 0.31.108
+        version: 0.31.108(reflect-metadata@0.2.2)(typescript@5.8.2)
       '@types/node':
         specifier: 22.13.10
         version: 22.13.10
@@ -58,8 +58,8 @@ packages:
   '@book000/node-utils@1.14.27':
     resolution: {integrity: sha512-zk9gYzky1nBBTBuLvM4MYCkaJrRPoP54T/3fky19KnqFko2kg3404j2mYf4vc3g9VGeVjnjhfRnPQhIhTm/Ouw==}
 
-  '@book000/pixivts@0.31.106':
-    resolution: {integrity: sha512-6SkZrWyUryzYQgTm6wivbS2dVRaZC1VDGXENFBonznDSfzAwAIUhqIBc2hfSI2stw1bXGxKdS2NtO8BarghOfQ==}
+  '@book000/pixivts@0.31.108':
+    resolution: {integrity: sha512-jBsxVwBkSpz8euyLGBHPFRxhitO4DuORR0PD4ezP5grQL4xo/M1dMusRccfEo+WItIu+v3HCjGfStDpVhEo0mA==}
 
   '@colors/colors@1.6.0':
     resolution: {integrity: sha512-Ir+AOibqzrIsL6ajt3Rz3LskB7OiMVHqltZmspbW/TJuTVuyOMirVqAkjfY6JISiLHgyNqicAC8AyHHGzNd/dA==}
@@ -455,9 +455,6 @@ packages:
   aws-ssl-profiles@1.1.2:
     resolution: {integrity: sha512-NZKeq9AfyQvEeNlN0zSYAaWrmBffJh3IELMZfRpJVWgrpEbtEpnjvzqBPf+mxoI287JohRDoa+/nsfqqiZmF6g==}
     engines: {node: '>= 6.0.0'}
-
-  axios@1.8.1:
-    resolution: {integrity: sha512-NN+fvwH/kV01dYUQ3PTOZns4LWtWhOFCAhQ/pHb88WQ1hNe5V/dvFwc4VJcDL11LT9xSX0QtsR8sWUuyOuOq7g==}
 
   axios@1.8.2:
     resolution: {integrity: sha512-ls4GYBm5aig9vWx8AWDSGLpnpDQRtWAfrjU+EuytuODrFBkqesN2RkOQCBzrA1RQNHw1SmRMSDDDSwzNAYQ6Rg==}
@@ -1944,10 +1941,10 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@book000/pixivts@0.31.106(reflect-metadata@0.2.2)(typescript@5.8.2)':
+  '@book000/pixivts@0.31.108(reflect-metadata@0.2.2)(typescript@5.8.2)':
     dependencies:
       '@types/qs': 6.9.18
-      axios: 1.8.1
+      axios: 1.8.2
       mysql2: 3.12.0
       qs: 6.14.0
       snake-camel-types: 1.0.1(typescript@5.8.2)
@@ -2327,14 +2324,6 @@ snapshots:
       possible-typed-array-names: 1.1.0
 
   aws-ssl-profiles@1.1.2: {}
-
-  axios@1.8.1:
-    dependencies:
-      follow-redirects: 1.15.9
-      form-data: 4.0.2
-      proxy-from-env: 1.1.0
-    transitivePeerDependencies:
-      - debug
 
   axios@1.8.2:
     dependencies:
