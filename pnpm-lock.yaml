@@ -18,8 +18,8 @@ importers:
         specifier: 0.35.39
         version: 0.35.39(reflect-metadata@0.2.2)(typescript@5.8.3)
       '@types/node':
-        specifier: 22.15.27
-        version: 22.15.27
+        specifier: 22.15.29
+        version: 22.15.29
       eslint:
         specifier: 9.27.0
         version: 9.27.0
@@ -315,8 +315,8 @@ packages:
   '@types/json5@0.0.29':
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
 
-  '@types/node@22.15.27':
-    resolution: {integrity: sha512-5fF+eu5mwihV2BeVtX5vijhdaZOfkQTATrePEaXTcKqI16LhJ7gi2/Vhd9OZM0UojcdmiOCVg5rrax+i1MdoQQ==}
+  '@types/node@22.15.29':
+    resolution: {integrity: sha512-LNdjOkUDlU1RZb8e1kOIUpN1qQUlzGkEtbVNo53vbrwDg5om6oduhm4SiUaPW5ASTXhAiP0jInWG8Qx9fVlOeQ==}
 
   '@types/qs@6.14.0':
     resolution: {integrity: sha512-eOunJqu0K1923aExK6y8p6fsihYEn/BYuQ4g0CxAAgFc4b/ZLN4CrsRZ55srTdqoiLzU2B2evC+apEIxprEzkQ==}
@@ -2118,7 +2118,7 @@ snapshots:
 
   '@types/json5@0.0.29': {}
 
-  '@types/node@22.15.27':
+  '@types/node@22.15.29':
     dependencies:
       undici-types: 6.21.0
 
