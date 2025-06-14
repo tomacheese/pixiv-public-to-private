@@ -80,7 +80,7 @@ async function processIllusts(
   const logger = Logger.configure('processIllusts')
 
   let maxBookmarkId: number | undefined
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+   
   while (true) {
     const publicBookmarkIllusts = await pixiv.userBookmarksIllust({
       userId: Number(pixiv.userId),
@@ -147,7 +147,7 @@ async function processNovels(
   const logger = Logger.configure('processNovels')
 
   let maxBookmarkId: number | undefined
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+   
   while (true) {
     const publicBookmarkNovels = await pixiv.userBookmarksNovel({
       userId: Number(pixiv.userId),
