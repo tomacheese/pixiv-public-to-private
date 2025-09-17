@@ -15,8 +15,8 @@ importers:
         specifier: 1.18.125
         version: 1.18.125
       '@book000/pixivts':
-        specifier: 0.42.1
-        version: 0.42.1(reflect-metadata@0.2.2)(typescript@5.9.2)
+        specifier: 0.42.2
+        version: 0.42.2(reflect-metadata@0.2.2)(typescript@5.9.2)
       '@types/node':
         specifier: 22.18.3
         version: 22.18.3
@@ -54,8 +54,8 @@ packages:
   '@book000/node-utils@1.18.125':
     resolution: {integrity: sha512-cr+ORUKTQ5IwnpFaAsXADAv/NoqC2Fntogg3tv4U9fS8EOulVrbN9iABKMas12io+9AIeGhxw2sCuerBvhEkWg==}
 
-  '@book000/pixivts@0.42.1':
-    resolution: {integrity: sha512-FOItPSJb1h3Tos9Xdo4UE/PtfMJ3d1doO3I4Q9ynDPNP4qyKJhD9F5JDb2kSMxeBpQ86keKpkgrJWJ/62yrU+A==}
+  '@book000/pixivts@0.42.2':
+    resolution: {integrity: sha512-Jt5NwjfUol8V5gs7A37/5pvwqf8kygCZ9V+sZJSp7CUdzl6Iki2O/uf2R+3+xaNSxjSjWV4xjhSvm5LFXMSRQQ==}
 
   '@colors/colors@1.6.0':
     resolution: {integrity: sha512-Ir+AOibqzrIsL6ajt3Rz3LskB7OiMVHqltZmspbW/TJuTVuyOMirVqAkjfY6JISiLHgyNqicAC8AyHHGzNd/dA==}
@@ -466,8 +466,8 @@ packages:
   axios@1.11.0:
     resolution: {integrity: sha512-1Lx3WLFQWm3ooKDYZD1eXmoGO9fxYQjrycfHFC8P0sCfQVXyROp0p9PFWBehewBOdCwHc+f/b8I0fMto5eSfwA==}
 
-  axios@1.12.1:
-    resolution: {integrity: sha512-Kn4kbSXpkFHCGE6rBFNwIv0GQs4AvDT80jlveJDKFxjbTYMUeB4QtsdPCv6H8Cm19Je7IU6VFtRl2zWZI0rudQ==}
+  axios@1.12.2:
+    resolution: {integrity: sha512-vMJzPewAlRyOgxV2dU0Cuz2O8zzzx9VYtbJOaBgXFeLc4IV/Eg50n4LowmehOOR61S8ZMpc2K5Sa7g6A4jfkUw==}
 
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
@@ -1929,10 +1929,10 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@book000/pixivts@0.42.1(reflect-metadata@0.2.2)(typescript@5.9.2)':
+  '@book000/pixivts@0.42.2(reflect-metadata@0.2.2)(typescript@5.9.2)':
     dependencies:
       '@types/qs': 6.14.0
-      axios: 1.12.1
+      axios: 1.12.2
       mysql2: 3.14.5
       qs: 6.14.0
       snake-camel-types: 1.0.1(typescript@5.9.2)
@@ -2339,7 +2339,7 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  axios@1.12.1:
+  axios@1.12.2:
     dependencies:
       follow-redirects: 1.15.11
       form-data: 4.0.4
