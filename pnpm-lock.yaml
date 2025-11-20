@@ -12,8 +12,8 @@ importers:
         specifier: 1.12.3
         version: 1.12.3(eslint-config-standard@17.1.0(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.46.4(eslint@9.39.1)(typescript@5.9.3))(eslint@9.39.1))(eslint-plugin-n@17.23.1(eslint@9.39.1)(typescript@5.9.3))(eslint-plugin-promise@7.2.1(eslint@9.39.1))(eslint@9.39.1))(eslint@9.39.1)(typescript@5.9.3)
       '@book000/node-utils':
-        specifier: 1.18.161
-        version: 1.18.161
+        specifier: 1.18.162
+        version: 1.18.162
       '@book000/pixivts':
         specifier: 0.43.37
         version: 0.43.37(reflect-metadata@0.2.2)(typescript@5.9.3)
@@ -51,8 +51,8 @@ packages:
       eslint: 9.39.1
       eslint-config-standard: 17.1.0
 
-  '@book000/node-utils@1.18.161':
-    resolution: {integrity: sha512-9By0ogxrKVqZwj/szGBAc1ymHtWTPb02iucT+R0crSMuXnuloMk798aU/xr6vzAYmaKfELjM5nRHpgp4ABTxow==}
+  '@book000/node-utils@1.18.162':
+    resolution: {integrity: sha512-QFP8/CFwKCtXR5GDWt2EFZpqKzFMFaVdV8fR8683D7Z5JySW44MFPnv/I4a497iiHCSEPfkTRqmJ5lLeEvRk0Q==}
 
   '@book000/pixivts@0.43.37':
     resolution: {integrity: sha512-4URArWlSi6ezUV0PhjZL7kJfrqVehR8GEb0Rgzxs+hsw+7bqlAoFHXZUGLvz2OTBLenQcRmdJGuN7zLKYqMY7w==}
@@ -920,8 +920,8 @@ packages:
     resolution: {integrity: sha512-gIXjKqtFuWEgzFRJA9WCQeSJLZDjgJUOMCMzxtvFq/37KojM1BFGufqsCy0r4qSQmYLsZYMeyRqzIWOMup03sw==}
     engines: {node: '>=14'}
 
-  form-data@4.0.4:
-    resolution: {integrity: sha512-KrGhL9Q4zjj0kiUt5OO4Mr/A/jlI2jDYs5eHBpYHPcBEVSiipAvn2Ko2HnPe20rmcuuvMHNdZFp+4IlGTMF0Ow==}
+  form-data@4.0.5:
+    resolution: {integrity: sha512-8RipRLol37bNs2bhoV67fiTEvdTrbMUYcFTiy3+wuuOnUog2QBHCZWXDRijWQfAkhBj2Uf5UnVaiWwA5vdd82w==}
     engines: {node: '>= 6'}
 
   fsevents@2.3.3:
@@ -1911,11 +1911,11 @@ snapshots:
       - supports-color
       - typescript
 
-  '@book000/node-utils@1.18.161':
+  '@book000/node-utils@1.18.162':
     dependencies:
       axios: 1.13.2
       cycle: 1.0.3
-      form-data: 4.0.4
+      form-data: 4.0.5
       jsonc-parser: 3.3.1
       moment-timezone: 0.6.0
       winston: 3.18.3
@@ -2335,7 +2335,7 @@ snapshots:
   axios@1.13.2:
     dependencies:
       follow-redirects: 1.15.11
-      form-data: 4.0.4
+      form-data: 4.0.5
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
       - debug
@@ -2895,7 +2895,7 @@ snapshots:
       cross-spawn: 7.0.6
       signal-exit: 4.1.0
 
-  form-data@4.0.4:
+  form-data@4.0.5:
     dependencies:
       asynckit: 0.4.0
       combined-stream: 1.0.8
