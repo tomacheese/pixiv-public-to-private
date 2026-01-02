@@ -15,8 +15,8 @@ importers:
         specifier: 1.24.9
         version: 1.24.9
       '@book000/pixivts':
-        specifier: 0.45.8
-        version: 0.45.8(typescript@5.9.3)
+        specifier: 0.45.9
+        version: 0.45.9(typescript@5.9.3)
       '@types/node':
         specifier: 24.10.4
         version: 24.10.4
@@ -54,8 +54,8 @@ packages:
   '@book000/node-utils@1.24.9':
     resolution: {integrity: sha512-SlLpyHay9iw+JpWnB/O9wecxbztwQdoJNRWuHJdWv8rGBwc4nL7PLS/DMCW5z6NvVawUH1DbzbYrYoca+CYYUg==}
 
-  '@book000/pixivts@0.45.8':
-    resolution: {integrity: sha512-SB9CES6b4cgdoITkVO4jXeiUaKG7qpltmS7boN95wDfNgmqeigKqCuSgd1DnM1q9zulRBW4x/Lbm47auV+dYbg==}
+  '@book000/pixivts@0.45.9':
+    resolution: {integrity: sha512-50cnVTlw6BN4DxQntQtjuyq+ck89x1bsuyJcfV0l06DJ6RG/NFAnCWYCqepUURsF8V2jhBs60rfA09E4XyGB7w==}
 
   '@colors/colors@1.6.0':
     resolution: {integrity: sha512-Ir+AOibqzrIsL6ajt3Rz3LskB7OiMVHqltZmspbW/TJuTVuyOMirVqAkjfY6JISiLHgyNqicAC8AyHHGzNd/dA==}
@@ -1391,8 +1391,8 @@ packages:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
     engines: {node: '>=6'}
 
-  qs@6.14.0:
-    resolution: {integrity: sha512-YWWTjgABSKcvs/nWBi9PycY/JiPJqOD4JA6o9Sej2AtvSGarXxKC3OQSk4pAarbdQlKAh5D4FCQkJNkW+GAn3w==}
+  qs@6.14.1:
+    resolution: {integrity: sha512-4EK3+xJl8Ts67nLYNwqw/dsFVnCf+qR7RgXSK9jEEm9unao3njwMDdmsdvoKBKHzxd7tCYz5e5M+SnMjdtXGQQ==}
     engines: {node: '>=0.6'}
 
   readable-stream@3.6.2:
@@ -1867,12 +1867,12 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@book000/pixivts@0.45.8(typescript@5.9.3)':
+  '@book000/pixivts@0.45.9(typescript@5.9.3)':
     dependencies:
       '@types/qs': 6.14.0
       axios: 1.13.2
       mysql2: 3.16.0
-      qs: 6.14.0
+      qs: 6.14.1
       snake-camel-types: 1.0.1(typescript@5.9.3)
       typeorm: 0.3.28(mysql2@3.16.0)
       typeorm-naming-strategies: 4.1.0(typeorm@0.3.28(mysql2@3.16.0))
@@ -3284,7 +3284,7 @@ snapshots:
 
   punycode@2.3.1: {}
 
-  qs@6.14.0:
+  qs@6.14.1:
     dependencies:
       side-channel: 1.1.0
 
