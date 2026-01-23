@@ -37,4 +37,9 @@ pnpm install
 - 既存のプロジェクトルールがある場合はそれを優先する。
 
 ## リポジトリ固有
-- 目的: Changes all illustrations and novels publicly bookmarked on pixiv to private bookmarks.
+- 概要: Changes all illustrations and novels publicly bookmarked on pixiv to private bookmarks.
+- 主要言語: TypeScript
+- パッケージマネージャー: pnpm
+- 主なエントリポイント: `src/main.ts`
+- CI 定義: `.github/workflows/` を参照
+- 実行環境: `Dockerfile` を使用
