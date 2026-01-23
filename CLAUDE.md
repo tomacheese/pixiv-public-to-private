@@ -94,3 +94,4 @@ pnpm install
 6. PR 本文の崩れがないことを確認する。
 
 ## リポジトリ固有
+- 目的: Changes all illustrations and novels publicly bookmarked on pixiv to private bookmarks.

@@ -41,3 +41,4 @@ pnpm install
 ## ドキュメント更新
 
 ## リポジトリ固有
+- 目的: Changes all illustrations and novels publicly bookmarked on pixiv to private bookmarks.

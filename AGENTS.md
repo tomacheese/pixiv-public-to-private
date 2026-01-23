@@ -25,3 +25,4 @@
 - ログに機密情報を出力しない。
 
 ## リポジトリ固有
+- 目的: Changes all illustrations and novels publicly bookmarked on pixiv to private bookmarks.
