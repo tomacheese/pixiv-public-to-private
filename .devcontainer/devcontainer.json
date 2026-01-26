@@ -13,10 +13,7 @@
   ],
   "customizations": {
     "settings": {
-      "git.branchProtection": [
-        "main",
-        "master"
-      ],
+      "git.branchProtection": ["main", "master"],
       "[typescript]": {
         "editor.codeActionsOnSave": {
           "source.organizeImports": false
@@ -26,14 +23,9 @@
       "editor.formatOnSave": true
     },
     "vscode": {
-      "extensions": [
-        "esbenp.prettier-vscode"
-      ],
+      "extensions": ["esbenp.prettier-vscode"],
       "settings": {
-        "git.branchProtection": [
-          "main",
-          "master"
-        ],
+        "git.branchProtection": ["main", "master"],
         "[typescript]": {
           "editor.codeActionsOnSave": {
             "source.organizeImports": "never"
@@ -43,8 +35,6 @@
         "editor.formatOnSave": true
       }
     },
-    "extensions": [
-      "esbenp.prettier-vscode"
-    ]
+    "extensions": ["esbenp.prettier-vscode"]
   }
 }

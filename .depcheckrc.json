@@ -1,7 +1,3 @@
 {
-  "ignores": [
-    "@types/node",
-    "run-z",
-    "eslint-config-standard"
-  ]
+  "ignores": ["@types/node", "run-z", "eslint-config-standard"]
 }
