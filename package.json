@@ -29,7 +29,7 @@
     "@book000/eslint-config": "1.13.4",
     "@book000/node-utils": "1.24.53",
     "@book000/pixivts": "0.45.53",
-    "@types/node": "24.10.11",
+    "@types/node": "24.10.12",
     "eslint": "10.0.0",
     "eslint-config-standard": "17.1.0",
     "prettier": "3.8.1",
