@@ -15,8 +15,8 @@ importers:
         specifier: 1.24.58
         version: 1.24.58
       '@book000/pixivts':
-        specifier: 0.45.60
-        version: 0.45.60(typescript@5.9.3)
+        specifier: 0.45.61
+        version: 0.45.61(typescript@5.9.3)
       '@types/node':
         specifier: 24.10.13
         version: 24.10.13
@@ -54,8 +54,8 @@ packages:
   '@book000/node-utils@1.24.58':
     resolution: {integrity: sha512-4ttbzT+vF9h8rXrHderSQ67EQVzixowHxU4WJcvTSRu+OITm9/SV5z61Rd0O2t+jnveyy5mz5qi9DjcLsLMj+w==}
 
-  '@book000/pixivts@0.45.60':
-    resolution: {integrity: sha512-Z46NyRjWyNTL2/KUCsbyIZl1LNG9HWAKXe4srTzVXXy/0q+GbHMe4d+FLJwdmoL7dfc91YjE3/6duNDlUPHOvQ==}
+  '@book000/pixivts@0.45.61':
+    resolution: {integrity: sha512-USZcu9JfeC0Rn5pxEVNp0o87RdX2JJ8vIAjogqZ4cfD6eN4zQgxek6dFIkrwtar8QjSNO2Rf0tonkEXi1jccMw==}
 
   '@colors/colors@1.6.0':
     resolution: {integrity: sha512-Ir+AOibqzrIsL6ajt3Rz3LskB7OiMVHqltZmspbW/TJuTVuyOMirVqAkjfY6JISiLHgyNqicAC8AyHHGzNd/dA==}
@@ -1412,8 +1412,8 @@ packages:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
     engines: {node: '>=6'}
 
-  qs@6.14.1:
-    resolution: {integrity: sha512-4EK3+xJl8Ts67nLYNwqw/dsFVnCf+qR7RgXSK9jEEm9unao3njwMDdmsdvoKBKHzxd7tCYz5e5M+SnMjdtXGQQ==}
+  qs@6.14.2:
+    resolution: {integrity: sha512-V/yCWTTF7VJ9hIh18Ugr2zhJMP01MY7c5kh4J870L7imm6/DIzBsNLTXzMwUA3yZ5b/KBqLx8Kp3uRvd7xSe3Q==}
     engines: {node: '>=0.6'}
 
   readable-stream@3.6.2:
@@ -1884,12 +1884,12 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@book000/pixivts@0.45.60(typescript@5.9.3)':
+  '@book000/pixivts@0.45.61(typescript@5.9.3)':
     dependencies:
       '@types/qs': 6.14.0
       axios: 1.13.5
       mysql2: 3.17.0
-      qs: 6.14.1
+      qs: 6.14.2
       snake-camel-types: 1.0.1(typescript@5.9.3)
       typeorm: 0.3.28(mysql2@3.17.0)
       typeorm-naming-strategies: 4.1.0(typeorm@0.3.28(mysql2@3.17.0))
@@ -3319,7 +3319,7 @@ snapshots:
 
   punycode@2.3.1: {}
 
-  qs@6.14.1:
+  qs@6.14.2:
     dependencies:
       side-channel: 1.1.0
 
