@@ -15,8 +15,8 @@ importers:
         specifier: 1.24.74
         version: 1.24.74
       '@book000/pixivts':
-        specifier: 0.45.87
-        version: 0.45.87(@types/node@24.10.15)(typescript@5.9.3)
+        specifier: 0.45.88
+        version: 0.45.88(@types/node@24.10.15)(typescript@5.9.3)
       '@types/node':
         specifier: 24.10.15
         version: 24.10.15
@@ -53,8 +53,8 @@ packages:
   '@book000/node-utils@1.24.74':
     resolution: {integrity: sha512-fk0LDwNAebQlZ9UvChttAVLvFP/I3crq5MIwITKtjnaFDgKdsUIVPYI7BwAfoPp/BPLPlkVXf89V2Iy+Dt/Pxw==}
 
-  '@book000/pixivts@0.45.87':
-    resolution: {integrity: sha512-FysaJBhBT8RTBlCsTm8GLBQHeuL7K3lYxHM9aKaCDGkjIo5Kqyd4DYpCLfeJT/g5Tj+i4QFKWhWrkkyNadDvNg==}
+  '@book000/pixivts@0.45.88':
+    resolution: {integrity: sha512-kLDYbpnmyH1+l4WvW9D/D5ntam+XjO7wk9rhEhxy4RddnS7FDwmlebv9adDA5PPW1USSFfaOJ+mYmMRPt1HIog==}
 
   '@colors/colors@1.6.0':
     resolution: {integrity: sha512-Ir+AOibqzrIsL6ajt3Rz3LskB7OiMVHqltZmspbW/TJuTVuyOMirVqAkjfY6JISiLHgyNqicAC8AyHHGzNd/dA==}
@@ -583,9 +583,6 @@ packages:
   aws-ssl-profiles@1.1.2:
     resolution: {integrity: sha512-NZKeq9AfyQvEeNlN0zSYAaWrmBffJh3IELMZfRpJVWgrpEbtEpnjvzqBPf+mxoI287JohRDoa+/nsfqqiZmF6g==}
     engines: {node: '>= 6.0.0'}
-
-  axios@1.13.5:
-    resolution: {integrity: sha512-cz4ur7Vb0xS4/KUN0tPWe44eqxrIu31me+fbang3ijiNscE129POzipJJA6zniq2C/Z6sJCjMimjS8Lc/GAs8Q==}
 
   axios@1.13.6:
     resolution: {integrity: sha512-ChTCHMouEe2kn713WHbQGcuYrr6fXTBiu460OTwWrWob16g1bXn4vtz07Ope7ewMozJAnEquLk5lWQWtBig9DQ==}
@@ -2099,10 +2096,10 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@book000/pixivts@0.45.87(@types/node@24.10.15)(typescript@5.9.3)':
+  '@book000/pixivts@0.45.88(@types/node@24.10.15)(typescript@5.9.3)':
     dependencies:
       '@types/qs': 6.14.0
-      axios: 1.13.5
+      axios: 1.13.6
       mysql2: 3.18.2(@types/node@24.10.15)
       qs: 6.15.0
       snake-camel-types: 1.0.1(typescript@5.9.3)
@@ -2597,14 +2594,6 @@ snapshots:
       possible-typed-array-names: 1.1.0
 
   aws-ssl-profiles@1.1.2: {}
-
-  axios@1.13.5:
-    dependencies:
-      follow-redirects: 1.15.11
-      form-data: 4.0.5
-      proxy-from-env: 1.1.0
-    transitivePeerDependencies:
-      - debug
 
   axios@1.13.6:
     dependencies:
