@@ -12,8 +12,8 @@ importers:
         specifier: 1.14.7
         version: 1.14.7(eslint@10.2.0)(typescript@5.9.3)
       '@book000/node-utils':
-        specifier: 1.24.122
-        version: 1.24.122
+        specifier: 1.24.123
+        version: 1.24.123
       '@book000/pixivts':
         specifier: 0.46.47
         version: 0.46.47(@types/node@24.12.2)(typescript@5.9.3)
@@ -50,8 +50,8 @@ packages:
     peerDependencies:
       eslint: 10.2.0
 
-  '@book000/node-utils@1.24.122':
-    resolution: {integrity: sha512-hTalMn2PaPrVq4LEQtVw8yYlYZyuBDEBd2HZ1Nlvm/C50W/2/ek9HxMbCjIPUxDhN0cO7SSYkC6m0pqTnljXdA==}
+  '@book000/node-utils@1.24.123':
+    resolution: {integrity: sha512-IefkdEUR7Vs907qap+TJmhY1b6ZbxAJPRJvqk+xq3qtJ+K5hS2UKxhzrGXLD4WUjfZbgMXN/ttx76ylHrqtGUg==}
 
   '@book000/pixivts@0.46.47':
     resolution: {integrity: sha512-zL+m7GaeqcJdUNOptZlAVwvsDn26H4cC6vAY72n08AyHyuVeip/UhuxnY1ON1scigWTVXl3RKs+BgWLptMFhBA==}
@@ -1917,7 +1917,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@book000/node-utils@1.24.122':
+  '@book000/node-utils@1.24.123':
     dependencies:
       axios: 1.14.0
       cycle: 1.0.3
