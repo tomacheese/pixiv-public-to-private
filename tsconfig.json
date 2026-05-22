@@ -7,7 +7,6 @@
     "rootDir": "./src",
     "outDir": "./dist",
     "removeComments": true,
-    "ignoreDeprecations": "6.0",
     "esModuleInterop": true,
     "allowJs": true,
     "checkJs": true,
@@ -23,11 +22,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "experimentalDecorators": true,
-    "baseUrl": ".",
-    "newLine": "LF",
-    "paths": {
-      "@/*": ["src/*"]
-    }
+    "newLine": "LF"
   },
   "include": ["src/**/*"]
 }
