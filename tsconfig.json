@@ -4,6 +4,7 @@
     "module": "Node16",
     "moduleResolution": "Node16",
     "lib": ["ESNext", "esnext.AsyncIterable"],
+    "rootDir": "./src",
     "outDir": "./dist",
     "removeComments": true,
     "esModuleInterop": true,
@@ -21,11 +22,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "experimentalDecorators": true,
-    "baseUrl": ".",
-    "newLine": "LF",
-    "paths": {
-      "@/*": ["src/*"]
-    }
+    "newLine": "LF"
   },
   "include": ["src/**/*"]
 }
