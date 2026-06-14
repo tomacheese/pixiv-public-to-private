@@ -234,13 +234,15 @@ async function main() {
     )
   }
 
-  // Illusts
-  await processIllusts(pixiv, isDeleteBookmarkForDeleted)
+  try {
+    // Illusts
+    await processIllusts(pixiv, isDeleteBookmarkForDeleted)
 
-  // Novels
-  await processNovels(pixiv, isDeleteBookmarkForDeleted)
-
-  await pixiv.close()
+    // Novels
+    await processNovels(pixiv, isDeleteBookmarkForDeleted)
+  } finally {
+    await pixiv.close()
+  }
 }
 
 ;(async () => {
