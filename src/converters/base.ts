@@ -15,9 +15,9 @@ export interface FetchPageResult<T> {
  * Result of converting an item (e.g., making a bookmark private).
  */
 export interface ConvertResult {
-  /** レスポンスステータスコード */
+  /** Response status code */
   status: number
-  /** レスポンスボディ */
+  /** Response body */
   data: unknown
 }
 
