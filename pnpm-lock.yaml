@@ -15,8 +15,8 @@ importers:
         specifier: 1.24.231
         version: 1.24.231
       '@book000/pixivts':
-        specifier: 0.52.3
-        version: 0.52.3(@types/node@24.13.2)(typescript@6.0.3)
+        specifier: 0.53.0
+        version: 0.53.0(@types/node@24.13.2)(typescript@6.0.3)
       '@types/node':
         specifier: 24.13.2
         version: 24.13.2
@@ -53,8 +53,8 @@ packages:
   '@book000/node-utils@1.24.231':
     resolution: {integrity: sha512-I4VMD785C98v32+mQesor5SBChM1NO/XPCj/CXxm06VxnclAQ0L41ORaZQ0btIaZmc4TrrTQO3mp8CoXFxlkXA==}
 
-  '@book000/pixivts@0.52.3':
-    resolution: {integrity: sha512-OoTwoxAWZL4Tr6loMFgcvB1vFVCP5VCmEz2rJdLdW0BKJS5d+gxn3hQ+kMIHBhrS8Y51REJVAIW120RTwzoZww==}
+  '@book000/pixivts@0.53.0':
+    resolution: {integrity: sha512-2adw+N/4wu55h1KQlDmp/f4ntKefCvV7/MFnCxVvKmf4ewZWSFtA0o9O67E+Kj7JCmQDl4Mt4ftSe9gUjhDNuQ==}
 
   '@colors/colors@1.6.0':
     resolution: {integrity: sha512-Ir+AOibqzrIsL6ajt3Rz3LskB7OiMVHqltZmspbW/TJuTVuyOMirVqAkjfY6JISiLHgyNqicAC8AyHHGzNd/dA==}
@@ -1761,7 +1761,7 @@ snapshots:
       winston: 3.19.0
       winston-daily-rotate-file: 5.0.0(winston@3.19.0)
 
-  '@book000/pixivts@0.52.3(@types/node@24.13.2)(typescript@6.0.3)':
+  '@book000/pixivts@0.53.0(@types/node@24.13.2)(typescript@6.0.3)':
     dependencies:
       '@types/qs': 6.15.1
       mysql2: 3.22.5(@types/node@24.13.2)
