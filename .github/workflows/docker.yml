@@ -1,5 +1,5 @@
-# 任意のレジストリに Docker image を公開orビルドする。
-# プルリクの作成・更新時に動作する。
+# Publish or build a Docker image to an arbitrary registry.
+# Runs when a pull request is created or updated.
 
 name: Docker
 
@@ -24,8 +24,8 @@ on:
       - closed
 
 concurrency:
-  # pull_request と pull_request_target が同一グループになると互いをキャンセルしてしまうため
-  # event_name を含めることで両イベントのキャンセルを独立させる
+  # If pull_request and pull_request_target share the same group, they would cancel each other,
+  # so include event_name to make the cancellation of each event independent
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
@@ -33,7 +33,7 @@ jobs:
   post-approval-request:
     name: Post approval request
     runs-on: ubuntu-latest
-    # フォーク PR のときのみ承認リクエストを投稿する（closed は不要）
+    # Only post an approval request for fork PRs (not needed for closed)
     if: github.event_name == 'pull_request_target' && github.event.pull_request.head.repo.full_name != github.repository && github.event.action != 'closed'
     continue-on-error: true
     permissions:
@@ -46,7 +46,7 @@ jobs:
         with:
           issue-number: ${{ github.event.pull_request.number }}
           comment-author: github-actions[bot]
-          body-includes: Environment 承認待ち
+          body-includes: Waiting for environment approval
 
       - name: Post or update approval request comment
         uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5
@@ -55,19 +55,19 @@ jobs:
           issue-number: ${{ github.event.pull_request.number }}
           edit-mode: replace
           body: |
-            ## Environment 承認待ち
+            ## Waiting for environment approval
 
-            この PR のビルドを実行するには、Environment `fork-pr-build` の承認が必要です。
+            To run the build for this PR, the `fork-pr-build` environment must be approved.
 
-            [Actions run を確認して承認してください](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}?pr=${{ github.event.pull_request.number }})
+            [Check and approve the Actions run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}?pr=${{ github.event.pull_request.number }})
 
   approval-gate:
     name: Approval gate
     runs-on: ubuntu-latest
     needs: post-approval-request
-    # post-approval-request の結果に関わらず常に実行する
+    # Always run regardless of the post-approval-request result
     if: always()
-    # フォーク PR かつ closed でない場合のみ Environment で手動承認が必要
+    # Manual environment approval is only required for fork PRs that are not closed
     environment: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.head.repo.full_name != github.repository && github.event.action != 'closed' && 'fork-pr-build' || '' }}
     permissions: {}
     steps:
@@ -89,4 +89,3 @@ jobs:
     secrets:
       DOCKER_USERNAME: ${{ github.actor }}
       DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
-
