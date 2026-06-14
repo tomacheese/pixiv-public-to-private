@@ -1,6 +1,9 @@
-import { BookmarkRestrict, Pixiv, PixivRateLimitError } from '@book000/pixivts'
+import { Pixiv } from '@book000/pixivts'
 import { Logger } from '@book000/node-utils'
 import fs from 'node:fs'
+import { BaseConverter } from './converters/base'
+import { IllustBookmarksConverter } from './converters/illust-bookmarks'
+import { NovelBookmarksConverter } from './converters/novel-bookmarks'
 
 function isJSON(value: string): boolean {
   try {
@@ -73,147 +76,6 @@ async function getPixiv() {
   return pixiv
 }
 
-async function processIllusts(
-  pixiv: Pixiv,
-  isDeleteBookmarkForDeleted: boolean
-) {
-  const logger = Logger.configure('processIllusts')
-
-  let maxBookmarkId: number | undefined
-
-  try {
-    while (true) {
-      const publicBookmarkIllusts = await pixiv.userBookmarksIllust({
-        userId: Number(pixiv.userId),
-        restrict: BookmarkRestrict.PUBLIC,
-        maxBookmarkId,
-      })
-      if (publicBookmarkIllusts.status !== 200) {
-        logger.error(
-          `🚨 Failed to get public bookmark illusts: ${publicBookmarkIllusts.status}`
-        )
-        logger.error(JSON.stringify(publicBookmarkIllusts.data))
-        process.exitCode = 1
-        return
-      }
-
-      const illusts = publicBookmarkIllusts.data.illusts
-      logger.info(`🖼️ Public illust bookmarks: ${illusts.length}`)
-      for (const illust of illusts) {
-        logger.info(`🖼️ Illust: ${illust.title} (${illust.id})`)
-
-        const result = await pixiv.illustBookmarkAdd({
-          illustId: illust.id,
-          restrict: BookmarkRestrict.PRIVATE,
-        })
-
-        if (result.status === 404) {
-          // If the illust is not found, skip it
-          logger.error(`🚨 Illust not found: ${illust.id}`)
-          if (isDeleteBookmarkForDeleted) {
-            logger.info(`🚨 Deleting bookmark: ${illust.id}`)
-            await pixiv.illustBookmarkDelete({
-              illustId: illust.id.toString(),
-            })
-          }
-          continue
-        } else if (result.status !== 200) {
-          // If the request failed, log the error and continue
-          logger.error(`🚨 Failed to add bookmark: ${result.status}`)
-          logger.error(JSON.stringify(result.data))
-          process.exitCode = 1
-          continue
-        }
-      }
-
-      if (!publicBookmarkIllusts.data.next_url) {
-        break
-      }
-
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-
-      const qs = Pixiv.parseQueryString(publicBookmarkIllusts.data.next_url)
-      maxBookmarkId = Number(qs.max_bookmark_id)
-    }
-  } catch (error) {
-    if (error instanceof PixivRateLimitError) {
-      logger.error('🚨 Rate limit exceeded')
-    }
-
-    throw error
-  }
-}
-
-async function processNovels(
-  pixiv: Pixiv,
-  isDeleteBookmarkForDeleted: boolean
-) {
-  const logger = Logger.configure('processNovels')
-
-  let maxBookmarkId: number | undefined
-
-  try {
-    while (true) {
-      const publicBookmarkNovels = await pixiv.userBookmarksNovel({
-        userId: Number(pixiv.userId),
-        restrict: BookmarkRestrict.PUBLIC,
-        maxBookmarkId,
-      })
-      if (publicBookmarkNovels.status !== 200) {
-        logger.error(
-          `🚨 Failed to get public bookmark novels: ${publicBookmarkNovels.status}`
-        )
-        logger.error(JSON.stringify(publicBookmarkNovels.data))
-        process.exitCode = 1
-        return
-      }
-
-      const novels = publicBookmarkNovels.data.novels
-      logger.info(`📕 Public novel bookmarks: ${novels.length}`)
-      for (const novel of novels) {
-        logger.info(`📕 Novel: ${novel.title} (${novel.id})`)
-
-        const result = await pixiv.novelBookmarkAdd({
-          novelId: novel.id.toString(),
-          restrict: BookmarkRestrict.PRIVATE,
-        })
-        if (result.status === 404) {
-          // If the novel is not found, skip it
-          logger.error(`🚨 Novel not found: ${novel.id}`)
-          if (isDeleteBookmarkForDeleted) {
-            logger.info(`🚨 Deleting bookmark: ${novel.id}`)
-            await pixiv.novelBookmarkDelete({
-              novelId: novel.id.toString(),
-            })
-          }
-          continue
-        } else if (result.status !== 200) {
-          // If the request failed, log the error and continue
-          logger.error(`🚨 Failed to add bookmark: ${result.status}`)
-          logger.error(JSON.stringify(result.data))
-          process.exitCode = 1
-          continue
-        }
-      }
-
-      if (!publicBookmarkNovels.data.next_url) {
-        break
-      }
-
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-
-      const qs = Pixiv.parseQueryString(publicBookmarkNovels.data.next_url)
-      maxBookmarkId = Number(qs.max_bookmark_id)
-    }
-  } catch (error) {
-    if (error instanceof PixivRateLimitError) {
-      logger.error('🚨 Rate limit exceeded')
-    }
-
-    throw error
-  }
-}
-
 async function main() {
   const logger = Logger.configure('main')
 
@@ -234,12 +96,15 @@ async function main() {
     )
   }
 
-  try {
-    // Illusts
-    await processIllusts(pixiv, isDeleteBookmarkForDeleted)
+  const converters: BaseConverter<unknown>[] = [
+    new IllustBookmarksConverter(pixiv, isDeleteBookmarkForDeleted),
+    new NovelBookmarksConverter(pixiv, isDeleteBookmarkForDeleted),
+  ]
 
-    // Novels
-    await processNovels(pixiv, isDeleteBookmarkForDeleted)
+  try {
+    for (const converter of converters) {
+      await converter.run()
+    }
   } finally {
     await pixiv.close()
   }
