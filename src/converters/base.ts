@@ -104,7 +104,12 @@ export abstract class BaseConverter<T> {
           }
         }
 
-        if (!page.nextMaxId) break
+        if (page.nextMaxId === undefined) break
+        if (!Number.isFinite(page.nextMaxId)) {
+          this.logger.error(`🚨 Invalid nextMaxId: ${page.nextMaxId}`)
+          process.exitCode = 1
+          return
+        }
         await new Promise((resolve) => setTimeout(resolve, 1000))
         maxId = page.nextMaxId
       }

@@ -35,7 +35,7 @@ export class IllustBookmarksConverter extends BaseConverter<PixivIllustItem> {
 
     return {
       items: response.data.illusts,
-      nextMaxId,
+      nextMaxId: Number.isFinite(nextMaxId) ? nextMaxId : undefined,
     }
   }
 
