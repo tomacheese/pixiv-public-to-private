@@ -5,6 +5,8 @@ import { BaseConverter, ConvertResult, FetchPageResult } from './base'
  * Converter for novel bookmarks. It fetches public novel bookmarks and makes them private. If the novel has been deleted, it can optionally delete the bookmark as well.
  */
 export class NovelBookmarksConverter extends BaseConverter<PixivNovelItem> {
+  protected readonly itemTypeName = 'Novel'
+
   protected async fetchPage(
     maxId?: number
   ): Promise<FetchPageResult<PixivNovelItem> | null> {
@@ -23,7 +25,7 @@ export class NovelBookmarksConverter extends BaseConverter<PixivNovelItem> {
     }
 
     this.logger.info(
-      `🖼️ Public novel bookmarks: ${response.data.novels.length}`
+      `📕 Public novel bookmarks: ${response.data.novels.length}`
     )
 
     const nextUrl = response.data.next_url
@@ -39,6 +41,10 @@ export class NovelBookmarksConverter extends BaseConverter<PixivNovelItem> {
 
   protected describe(item: PixivNovelItem): string {
     return `📕 Novel: ${item.title} (${item.id})`
+  }
+
+  protected getId(item: PixivNovelItem): number {
+    return item.id
   }
 
   protected async toPrivate(item: PixivNovelItem): Promise<ConvertResult> {

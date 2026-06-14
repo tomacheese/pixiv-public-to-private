@@ -5,6 +5,8 @@ import { BaseConverter, ConvertResult, FetchPageResult } from './base'
  * Converter for illustration bookmarks. It fetches public illustration bookmarks and makes them private. If the illustration has been deleted, it can optionally delete the bookmark as well.
  */
 export class IllustBookmarksConverter extends BaseConverter<PixivIllustItem> {
+  protected readonly itemTypeName = 'Illust'
+
   protected async fetchPage(
     maxId?: number
   ): Promise<FetchPageResult<PixivIllustItem> | null> {
@@ -39,6 +41,10 @@ export class IllustBookmarksConverter extends BaseConverter<PixivIllustItem> {
 
   protected describe(item: PixivIllustItem): string {
     return `🖼️ Illust: ${item.title} (${item.id})`
+  }
+
+  protected getId(item: PixivIllustItem): number {
+    return item.id
   }
 
   protected async toPrivate(item: PixivIllustItem): Promise<ConvertResult> {

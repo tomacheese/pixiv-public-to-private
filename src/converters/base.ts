@@ -53,6 +53,9 @@ export abstract class BaseConverter<T> {
     this.logger = Logger.configure(this.constructor.name)
   }
 
+  /** Item type name used in log messages (e.g. "Illust", "Novel") */
+  protected abstract readonly itemTypeName: string
+
   /** Get one page of public items */
   protected abstract fetchPage(
     maxId?: number
@@ -60,6 +63,9 @@ export abstract class BaseConverter<T> {
 
   /** Make the item a string for displaying logs */
   protected abstract describe(item: T): string
+
+  /** Get the item's ID for displaying logs */
+  protected abstract getId(item: T): number | string
 
   /** Make items private. Determine and return 404 (target deleted) */
   protected abstract toPrivate(item: T): Promise<ConvertResult>
@@ -78,18 +84,21 @@ export abstract class BaseConverter<T> {
         }
 
         for (const item of page.items) {
-          this.logger.info(`➡️ ${this.describe(item)}`)
+          this.logger.info(this.describe(item))
           const result = await this.toPrivate(item)
 
           if (result.status === 404) {
-            this.logger.error(`🚨 Not found: ${this.describe(item)}`)
+            this.logger.error(
+              `🚨 ${this.itemTypeName} not found: ${this.getId(item)}`
+            )
             if (this.isDeleteForDeletedItems) {
+              this.logger.info(`🚨 Deleting bookmark: ${this.getId(item)}`)
               await this.removeForDeletedItem(item)
             }
             continue
           }
           if (result.status !== 200) {
-            this.logger.error(`🚨 Failed: ${result.status}`)
+            this.logger.error(`🚨 Failed to add bookmark: ${result.status}`)
             this.logger.error(JSON.stringify(result.data))
             process.exitCode = 1
           }
