@@ -96,8 +96,6 @@ async function main() {
     )
   }
 
-  // TODO: Add FollowConverter once it's implemented (requires follow-related
-  // API support in @book000/pixivts).
   const converters: BaseConverter<unknown>[] = [
     new IllustBookmarksConverter(pixiv, isDeleteBookmarkForDeleted),
     new NovelBookmarksConverter(pixiv, isDeleteBookmarkForDeleted),
