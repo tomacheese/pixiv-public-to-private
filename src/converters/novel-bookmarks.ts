@@ -35,7 +35,7 @@ export class NovelBookmarksConverter extends BaseConverter<PixivNovelItem> {
 
     return {
       items: response.data.novels,
-      nextMaxId,
+      nextMaxId: Number.isFinite(nextMaxId) ? nextMaxId : undefined,
     }
   }
 
