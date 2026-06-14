@@ -12,8 +12,8 @@ importers:
         specifier: 1.14.61
         version: 1.14.61(eslint@10.4.1)(typescript@6.0.3)
       '@book000/node-utils':
-        specifier: 1.24.226
-        version: 1.24.226
+        specifier: 1.24.227
+        version: 1.24.227
       '@book000/pixivts':
         specifier: 0.48.95
         version: 0.48.95(@types/node@24.13.2)(typescript@6.0.3)
@@ -50,8 +50,8 @@ packages:
     peerDependencies:
       eslint: 10.4.1
 
-  '@book000/node-utils@1.24.226':
-    resolution: {integrity: sha512-VafgtG/GiHWj09Atx/81viLvWwmmbNoYqnhx0i23qMbVbHWByOmgRanxNaqwW+OCb9uzMES3apZd7YzlnJ7GIw==}
+  '@book000/node-utils@1.24.227':
+    resolution: {integrity: sha512-r4Q4cls84AfX4jHwYdkqwnwfbf4GrblgpYN2MwXkFVu4hY++Qlj2n1hlH1e2PF/JM+iki6j4YRBQlvWZe4UQjA==}
 
   '@book000/pixivts@0.48.95':
     resolution: {integrity: sha512-mmpS6IGDTAGPncHt5Y/81t/fZI2OubVdWg0stjt/Yj50EME7vxqhU7zLt5iR/jkSsZAv7WuGXL/m5pLv7NTBMA==}
@@ -1749,7 +1749,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@book000/node-utils@1.24.226':
+  '@book000/node-utils@1.24.227':
     dependencies:
       cycle: 1.0.3
       jsonc-parser: 3.3.1
