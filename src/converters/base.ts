@@ -1,5 +1,5 @@
 import { Logger } from '@book000/node-utils'
-import { Pixiv, PixivRateLimitError } from '@book000/pixivts'
+import { PixivClient } from '@book000/pixivts'
 
 /**
  * Result of fetching one page of items from Pixiv API.
@@ -28,7 +28,7 @@ export abstract class BaseConverter<T> {
   /**
    * Pixiv API client instance
    */
-  protected readonly pixiv: Pixiv
+  protected readonly pixivClient: PixivClient
 
   /**
    * Whether to delete bookmarks for items that have been deleted on Pixiv
@@ -43,11 +43,11 @@ export abstract class BaseConverter<T> {
   /**
    * Constructor for BaseConverter
    *
-   * @param pixiv Pixiv API client instance
+   * @param pixivClient Pixiv API client instance
    * @param isDeleteForDeletedItems Whether to delete bookmarks for items that have been deleted on Pixiv
    */
-  constructor(pixiv: Pixiv, isDeleteForDeletedItems: boolean) {
-    this.pixiv = pixiv
+  constructor(pixivClient: PixivClient, isDeleteForDeletedItems: boolean) {
+    this.pixivClient = pixivClient
     this.isDeleteForDeletedItems = isDeleteForDeletedItems
 
     this.logger = Logger.configure(this.constructor.name)
@@ -75,49 +75,42 @@ export abstract class BaseConverter<T> {
 
   async run(): Promise<void> {
     let maxId: number | undefined
-    try {
-      while (true) {
-        const page = await this.fetchPage(maxId)
-        if (!page) {
-          process.exitCode = 1
-          return
-        }
-
-        for (const item of page.items) {
-          this.logger.info(this.describe(item))
-          const result = await this.toPrivate(item)
-
-          if (result.status === 404) {
-            this.logger.error(
-              `🚨 ${this.itemTypeName} not found: ${this.getId(item)}`
-            )
-            if (this.isDeleteForDeletedItems) {
-              this.logger.info(`🚨 Deleting bookmark: ${this.getId(item)}`)
-              await this.removeForDeletedItem(item)
-            }
-            continue
-          }
-          if (result.status !== 200) {
-            this.logger.error(`🚨 Failed to add bookmark: ${result.status}`)
-            this.logger.error(JSON.stringify(result.data))
-            process.exitCode = 1
-          }
-        }
-
-        if (page.nextMaxId === undefined) break
-        if (!Number.isFinite(page.nextMaxId)) {
-          this.logger.error(`🚨 Invalid nextMaxId: ${page.nextMaxId}`)
-          process.exitCode = 1
-          return
-        }
-        await new Promise((resolve) => setTimeout(resolve, 1000))
-        maxId = page.nextMaxId
+    while (true) {
+      const page = await this.fetchPage(maxId)
+      if (!page) {
+        process.exitCode = 1
+        return
       }
-    } catch (error) {
-      if (error instanceof PixivRateLimitError) {
-        this.logger.error('🚨 Rate limit exceeded')
+
+      for (const item of page.items) {
+        this.logger.info(this.describe(item))
+        const result = await this.toPrivate(item)
+
+        if (result.status === 404) {
+          this.logger.error(
+            `🚨 ${this.itemTypeName} not found: ${this.getId(item)}`
+          )
+          if (this.isDeleteForDeletedItems) {
+            this.logger.info(`🚨 Deleting bookmark: ${this.getId(item)}`)
+            await this.removeForDeletedItem(item)
+          }
+          continue
+        }
+        if (result.status !== 200) {
+          this.logger.error(`🚨 Failed to add bookmark: ${result.status}`)
+          this.logger.error(JSON.stringify(result.data))
+          process.exitCode = 1
+        }
       }
-      throw error
+
+      if (page.nextMaxId === undefined) break
+      if (!Number.isFinite(page.nextMaxId)) {
+        this.logger.error(`🚨 Invalid nextMaxId: ${page.nextMaxId}`)
+        process.exitCode = 1
+        return
+      }
+      await new Promise((resolve) => setTimeout(resolve, 1000))
+      maxId = page.nextMaxId
     }
   }
 }

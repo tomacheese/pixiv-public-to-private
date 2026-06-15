@@ -1,9 +1,9 @@
-import { Pixiv } from '@book000/pixivts'
 import { Logger } from '@book000/node-utils'
 import fs from 'node:fs'
 import { BaseConverter } from './converters/base'
 import { IllustBookmarksConverter } from './converters/illust-bookmarks'
 import { NovelBookmarksConverter } from './converters/novel-bookmarks'
+import { PixivClient } from '@book000/pixivts'
 
 function isJSON(value: string): boolean {
   try {
@@ -53,39 +53,24 @@ async function getPixiv() {
     return
   }
 
-  const isEnabledResponseSave = !!process.env.RESPONSE_DB_HOSTNAME
-  const pixiv = await Pixiv.of(inputRefreshToken, {
-    debugOptions: {
-      outputResponse: {
-        enable: isEnabledResponseSave,
-      },
-    },
-  })
+  const pixivClient = await PixivClient.of(inputRefreshToken)
 
-  fs.writeFileSync(
-    tokenPath,
-    JSON.stringify({
-      access_token: pixiv.accessToken,
-      user: {
-        id: pixiv.userId,
-      },
-      refresh_token: pixiv.refreshToken,
-    })
-  )
+  // TODO: Since pixivts@0.56.2, it is no longer possible to obtain access tokens and refresh tokens.
+  // It is necessary to consider whether this can be obtained on the pixivts side. Refresh tokens have a near-infinite expiration date, so currently you have to renew them manually.
 
-  return pixiv
+  return pixivClient
 }
 
 async function main() {
   const logger = Logger.configure('main')
 
-  const pixiv = await getPixiv()
-  if (!pixiv) {
+  const pixivClient = await getPixiv()
+  if (!pixivClient) {
     logger.error(`🚨 Failed to get Pixiv instance`)
     process.exitCode = 1
     return
   }
-  const pixivUserId = pixiv.userId
+  const pixivUserId = pixivClient.userId
   logger.info(`📝 PIXIV_USER_ID: ${pixivUserId}`)
 
   const isDeleteBookmarkForDeleted =
@@ -97,16 +82,12 @@ async function main() {
   }
 
   const converters: BaseConverter<unknown>[] = [
-    new IllustBookmarksConverter(pixiv, isDeleteBookmarkForDeleted),
-    new NovelBookmarksConverter(pixiv, isDeleteBookmarkForDeleted),
+    new IllustBookmarksConverter(pixivClient, isDeleteBookmarkForDeleted),
+    new NovelBookmarksConverter(pixivClient, isDeleteBookmarkForDeleted),
   ]
 
-  try {
-    for (const converter of converters) {
-      await converter.run()
-    }
-  } finally {
-    await pixiv.close()
+  for (const converter of converters) {
+    await converter.run()
   }
 }
 
