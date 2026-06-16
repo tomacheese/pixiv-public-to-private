@@ -1,6 +1,6 @@
 {
   "name": "pixiv-public-to-private",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-18",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:24",
   "remoteUser": "node",
   "otherPortsAttributes": {
     "onAutoForward": "silent"
