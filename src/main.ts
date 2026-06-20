@@ -28,6 +28,19 @@ function isValidTokenJSON(data: object): data is { refresh_token: string } {
   }
 }
 
+async function getPixivClient(inputRefreshToken: string): Promise<PixivClient> {
+  const logger = Logger.configure('getPixivClient')
+  try {
+    const pixivClient = await PixivClient.of(inputRefreshToken)
+    return pixivClient
+  } catch (error) {
+    logger.error(
+      `🚨 Failed to initialize pixiv client: ${error instanceof Error ? error.message : String(error)}`
+    )
+    throw error
+  }
+}
+
 async function getPixiv() {
   const logger = Logger.configure('getPixiv')
   const tokenPath = process.env.PIXIV_TOKEN_PATH ?? 'data/token.json'
@@ -53,10 +66,18 @@ async function getPixiv() {
     return
   }
 
-  const pixivClient = await PixivClient.of(inputRefreshToken)
+  const pixivClient = await getPixivClient(inputRefreshToken)
 
-  // TODO: Since pixivts@0.56.2, it is no longer possible to obtain access tokens and refresh tokens.
-  // It is necessary to consider whether this can be obtained on the pixivts side. Refresh tokens have a near-infinite expiration date, so currently you have to renew them manually.
+  fs.writeFileSync(
+    tokenPath,
+    JSON.stringify({
+      access_token: pixivClient.getAccessToken(),
+      user: {
+        id: pixivClient.userId,
+      },
+      refresh_token: pixivClient.getRefreshToken(),
+    })
+  )
 
   return pixivClient
 }

@@ -58,7 +58,7 @@ export class NovelBookmarksConverter extends BaseConverter<PixivNovelItem> {
     })
     if (result.isErr) {
       return {
-        status: result.error.type === 'api_error' ? result.error.status : 0,
+        status: result.error.type === 'api_error' ? result.error.status : 500,
         data:
           result.error.type === 'api_error' ? result.error.body : result.error,
       }

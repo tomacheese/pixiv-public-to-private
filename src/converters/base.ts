@@ -74,43 +74,48 @@ export abstract class BaseConverter<T> {
   protected abstract removeForDeletedItem(item: T): Promise<void>
 
   async run(): Promise<void> {
-    let maxId: number | undefined
-    while (true) {
-      const page = await this.fetchPage(maxId)
-      if (!page) {
-        process.exitCode = 1
-        return
-      }
-
-      for (const item of page.items) {
-        this.logger.info(this.describe(item))
-        const result = await this.toPrivate(item)
-
-        if (result.status === 404) {
-          this.logger.error(
-            `🚨 ${this.itemTypeName} not found: ${this.getId(item)}`
-          )
-          if (this.isDeleteForDeletedItems) {
-            this.logger.info(`🚨 Deleting bookmark: ${this.getId(item)}`)
-            await this.removeForDeletedItem(item)
-          }
-          continue
-        }
-        if (result.status !== 200) {
-          this.logger.error(`🚨 Failed to add bookmark: ${result.status}`)
-          this.logger.error(JSON.stringify(result.data))
+    try {
+      let maxId: number | undefined
+      while (true) {
+        const page = await this.fetchPage(maxId)
+        if (!page) {
           process.exitCode = 1
+          return
         }
-      }
 
-      if (page.nextMaxId === undefined) break
-      if (!Number.isFinite(page.nextMaxId)) {
-        this.logger.error(`🚨 Invalid nextMaxId: ${page.nextMaxId}`)
-        process.exitCode = 1
-        return
+        for (const item of page.items) {
+          this.logger.info(this.describe(item))
+          const result = await this.toPrivate(item)
+
+          if (result.status === 404) {
+            this.logger.error(
+              `🚨 ${this.itemTypeName} not found: ${this.getId(item)}`
+            )
+            if (this.isDeleteForDeletedItems) {
+              this.logger.info(`🚨 Deleting bookmark: ${this.getId(item)}`)
+              await this.removeForDeletedItem(item)
+            }
+            continue
+          }
+          if (result.status !== 200) {
+            this.logger.error(`🚨 Failed to add bookmark: ${result.status}`)
+            this.logger.error(JSON.stringify(result.data))
+            process.exitCode = 1
+          }
+        }
+
+        if (page.nextMaxId === undefined) break
+        if (!Number.isFinite(page.nextMaxId)) {
+          this.logger.error(`🚨 Invalid nextMaxId: ${page.nextMaxId}`)
+          process.exitCode = 1
+          return
+        }
+        await new Promise((resolve) => setTimeout(resolve, 1000))
+        maxId = page.nextMaxId
       }
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-      maxId = page.nextMaxId
+    } catch (error) {
+      this.logger.error(`🚨 Unexpected error`, error as Error)
+      process.exitCode = 1
     }
   }
 }
