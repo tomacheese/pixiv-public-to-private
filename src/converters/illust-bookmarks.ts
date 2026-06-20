@@ -4,6 +4,7 @@ import {
   PixivIllustItem,
 } from '@book000/pixivts'
 import { BaseConverter, ConvertResult, FetchPageResult } from './base'
+import { PixivRateLimitExceededError } from '../exceptions'
 
 /**
  * Converter for illustration bookmarks. It fetches public illustration bookmarks and makes them private. If the illustration has been deleted, it can optionally delete the bookmark as well.
@@ -59,6 +60,11 @@ export class IllustBookmarksConverter extends BaseConverter<PixivIllustItem> {
       restrict: 'private',
     })
     if (result.isErr) {
+      if (result.error.type === 'rate_limit') {
+        throw new PixivRateLimitExceededError(
+          `Rate limit exceeded while adding bookmark for illust ${item.id}`
+        )
+      }
       return {
         status: result.error.type === 'api_error' ? result.error.status : 500,
         data:

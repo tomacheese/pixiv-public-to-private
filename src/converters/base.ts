@@ -73,6 +73,10 @@ export abstract class BaseConverter<T> {
   /** Removal process called when the target has already been deleted (cancellation of bookmarks/unfollowing, etc.) */
   protected abstract removeForDeletedItem(item: T): Promise<void>
 
+  /**
+   * Fetches public bookmarks page by page and converts each item to private.
+   * Sets `process.exitCode = 1` if a page fetch or item conversion fails.
+   */
   async run(): Promise<void> {
     try {
       let maxId: number | undefined
@@ -95,9 +99,7 @@ export abstract class BaseConverter<T> {
               this.logger.info(`🚨 Deleting bookmark: ${this.getId(item)}`)
               await this.removeForDeletedItem(item)
             }
-            continue
-          }
-          if (result.status !== 200) {
+          } else if (result.status !== 200) {
             this.logger.error(`🚨 Failed to add bookmark: ${result.status}`)
             this.logger.error(JSON.stringify(result.data))
             process.exitCode = 1

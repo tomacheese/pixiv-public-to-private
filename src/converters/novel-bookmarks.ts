@@ -4,6 +4,7 @@ import {
   PixivNovelItem,
 } from '@book000/pixivts'
 import { BaseConverter, ConvertResult, FetchPageResult } from './base'
+import { PixivRateLimitExceededError } from '../exceptions'
 
 /**
  * Converter for novel bookmarks. It fetches public novel bookmarks and makes them private. If the novel has been deleted, it can optionally delete the bookmark as well.
@@ -57,6 +58,11 @@ export class NovelBookmarksConverter extends BaseConverter<PixivNovelItem> {
       restrict: 'private',
     })
     if (result.isErr) {
+      if (result.error.type === 'rate_limit') {
+        throw new PixivRateLimitExceededError(
+          `Rate limit exceeded while adding bookmark for illust ${item.id}`
+        )
+      }
       return {
         status: result.error.type === 'api_error' ? result.error.status : 500,
         data:

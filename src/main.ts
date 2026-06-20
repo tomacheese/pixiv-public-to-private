@@ -108,7 +108,25 @@ async function main() {
   ]
 
   for (const converter of converters) {
-    await converter.run()
+    try {
+      await converter.run()
+    } catch (error) {
+      if (
+        error instanceof Error &&
+        error.name === 'PixivRateLimitExceededError'
+      ) {
+        logger.error(`🚨 Rate limit exceeded: ${error.message}`)
+        process.exitCode = 1
+        return
+      }
+      logger.error(
+        `🚨 Error occurred in converter ${converter.constructor.name}: ${
+          error instanceof Error ? error.message : String(error)
+        }`
+      )
+      process.exitCode = 1
+      // Continue to the next converter instead of exiting immediately
+    }
   }
 }
 
