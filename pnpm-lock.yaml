@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@book000/eslint-config':
-        specifier: 1.15.10
-        version: 1.15.10(eslint@10.5.0)(typescript@6.0.3)
+        specifier: 1.15.11
+        version: 1.15.11(eslint@10.5.0)(typescript@6.0.3)
       '@book000/node-utils':
         specifier: 1.24.239
         version: 1.24.239
@@ -45,8 +45,8 @@ packages:
     resolution: {integrity: sha512-qehxGkRj55h/ff8EMaJ+cYhyaKlHIxqYDn682wQD7RNp9UujOQsHog2uS0r2vzr4pW+sXf90NeeayjcNaX3fFg==}
     engines: {node: '>=6.9.0'}
 
-  '@book000/eslint-config@1.15.10':
-    resolution: {integrity: sha512-o1Fe8kOJy/p+O39WSVOMlqTMIW5IHXMC7SEhCU4eIQzvFwha5ZLBJeZJkOjNxiSjVwkDZ2Uj24chlaYw00/Rxg==}
+  '@book000/eslint-config@1.15.11':
+    resolution: {integrity: sha512-ayg8Jwezmyzd0B33meq1A7zU2ON3Vz1pMYW1zvoFV3KmhGBPnfxgQrel9ODwVfAWhT9MTC0qRkRpBAF6ghrV6A==}
     peerDependencies:
       eslint: 10.5.0
 
@@ -1581,7 +1581,7 @@ snapshots:
 
   '@babel/helper-validator-identifier@7.29.7': {}
 
-  '@book000/eslint-config@1.15.10(eslint@10.5.0)(typescript@6.0.3)':
+  '@book000/eslint-config@1.15.11(eslint@10.5.0)(typescript@6.0.3)':
     dependencies:
       '@typescript-eslint/parser': 8.61.1(eslint@10.5.0)(typescript@6.0.3)
       eslint: 10.5.0
