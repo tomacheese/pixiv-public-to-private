@@ -56,6 +56,9 @@ export abstract class BaseConverter<T> {
   /** Item type name used in log messages (e.g. "Illust", "Novel") */
   protected abstract readonly itemTypeName: string
 
+  /** Whether this converter is enabled by default. */
+  protected abstract readonly IsDefaultEnabled: boolean
+
   /** Get one page of public items */
   protected abstract fetchPage(
     maxId?: number
@@ -78,6 +81,11 @@ export abstract class BaseConverter<T> {
    * Sets `process.exitCode = 1` if a page fetch or item conversion fails.
    */
   async run(): Promise<void> {
+    if (!this.isEnabled()) {
+      this.logger.info(`⚠️ Converter is disabled. Skipping.`)
+      return
+    }
+
     try {
       let maxId: number | undefined
       while (true) {
@@ -125,5 +133,24 @@ export abstract class BaseConverter<T> {
       this.logger.error(`🚨 Unexpected error`, error as Error)
       process.exitCode = 1
     }
+  }
+
+  /**
+   * Determines whether this converter is enabled based on environment variables.
+   * The environment variable should be in the format `ENABLE_{ITEM_TYPE_NAME}_CONVERTER` (e.g., `ENABLE_ILLUST_BOOKMARKS_CONVERTER`).
+   * If the environment variable is not set, it falls back to the `IsDefaultEnabled` property.
+   *
+   * @returns A boolean indicating whether this converter is enabled.
+   */
+  private isEnabled(): boolean {
+    const envVarName = `ENABLE_${this.itemTypeName.toUpperCase()}_CONVERTER`
+    const envVarValue = process.env[envVarName]
+    if (!envVarValue) {
+      // If the environment variable is not set, use IsDefaultEnabled
+      return this.IsDefaultEnabled
+    }
+
+    const truthyValues = ['true', '1', 'yes']
+    return truthyValues.includes(envVarValue.toLowerCase())
   }
 }
