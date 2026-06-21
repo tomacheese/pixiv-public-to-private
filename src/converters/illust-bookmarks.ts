@@ -1,5 +1,10 @@
-import { BookmarkRestrict, Pixiv, PixivIllustItem } from '@book000/pixivts'
+import {
+  BookmarkRestrict,
+  parseNextUrl,
+  PixivIllustItem,
+} from '@book000/pixivts'
 import { BaseConverter, ConvertResult, FetchPageResult } from './base'
+import { PixivRateLimitExceededError } from '../exceptions'
 
 /**
  * Converter for illustration bookmarks. It fetches public illustration bookmarks and makes them private. If the illustration has been deleted, it can optionally delete the bookmark as well.
@@ -10,31 +15,33 @@ export class IllustBookmarksConverter extends BaseConverter<PixivIllustItem> {
   protected async fetchPage(
     maxId?: number
   ): Promise<FetchPageResult<PixivIllustItem> | null> {
-    const response = await this.pixiv.userBookmarksIllust({
-      userId: Number(this.pixiv.userId),
+    const result = await this.pixivClient.users.bookmarks.illusts({
+      userId: this.pixivClient.userId,
       restrict: BookmarkRestrict.PUBLIC,
       maxBookmarkId: maxId,
     })
 
-    if (response.status !== 200) {
+    if (result.isErr) {
       this.logger.error(
-        `🚨 Failed to get public bookmark illusts: ${response.status}`
+        `🚨 Failed to get public bookmark illusts: ${result.error.type}`
       )
-      this.logger.error(JSON.stringify(response.data))
+      if (result.error.type === 'api_error') {
+        this.logger.error(
+          `🚨 API error - statusCode: ${result.error.status}, body: ${JSON.stringify(result.error.body)}`
+        )
+      }
       return null
     }
 
     this.logger.info(
-      `🖼️ Public illust bookmarks: ${response.data.illusts.length}`
+      `🖼️ Public illust bookmarks: ${result.value.illusts.length}`
     )
 
-    const nextUrl = response.data.next_url
-    const nextMaxId = nextUrl
-      ? Number(Pixiv.parseQueryString(nextUrl).max_bookmark_id)
-      : undefined
+    const nextUrl = result.value.nextUrl
+    const nextMaxId = nextUrl ? parseNextUrl(nextUrl).maxBookmarkId : undefined
 
     return {
-      items: response.data.illusts,
+      items: result.value.illusts,
       nextMaxId: Number.isFinite(nextMaxId) ? nextMaxId : undefined,
     }
   }
@@ -48,15 +55,31 @@ export class IllustBookmarksConverter extends BaseConverter<PixivIllustItem> {
   }
 
   protected async toPrivate(item: PixivIllustItem): Promise<ConvertResult> {
-    return this.pixiv.illustBookmarkAdd({
+    const result = await this.pixivClient.illusts.bookmarkAdd({
       illustId: item.id,
-      restrict: BookmarkRestrict.PRIVATE,
+      restrict: 'private',
     })
+    if (result.isErr) {
+      if (result.error.type === 'rate_limit') {
+        throw new PixivRateLimitExceededError(
+          `Rate limit exceeded while adding bookmark for illust ${item.id}`
+        )
+      }
+      return {
+        status: result.error.type === 'api_error' ? result.error.status : 500,
+        data:
+          result.error.type === 'api_error' ? result.error.body : result.error,
+      }
+    }
+    return {
+      status: 200,
+      data: result.value,
+    }
   }
 
   protected async removeForDeletedItem(item: PixivIllustItem): Promise<void> {
-    await this.pixiv.illustBookmarkDelete({
-      illustId: item.id.toString(),
+    await this.pixivClient.illusts.bookmarkDelete({
+      illustId: item.id,
     })
   }
 }

@@ -1,5 +1,5 @@
 import { Logger } from '@book000/node-utils'
-import { Pixiv, PixivRateLimitError } from '@book000/pixivts'
+import { PixivClient } from '@book000/pixivts'
 
 /**
  * Result of fetching one page of items from Pixiv API.
@@ -28,7 +28,7 @@ export abstract class BaseConverter<T> {
   /**
    * Pixiv API client instance
    */
-  protected readonly pixiv: Pixiv
+  protected readonly pixivClient: PixivClient
 
   /**
    * Whether to delete bookmarks for items that have been deleted on Pixiv
@@ -43,11 +43,11 @@ export abstract class BaseConverter<T> {
   /**
    * Constructor for BaseConverter
    *
-   * @param pixiv Pixiv API client instance
+   * @param pixivClient Pixiv API client instance
    * @param isDeleteForDeletedItems Whether to delete bookmarks for items that have been deleted on Pixiv
    */
-  constructor(pixiv: Pixiv, isDeleteForDeletedItems: boolean) {
-    this.pixiv = pixiv
+  constructor(pixivClient: PixivClient, isDeleteForDeletedItems: boolean) {
+    this.pixivClient = pixivClient
     this.isDeleteForDeletedItems = isDeleteForDeletedItems
 
     this.logger = Logger.configure(this.constructor.name)
@@ -73,9 +73,13 @@ export abstract class BaseConverter<T> {
   /** Removal process called when the target has already been deleted (cancellation of bookmarks/unfollowing, etc.) */
   protected abstract removeForDeletedItem(item: T): Promise<void>
 
+  /**
+   * Fetches public bookmarks page by page and converts each item to private.
+   * Sets `process.exitCode = 1` if a page fetch or item conversion fails.
+   */
   async run(): Promise<void> {
-    let maxId: number | undefined
     try {
+      let maxId: number | undefined
       while (true) {
         const page = await this.fetchPage(maxId)
         if (!page) {
@@ -95,9 +99,7 @@ export abstract class BaseConverter<T> {
               this.logger.info(`🚨 Deleting bookmark: ${this.getId(item)}`)
               await this.removeForDeletedItem(item)
             }
-            continue
-          }
-          if (result.status !== 200) {
+          } else if (result.status !== 200) {
             this.logger.error(`🚨 Failed to add bookmark: ${result.status}`)
             this.logger.error(JSON.stringify(result.data))
             process.exitCode = 1
@@ -114,10 +116,14 @@ export abstract class BaseConverter<T> {
         maxId = page.nextMaxId
       }
     } catch (error) {
-      if (error instanceof PixivRateLimitError) {
-        this.logger.error('🚨 Rate limit exceeded')
+      if (
+        error instanceof Error &&
+        error.name === 'PixivRateLimitExceededError'
+      ) {
+        throw error
       }
-      throw error
+      this.logger.error(`🚨 Unexpected error`, error as Error)
+      process.exitCode = 1
     }
   }
 }

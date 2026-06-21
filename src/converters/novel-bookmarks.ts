@@ -1,5 +1,10 @@
-import { BookmarkRestrict, Pixiv, PixivNovelItem } from '@book000/pixivts'
+import {
+  BookmarkRestrict,
+  parseNextUrl,
+  PixivNovelItem,
+} from '@book000/pixivts'
 import { BaseConverter, ConvertResult, FetchPageResult } from './base'
+import { PixivRateLimitExceededError } from '../exceptions'
 
 /**
  * Converter for novel bookmarks. It fetches public novel bookmarks and makes them private. If the novel has been deleted, it can optionally delete the bookmark as well.
@@ -10,31 +15,31 @@ export class NovelBookmarksConverter extends BaseConverter<PixivNovelItem> {
   protected async fetchPage(
     maxId?: number
   ): Promise<FetchPageResult<PixivNovelItem> | null> {
-    const response = await this.pixiv.userBookmarksNovel({
-      userId: Number(this.pixiv.userId),
+    const result = await this.pixivClient.users.bookmarks.novels({
+      userId: this.pixivClient.userId,
       restrict: BookmarkRestrict.PUBLIC,
       maxBookmarkId: maxId,
     })
 
-    if (response.status !== 200) {
+    if (result.isErr) {
       this.logger.error(
-        `🚨 Failed to get public bookmark novels: ${response.status}`
+        `🚨 Failed to get public bookmark novels: ${result.error.type}`
       )
-      this.logger.error(JSON.stringify(response.data))
+      if (result.error.type === 'api_error') {
+        this.logger.error(
+          `🚨 API error - statusCode: ${result.error.status}, body: ${JSON.stringify(result.error.body)}`
+        )
+      }
       return null
     }
 
-    this.logger.info(
-      `📕 Public novel bookmarks: ${response.data.novels.length}`
-    )
+    this.logger.info(`📕 Public novel bookmarks: ${result.value.novels.length}`)
 
-    const nextUrl = response.data.next_url
-    const nextMaxId = nextUrl
-      ? Number(Pixiv.parseQueryString(nextUrl).max_bookmark_id)
-      : undefined
+    const nextUrl = result.value.nextUrl
+    const nextMaxId = nextUrl ? parseNextUrl(nextUrl).maxBookmarkId : undefined
 
     return {
-      items: response.data.novels,
+      items: result.value.novels,
       nextMaxId: Number.isFinite(nextMaxId) ? nextMaxId : undefined,
     }
   }
@@ -48,15 +53,31 @@ export class NovelBookmarksConverter extends BaseConverter<PixivNovelItem> {
   }
 
   protected async toPrivate(item: PixivNovelItem): Promise<ConvertResult> {
-    return this.pixiv.novelBookmarkAdd({
-      novelId: item.id.toString(),
-      restrict: BookmarkRestrict.PRIVATE,
+    const result = await this.pixivClient.novels.bookmarkAdd({
+      novelId: item.id,
+      restrict: 'private',
     })
+    if (result.isErr) {
+      if (result.error.type === 'rate_limit') {
+        throw new PixivRateLimitExceededError(
+          `Rate limit exceeded while adding bookmark for illust ${item.id}`
+        )
+      }
+      return {
+        status: result.error.type === 'api_error' ? result.error.status : 500,
+        data:
+          result.error.type === 'api_error' ? result.error.body : result.error,
+      }
+    }
+    return {
+      status: 200,
+      data: result.value,
+    }
   }
 
   protected async removeForDeletedItem(item: PixivNovelItem): Promise<void> {
-    await this.pixiv.novelBookmarkDelete({
-      novelId: item.id.toString(),
+    await this.pixivClient.novels.bookmarkDelete({
+      novelId: item.id,
     })
   }
 }

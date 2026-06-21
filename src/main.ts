@@ -1,9 +1,9 @@
-import { Pixiv } from '@book000/pixivts'
 import { Logger } from '@book000/node-utils'
 import fs from 'node:fs'
 import { BaseConverter } from './converters/base'
 import { IllustBookmarksConverter } from './converters/illust-bookmarks'
 import { NovelBookmarksConverter } from './converters/novel-bookmarks'
+import { PixivClient } from '@book000/pixivts'
 
 function isJSON(value: string): boolean {
   try {
@@ -25,6 +25,19 @@ function isValidTokenJSON(data: object): data is { refresh_token: string } {
     return false
   } catch {
     return false
+  }
+}
+
+async function getPixivClient(inputRefreshToken: string): Promise<PixivClient> {
+  const logger = Logger.configure('getPixivClient')
+  try {
+    const pixivClient = await PixivClient.of(inputRefreshToken)
+    return pixivClient
+  } catch (error) {
+    logger.error(
+      `🚨 Failed to initialize pixiv client: ${error instanceof Error ? error.message : String(error)}`
+    )
+    throw error
   }
 }
 
@@ -53,39 +66,32 @@ async function getPixiv() {
     return
   }
 
-  const isEnabledResponseSave = !!process.env.RESPONSE_DB_HOSTNAME
-  const pixiv = await Pixiv.of(inputRefreshToken, {
-    debugOptions: {
-      outputResponse: {
-        enable: isEnabledResponseSave,
-      },
-    },
-  })
+  const pixivClient = await getPixivClient(inputRefreshToken)
 
   fs.writeFileSync(
     tokenPath,
     JSON.stringify({
-      access_token: pixiv.accessToken,
+      access_token: pixivClient.getAccessToken(),
       user: {
-        id: pixiv.userId,
+        id: pixivClient.userId,
       },
-      refresh_token: pixiv.refreshToken,
+      refresh_token: pixivClient.getRefreshToken(),
     })
   )
 
-  return pixiv
+  return pixivClient
 }
 
 async function main() {
   const logger = Logger.configure('main')
 
-  const pixiv = await getPixiv()
-  if (!pixiv) {
+  const pixivClient = await getPixiv()
+  if (!pixivClient) {
     logger.error(`🚨 Failed to get Pixiv instance`)
     process.exitCode = 1
     return
   }
-  const pixivUserId = pixiv.userId
+  const pixivUserId = pixivClient.userId
   logger.info(`📝 PIXIV_USER_ID: ${pixivUserId}`)
 
   const isDeleteBookmarkForDeleted =
@@ -97,16 +103,30 @@ async function main() {
   }
 
   const converters: BaseConverter<unknown>[] = [
-    new IllustBookmarksConverter(pixiv, isDeleteBookmarkForDeleted),
-    new NovelBookmarksConverter(pixiv, isDeleteBookmarkForDeleted),
+    new IllustBookmarksConverter(pixivClient, isDeleteBookmarkForDeleted),
+    new NovelBookmarksConverter(pixivClient, isDeleteBookmarkForDeleted),
   ]
 
-  try {
-    for (const converter of converters) {
+  for (const converter of converters) {
+    try {
       await converter.run()
+    } catch (error) {
+      if (
+        error instanceof Error &&
+        error.name === 'PixivRateLimitExceededError'
+      ) {
+        logger.error(`🚨 Rate limit exceeded: ${error.message}`)
+        process.exitCode = 1
+        return
+      }
+      logger.error(
+        `🚨 Error occurred in converter ${converter.constructor.name}: ${
+          error instanceof Error ? error.message : String(error)
+        }`
+      )
+      process.exitCode = 1
+      // Continue to the next converter instead of exiting immediately
     }
-  } finally {
-    await pixiv.close()
   }
 }
 
