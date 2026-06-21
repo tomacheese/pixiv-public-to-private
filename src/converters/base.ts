@@ -116,6 +116,12 @@ export abstract class BaseConverter<T> {
         maxId = page.nextMaxId
       }
     } catch (error) {
+      if (
+        error instanceof Error &&
+        error.name === 'PixivRateLimitExceededError'
+      ) {
+        throw error
+      }
       this.logger.error(`🚨 Unexpected error`, error as Error)
       process.exitCode = 1
     }
