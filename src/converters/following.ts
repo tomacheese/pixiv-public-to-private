@@ -7,7 +7,7 @@ import { PixivRateLimitExceededError } from '../exceptions'
  */
 export class FollowingConverter extends BaseConverter<PixivUserPreviewItem> {
   protected readonly itemTypeName = 'FOLLOWING'
-  protected readonly IsDefaultEnabled = false
+  protected readonly isDefaultEnabled = false
 
   /** User IDs from the previous page, used to detect a stalled page below. */
   private previousPageUserIds: number[] | undefined
@@ -15,7 +15,7 @@ export class FollowingConverter extends BaseConverter<PixivUserPreviewItem> {
   /**
    * `users.following` only has an offset cursor, not a max-ID one.
    * Since toPrivate() removes users from the public list as we go, trusting the API's next_url offset would skip whoever shifted to the front so we just keep re-fetching offset 0 and bail out if a page stops shrinking.
-   * 
+   *
    * @returns 0 = next page is offset 0 with some users, undefined = no more pages or failed to fetch
    */
   protected async fetchPage(): Promise<FetchPageResult<PixivUserPreviewItem> | null> {

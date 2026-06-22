@@ -11,7 +11,7 @@ import { PixivRateLimitExceededError } from '../exceptions'
  */
 export class NovelBookmarksConverter extends BaseConverter<PixivNovelItem> {
   protected readonly itemTypeName = 'NOVEL_BOOKMARKS'
-  protected readonly IsDefaultEnabled = true
+  protected readonly isDefaultEnabled = true
 
   protected async fetchPage(
     maxId?: number

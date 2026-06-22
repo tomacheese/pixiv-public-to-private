@@ -106,7 +106,7 @@ async function main() {
   const converters: BaseConverter<unknown>[] = [
     new IllustBookmarksConverter(pixivClient, isDeleteBookmarkForDeleted),
     new NovelBookmarksConverter(pixivClient, isDeleteBookmarkForDeleted),
-    new FollowingConverter(pixivClient, isDeleteBookmarkForDeleted),
+    new FollowingConverter(pixivClient, false),
   ]
 
   for (const converter of converters) {

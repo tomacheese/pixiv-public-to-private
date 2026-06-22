@@ -53,11 +53,15 @@ export abstract class BaseConverter<T> {
     this.logger = Logger.configure(this.constructor.name)
   }
 
-  /** Item type name used in log messages (e.g. "Illust", "Novel") */
+  /**
+   * Item type name used in log messages and enable function environment variable
+   *
+   * @example "ILLUST_BOOKMARKS", "NOVEL_BOOKMARKS"
+   */
   protected abstract readonly itemTypeName: string
 
   /** Whether this converter is enabled by default. */
-  protected abstract readonly IsDefaultEnabled: boolean
+  protected abstract readonly isDefaultEnabled: boolean
 
   /** Get one page of public items */
   protected abstract fetchPage(
@@ -147,7 +151,7 @@ export abstract class BaseConverter<T> {
     const envVarValue = process.env[envVarName]
     if (!envVarValue) {
       // If the environment variable is not set, use IsDefaultEnabled
-      return this.IsDefaultEnabled
+      return this.isDefaultEnabled
     }
 
     const truthyValues = ['true', '1', 'yes']

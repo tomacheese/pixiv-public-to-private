@@ -11,7 +11,7 @@ import { PixivRateLimitExceededError } from '../exceptions'
  */
 export class IllustBookmarksConverter extends BaseConverter<PixivIllustItem> {
   protected readonly itemTypeName = 'ILLUST_BOOKMARKS'
-  protected readonly IsDefaultEnabled = true
+  protected readonly isDefaultEnabled = true
 
   protected async fetchPage(
     maxId?: number
