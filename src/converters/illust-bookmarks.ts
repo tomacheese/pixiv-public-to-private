@@ -10,7 +10,8 @@ import { PixivRateLimitExceededError } from '../exceptions'
  * Converter for illustration bookmarks. It fetches public illustration bookmarks and makes them private. If the illustration has been deleted, it can optionally delete the bookmark as well.
  */
 export class IllustBookmarksConverter extends BaseConverter<PixivIllustItem> {
-  protected readonly itemTypeName = 'Illust'
+  protected readonly itemTypeName = 'ILLUST_BOOKMARKS'
+  protected readonly isDefaultEnabled = true
 
   protected async fetchPage(
     maxId?: number

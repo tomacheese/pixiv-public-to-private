@@ -10,7 +10,8 @@ import { PixivRateLimitExceededError } from '../exceptions'
  * Converter for novel bookmarks. It fetches public novel bookmarks and makes them private. If the novel has been deleted, it can optionally delete the bookmark as well.
  */
 export class NovelBookmarksConverter extends BaseConverter<PixivNovelItem> {
-  protected readonly itemTypeName = 'Novel'
+  protected readonly itemTypeName = 'NOVEL_BOOKMARKS'
+  protected readonly isDefaultEnabled = true
 
   protected async fetchPage(
     maxId?: number
