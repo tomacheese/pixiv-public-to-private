@@ -78,7 +78,7 @@ jobs:
     name: Docker CI
     needs: approval-gate
     if: always() && needs.approval-gate.result == 'success' && (github.event.action != 'closed' || github.event.pull_request.merged == true)
-    uses: book000/templates/.github/workflows/reusable-docker.yml@194f9f8adc090657531b5742dceeb307569ab725 # master
+    uses: book000/templates/.github/workflows/reusable-docker.yml@249109e57d1bc836c5a4e1bbf4e446ad2c286deb # master
     with:
       targets: >-
         [
