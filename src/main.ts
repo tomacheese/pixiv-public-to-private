@@ -4,6 +4,7 @@ import { BaseConverter } from './converters/base'
 import { IllustBookmarksConverter } from './converters/illust-bookmarks'
 import { NovelBookmarksConverter } from './converters/novel-bookmarks'
 import { PixivClient } from '@book000/pixivts'
+import { FollowingConverter } from './converters/following'
 
 function isJSON(value: string): boolean {
   try {
@@ -105,6 +106,7 @@ async function main() {
   const converters: BaseConverter<unknown>[] = [
     new IllustBookmarksConverter(pixivClient, isDeleteBookmarkForDeleted),
     new NovelBookmarksConverter(pixivClient, isDeleteBookmarkForDeleted),
+    new FollowingConverter(pixivClient, false),
   ]
 
   for (const converter of converters) {
