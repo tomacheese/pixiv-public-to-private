@@ -24,7 +24,7 @@ Guidance for GitHub Copilot when reviewing pull requests in this repository. Thi
 ## Security
 
 - The pixiv refresh/access token lives in the token file (default `data/token.json`). Never hardcode tokens, and flag any change that logs token values or commits real credentials.
-- Token file paths and secrets come from the environment (`PIXIV_TOKEN_PATH`, `DELETE_BOOKMARK_FOR_DELETED_ITEMS`); do not introduce hardcoded alternatives.
+- Configuration comes from environment variables — the token file path (`PIXIV_TOKEN_PATH`) and the deleted-item behavior flag (`DELETE_BOOKMARK_FOR_DELETED_ITEMS`); do not introduce hardcoded alternatives.
 
 ## Known patterns — do not flag
 
