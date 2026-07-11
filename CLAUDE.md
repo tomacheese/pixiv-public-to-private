@@ -6,12 +6,13 @@ This document defines the policies and rules for Claude Code (an AI coding assis
 
 ## Project Overview
 
-- Purpose: changes all illustrations and novels publicly bookmarked on pixiv to private bookmarks
+- Purpose: changes items publicly bookmarked/followed on pixiv (illust bookmarks, novel bookmarks, and followings) to private
 - Main features:
-  - Fetches the public bookmark list (illusts and novels) via the pixiv API
-  - Changes each bookmark's visibility from public to private
-  - Optionally removes bookmarks for items that have been deleted
+  - Fetches the public lists (illust bookmarks, novel bookmarks, followings) via the pixiv API
+  - Changes each item's visibility from public to private
+  - Optionally removes bookmarks/followings for items that have been deleted
   - Runs continuously in a loop inside a Docker container (`entrypoint.sh`)
+- Each item type is handled by a converter under `src/converters/` extending `BaseConverter`. A converter can be toggled via the `ENABLE_<ITEM_TYPE>_CONVERTER` environment variable (e.g. `ENABLE_ILLUST_BOOKMARKS_CONVERTER`); when unset, the converter's own default applies
 
 ## Important Rules
 
@@ -57,7 +58,9 @@ pnpm fix
 
 ## Architecture and Key Files
 
-- `src/main.ts`: entry point. Authenticates with pixiv, then converts public illust/novel bookmarks to private
+- `src/main.ts`: entry point. Authenticates with pixiv, then runs each converter in sequence
+- `src/converters/base.ts`: `BaseConverter` abstract class shared by all converters (pagination, per-item conversion, deleted-item handling, env-var enable check)
+- `src/converters/`: concrete converters — `illust-bookmarks.ts`, `novel-bookmarks.ts`, `following.ts`
 - `entrypoint.sh`: Docker entrypoint that runs `pnpm start` in a loop with a 10-minute interval
 - `Dockerfile`: builds the production image
 - `compose.yaml`: example Docker Compose configuration
