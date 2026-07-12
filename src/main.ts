@@ -20,10 +20,7 @@ function isValidTokenJSON(data: object): data is { refresh_token: string } {
     if (typeof data !== 'object') {
       return false
     }
-    if ('refresh_token' in data) {
-      return true
-    }
-    return false
+    return 'refresh_token' in data
   } catch {
     return false
   }
