@@ -147,14 +147,14 @@ export abstract class BaseConverter<T> {
    * @returns A boolean indicating whether this converter is enabled.
    */
   private isEnabled(): boolean {
-    const envVarName = `ENABLE_${this.itemTypeName.toUpperCase()}_CONVERTER`
-    const envVarValue = process.env[envVarName]
-    if (!envVarValue) {
+    const environmentVariableName = `ENABLE_${this.itemTypeName.toUpperCase()}_CONVERTER`
+    const environmentVariableValue = process.env[environmentVariableName]
+    if (!environmentVariableValue) {
       // If the environment variable is not set, use IsDefaultEnabled
       return this.isDefaultEnabled
     }
 
     const truthyValues = ['true', '1', 'yes']
-    return truthyValues.includes(envVarValue.toLowerCase())
+    return truthyValues.includes(environmentVariableValue.toLowerCase())
   }
 }
