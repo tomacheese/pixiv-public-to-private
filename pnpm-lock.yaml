@@ -15,8 +15,8 @@ importers:
         specifier: 1.24.279
         version: 1.24.279
       '@book000/pixivts':
-        specifier: 0.61.2
-        version: 0.61.2
+        specifier: 0.61.3
+        version: 0.61.3
       '@types/node':
         specifier: 26.1.1
         version: 26.1.1
@@ -53,8 +53,8 @@ packages:
   '@book000/node-utils@1.24.279':
     resolution: {integrity: sha512-foXbFbsUg9i0l0boeoq7AMbwKUAZu/shAT3ofUMP8fC/iY9hFs/iCvoMgZ/t/Hnz2ZJkM9ZQ8kdxunYJS4mcDg==}
 
-  '@book000/pixivts@0.61.2':
-    resolution: {integrity: sha512-7Qz7MBIK6wBoNzEjyHDwjZ2L2iGaig/mOBGzjNpA4jj28g+aD4WF8TYPyyNcAbeJm+WVWujt8nhYAaCXUYMMCA==}
+  '@book000/pixivts@0.61.3':
+    resolution: {integrity: sha512-2KEhhFUpJJcuUu/YCA8x+NCoex0bBYMZcMEk73EH2Pdxrb/e1/PfRzWknOEFtvYGlkhWX5ir9F2D7wvjp5/6MQ==}
 
   '@colors/colors@1.6.0':
     resolution: {integrity: sha512-Ir+AOibqzrIsL6ajt3Rz3LskB7OiMVHqltZmspbW/TJuTVuyOMirVqAkjfY6JISiLHgyNqicAC8AyHHGzNd/dA==}
@@ -1639,7 +1639,7 @@ snapshots:
       winston: 3.19.0
       winston-daily-rotate-file: 5.0.0(winston@3.19.0)
 
-  '@book000/pixivts@0.61.2': {}
+  '@book000/pixivts@0.61.3': {}
 
   '@colors/colors@1.6.0': {}
 
