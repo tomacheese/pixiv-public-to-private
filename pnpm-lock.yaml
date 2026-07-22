@@ -12,8 +12,8 @@ importers:
         specifier: 1.16.14
         version: 1.16.14(eslint@10.7.0)(typescript@6.0.3)
       '@book000/node-utils':
-        specifier: 1.25.0
-        version: 1.25.0(@opentelemetry/core@2.9.0(@opentelemetry/api@1.9.1))
+        specifier: 1.25.1
+        version: 1.25.1(@opentelemetry/core@2.9.0(@opentelemetry/api@1.9.1))
       '@book000/pixivts':
         specifier: 0.62.0
         version: 0.62.0
@@ -57,8 +57,8 @@ packages:
     peerDependencies:
       eslint: 10.7.0
 
-  '@book000/node-utils@1.25.0':
-    resolution: {integrity: sha512-5bnUqghF+PTFXOqELwTdZgFS2WrTjNAj27ye00IobmfruRnlbQiy+RsPCQgX3oEFfy4elq2ayKcfWyaFJjoC3g==}
+  '@book000/node-utils@1.25.1':
+    resolution: {integrity: sha512-gq6bP5ZBf/loGsnq4uORUZCTB3iCQQLtu43Eeg+THc4fj1OFeuuW9bAN0nPqScvkv1mVPdPEa8BJEOaozSX88A==}
 
   '@book000/pixivts@0.62.0':
     resolution: {integrity: sha512-PcsCtgRrsiif4oHFi/IGlrALflpPjj/usmmkBA/ogz8sdecHw2OyaNp7M9/IY935RnGz21XhFhHsQliPIkIEVw==}
@@ -1315,8 +1315,8 @@ packages:
   module-details-from-path@1.0.4:
     resolution: {integrity: sha512-EGWKgxALGMgzvxYF1UyGTy0HXX/2vHLkw6+NvDKW2jypWbHpjQuj4UMcqQWXHERJhVGKikolT06G3bcKe4fi7w==}
 
-  moment-timezone@0.6.2:
-    resolution: {integrity: sha512-lDsQv8FoGdBUdf0+TjGsq2orxKuXdwFlQ6Zw6TX3xIcTwTfEpCLyKqvEauvCHJ8iu3KBV8+uPhlv70YsNGdUBQ==}
+  moment-timezone@0.6.3:
+    resolution: {integrity: sha512-pVEPA/HCFHHbwJ130ywnzYuZpkEGcP6Daa/OwNebpA18MybeFHmQilAGGovXgWijQ8vQtmud9jZrziUBgsykfg==}
 
   moment@2.30.1:
     resolution: {integrity: sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==}
@@ -1855,12 +1855,12 @@ snapshots:
       - supports-color
       - typescript
 
-  '@book000/node-utils@1.25.0(@opentelemetry/core@2.9.0(@opentelemetry/api@1.9.1))':
+  '@book000/node-utils@1.25.1(@opentelemetry/core@2.9.0(@opentelemetry/api@1.9.1))':
     dependencies:
       '@sentry/node': 10.67.0(@opentelemetry/core@2.9.0(@opentelemetry/api@1.9.1))
       cycle: 1.0.3
       jsonc-parser: 3.3.1
-      moment-timezone: 0.6.2
+      moment-timezone: 0.6.3
       winston: 3.19.0
       winston-daily-rotate-file: 5.0.0(winston@3.19.0)
       winston-transport: 4.9.0
@@ -3261,7 +3261,7 @@ snapshots:
 
   module-details-from-path@1.0.4: {}
 
-  moment-timezone@0.6.2:
+  moment-timezone@0.6.3:
     dependencies:
       moment: 2.30.1
 
