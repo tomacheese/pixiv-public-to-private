@@ -15,8 +15,8 @@ importers:
         specifier: 1.25.10
         version: 1.25.10(@opentelemetry/core@2.9.0(@opentelemetry/api@1.9.1))
       '@book000/pixivts':
-        specifier: 0.62.0
-        version: 0.62.0
+        specifier: 0.63.0
+        version: 0.63.0
       '@types/node':
         specifier: 26.1.1
         version: 26.1.1
@@ -60,8 +60,8 @@ packages:
   '@book000/node-utils@1.25.10':
     resolution: {integrity: sha512-z1lNvo8OPutzld7l/zlkbCTvnDGSyB5MnCS9jbvJZHjna6mYktxp+lW/cfgEfjbzRHazyNXbAj+jdzcOJTrHVw==}
 
-  '@book000/pixivts@0.62.0':
-    resolution: {integrity: sha512-PcsCtgRrsiif4oHFi/IGlrALflpPjj/usmmkBA/ogz8sdecHw2OyaNp7M9/IY935RnGz21XhFhHsQliPIkIEVw==}
+  '@book000/pixivts@0.63.0':
+    resolution: {integrity: sha512-UymyhIyXrN9nPvdzDNgxBluh9hzCgWMPDr3FALCTYW4zE84iShAhcAagtmo6dTzB9FOeGDgfi1+TOwvvN7tzUQ==}
 
   '@colors/colors@1.6.0':
     resolution: {integrity: sha512-Ir+AOibqzrIsL6ajt3Rz3LskB7OiMVHqltZmspbW/TJuTVuyOMirVqAkjfY6JISiLHgyNqicAC8AyHHGzNd/dA==}
@@ -1869,7 +1869,7 @@ snapshots:
       - '@opentelemetry/exporter-trace-otlp-http'
       - supports-color
 
-  '@book000/pixivts@0.62.0': {}
+  '@book000/pixivts@0.63.0': {}
 
   '@colors/colors@1.6.0': {}
 
