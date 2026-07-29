@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@book000/eslint-config':
-        specifier: 1.16.21
-        version: 1.16.21(eslint@10.8.0)(typescript@6.0.3)
+        specifier: 1.16.22
+        version: 1.16.22(eslint@10.8.0)(typescript@6.0.3)
       '@book000/node-utils':
         specifier: 1.25.15
         version: 1.25.15(@opentelemetry/core@2.9.0(@opentelemetry/api@1.9.1))
@@ -52,8 +52,8 @@ packages:
   '@apm-js-collab/tracing-hooks@0.13.0':
     resolution: {integrity: sha512-mTvWz9rnQwx1U3h0XPTHaX7bgfkpipLLTQyjlC2cdhQpQEuoLT0AGzoydeoq2NxfEVv6fWOOETcSbb2nptleyw==}
 
-  '@book000/eslint-config@1.16.21':
-    resolution: {integrity: sha512-1H883oMciK6TDF+YHDMaAp90al9Ae1pz55rkR2bv6P0pwrazgovCirB5hx8noyFP1YgRuhxIsx3cN6FgIH5EwA==}
+  '@book000/eslint-config@1.16.22':
+    resolution: {integrity: sha512-AUhgAAAXtbeqV40j59O5zLmSH3/Fnhtcx5skpLyg4ugLg+lbG4EQ43GFTaizeOtFqm+XnFnc9VDHizJVKQlqQw==}
     peerDependencies:
       eslint: 10.8.0
 
@@ -1024,6 +1024,10 @@ packages:
     resolution: {integrity: sha512-Czmyns5dUsq4seFBR/Kdydhmo8y9kC79hiSkPn0YcGtNnYWnrgt0vjrSjx9tspoDGWm2CMarffRuLjM4xUz8xg==}
     engines: {node: '>=18'}
 
+  globals@17.8.0:
+    resolution: {integrity: sha512-Zz/LMDZScFmkakeL2cTHzf+PbWKdpU3uclqkZT7TjDG58j5WPt0PpA+n9uPI24fZtlw07q0OtEi84K+umsRzqQ==}
+    engines: {node: '>=18'}
+
   globalthis@1.0.4:
     resolution: {integrity: sha512-DpLKbNU4WylpxJykQujfCcwYWiV/Jhm50Goo0wrVILAv5jOr9d+H+UR3PhSCD2rCCEIg0uc+G+muBTwD54JhDQ==}
     engines: {node: '>= 0.4'}
@@ -1842,13 +1846,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@book000/eslint-config@1.16.21(eslint@10.8.0)(typescript@6.0.3)':
+  '@book000/eslint-config@1.16.22(eslint@10.8.0)(typescript@6.0.3)':
     dependencies:
       '@typescript-eslint/parser': 8.65.0(eslint@10.8.0)(typescript@6.0.3)
       eslint: 10.8.0
       eslint-config-prettier: 10.1.8(eslint@10.8.0)
       eslint-plugin-unicorn: 72.0.0(eslint@10.8.0)
-      globals: 17.7.0
+      globals: 17.8.0
       neostandard: 0.13.0(eslint@10.8.0)(typescript@6.0.3)
       typescript-eslint: 8.65.0(eslint@10.8.0)(typescript@6.0.3)
     transitivePeerDependencies:
@@ -2974,6 +2978,8 @@ snapshots:
   globals@15.15.0: {}
 
   globals@17.7.0: {}
+
+  globals@17.8.0: {}
 
   globalthis@1.0.4:
     dependencies:
