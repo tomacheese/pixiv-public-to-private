@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@book000/eslint-config':
-        specifier: 1.16.22
-        version: 1.16.22(eslint@10.8.0)(typescript@6.0.3)
+        specifier: 1.16.23
+        version: 1.16.23(eslint@10.8.0)(typescript@6.0.3)
       '@book000/node-utils':
         specifier: 1.25.16
         version: 1.25.16(@opentelemetry/core@2.9.0(@opentelemetry/api@1.9.1))
@@ -52,8 +52,8 @@ packages:
   '@apm-js-collab/tracing-hooks@0.13.0':
     resolution: {integrity: sha512-mTvWz9rnQwx1U3h0XPTHaX7bgfkpipLLTQyjlC2cdhQpQEuoLT0AGzoydeoq2NxfEVv6fWOOETcSbb2nptleyw==}
 
-  '@book000/eslint-config@1.16.22':
-    resolution: {integrity: sha512-AUhgAAAXtbeqV40j59O5zLmSH3/Fnhtcx5skpLyg4ugLg+lbG4EQ43GFTaizeOtFqm+XnFnc9VDHizJVKQlqQw==}
+  '@book000/eslint-config@1.16.23':
+    resolution: {integrity: sha512-Inv9keytJJzzMH1EJZ0ogKEEUR/fpTwH+KmYo4UFWbrozgksVgqc8YCsKOkH9YLnocPm6ZMqMloJ5UW2xgY5gg==}
     peerDependencies:
       eslint: 10.8.0
 
@@ -1020,10 +1020,6 @@ packages:
     resolution: {integrity: sha512-7ACyT3wmyp3I61S4fG682L0VA2RGD9otkqGJIwNUMF1SWUombIIk+af1unuDYgMm082aHYwD+mzJvv9Iu8dsgg==}
     engines: {node: '>=18'}
 
-  globals@17.7.0:
-    resolution: {integrity: sha512-Czmyns5dUsq4seFBR/Kdydhmo8y9kC79hiSkPn0YcGtNnYWnrgt0vjrSjx9tspoDGWm2CMarffRuLjM4xUz8xg==}
-    engines: {node: '>=18'}
-
   globals@17.8.0:
     resolution: {integrity: sha512-Zz/LMDZScFmkakeL2cTHzf+PbWKdpU3uclqkZT7TjDG58j5WPt0PpA+n9uPI24fZtlw07q0OtEi84K+umsRzqQ==}
     engines: {node: '>=18'}
@@ -1846,7 +1842,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@book000/eslint-config@1.16.22(eslint@10.8.0)(typescript@6.0.3)':
+  '@book000/eslint-config@1.16.23(eslint@10.8.0)(typescript@6.0.3)':
     dependencies:
       '@typescript-eslint/parser': 8.65.0(eslint@10.8.0)(typescript@6.0.3)
       eslint: 10.8.0
@@ -2785,7 +2781,7 @@ snapshots:
       entities: 4.5.0
       eslint: 10.8.0
       find-up-simple: 1.0.1
-      globals: 17.7.0
+      globals: 17.8.0
       indent-string: 5.0.0
       is-builtin-module: 5.0.0
       is-identifier: 1.1.0
@@ -2976,8 +2972,6 @@ snapshots:
       type-fest: 0.20.2
 
   globals@15.15.0: {}
-
-  globals@17.7.0: {}
 
   globals@17.8.0: {}
 
@@ -3287,7 +3281,7 @@ snapshots:
       eslint-plugin-promise: 7.3.0(eslint@10.8.0)
       eslint-plugin-react: 7.37.5(eslint@10.8.0)
       find-up: 8.0.0
-      globals: 17.7.0
+      globals: 17.8.0
       peowly: 1.3.3
       typescript-eslint: 8.65.0(eslint@10.8.0)(typescript@6.0.3)
     transitivePeerDependencies:
