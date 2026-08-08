@@ -34,7 +34,7 @@
     "eslint-config-standard": "17.1.0",
     "prettier": "3.9.6",
     "run-z": "2.1.0",
-    "tsx": "4.23.6",
+    "tsx": "4.23.7",
     "typescript": "6.0.3"
   },
   "packageManager": "pnpm@11.20.0+sha512.9a6f330a95b66446ea088faf1521405a8a01f07fde7124cc9958dfed52d4bb436737e65b08f85f37b46fcba375092558ac51262b816844b22f63406ed166bfee"
