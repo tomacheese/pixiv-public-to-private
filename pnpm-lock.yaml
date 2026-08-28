@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@book000/eslint-config':
-        specifier: 1.16.43
-        version: 1.16.43(eslint@10.9.1)(typescript@6.0.3)
+        specifier: 1.16.45
+        version: 1.16.45(eslint@10.9.1)(typescript@6.0.3)
       '@book000/node-utils':
         specifier: 1.25.64
         version: 1.25.64(@opentelemetry/core@2.10.0(@opentelemetry/api@1.9.1))
@@ -52,10 +52,10 @@ packages:
   '@apm-js-collab/tracing-hooks@0.13.0':
     resolution: {integrity: sha512-mTvWz9rnQwx1U3h0XPTHaX7bgfkpipLLTQyjlC2cdhQpQEuoLT0AGzoydeoq2NxfEVv6fWOOETcSbb2nptleyw==}
 
-  '@book000/eslint-config@1.16.43':
-    resolution: {integrity: sha512-QZJD6ezyfPpR+TLIqw4MmVXNGeUE+NnSZgqJc2e0CbZ/VRz6elln5jSAlUYQa7gZV+quxlUlAe7PMXl2q2sVVg==}
+  '@book000/eslint-config@1.16.45':
+    resolution: {integrity: sha512-Pf5KPsrTC9WV69k9XVcllRh2hQQaWEt1Ewj5wsqXO2WqdurPRMGshri/NpgNx/7mGM9Qzsq9Ob/yliBieTmf9Q==}
     peerDependencies:
-      eslint: 10.9.0
+      eslint: 10.9.1
 
   '@book000/node-utils@1.25.64':
     resolution: {integrity: sha512-4xtu37KwxPFuelHTNggN2dzxa9bhWarhdSRSw5oki6GE/mV+M8mhPq1E5Pos02Razrrddk5ynidHMMNdJauMiA==}
@@ -1843,7 +1843,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@book000/eslint-config@1.16.43(eslint@10.9.1)(typescript@6.0.3)':
+  '@book000/eslint-config@1.16.45(eslint@10.9.1)(typescript@6.0.3)':
     dependencies:
       '@typescript-eslint/parser': 8.67.0(eslint@10.9.1)(typescript@6.0.3)
       eslint: 10.9.1
