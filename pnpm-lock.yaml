@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@book000/eslint-config':
-        specifier: 1.16.48
-        version: 1.16.48(eslint@10.9.1)(typescript@6.0.3)
+        specifier: 1.16.49
+        version: 1.16.49(eslint@10.9.1)(typescript@6.0.3)
       '@book000/node-utils':
         specifier: 1.25.71
         version: 1.25.71(@opentelemetry/core@2.10.0(@opentelemetry/api@1.9.1))
@@ -52,8 +52,8 @@ packages:
   '@apm-js-collab/tracing-hooks@0.13.0':
     resolution: {integrity: sha512-mTvWz9rnQwx1U3h0XPTHaX7bgfkpipLLTQyjlC2cdhQpQEuoLT0AGzoydeoq2NxfEVv6fWOOETcSbb2nptleyw==}
 
-  '@book000/eslint-config@1.16.48':
-    resolution: {integrity: sha512-QLqmr5vOcl9PMyn0X60L349yeemxqZ0g3qkW9LFePmlPY/tKy+pPTY9GSwsPfXU1guhouqqTBsXgxVBbxjKUdQ==}
+  '@book000/eslint-config@1.16.49':
+    resolution: {integrity: sha512-crT7Trb4vdWOXh8iOFDh/mtekfccqX4t3eZ643gYD7uXljLEIDIHzsi4Defc326VLe445WImUtTLzOV2YL0Nwg==}
     peerDependencies:
       eslint: 10.9.1
 
@@ -706,9 +706,9 @@ packages:
     resolution: {integrity: sha512-L1l8TNvomm6UVW5B253AGxQagSQr+vGwhMlrrfRS2qmhx46AMpMVJKQYLvWYbysTMY8VoicOvzHzoHMbyzB+4A==}
     engines: {node: '>=10.13.0'}
 
-  entities@4.5.0:
-    resolution: {integrity: sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==}
-    engines: {node: '>=0.12'}
+  entities@8.0.0:
+    resolution: {integrity: sha512-zwfzJecQ/Uej6tusMqwAqU/6KL2XaB2VZ2Jg54Je6ahNBGNH6Ek6g3jjNCF0fG9EWQKGZNddNjU5F1ZQn/sBnA==}
+    engines: {node: '>=20.19.0'}
 
   environment@1.1.0:
     resolution: {integrity: sha512-xUtoPkMggbz0MPyPiIWr1Kp4aeWJjDZ6SMvURhimjdZgsRuDplF5/s9hcgGhyXMhs+6vpnuoiZ2kFiu3FMnS8Q==}
@@ -857,8 +857,8 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9.7
 
-  eslint-plugin-unicorn@73.0.0:
-    resolution: {integrity: sha512-V0YatLe9nkGhXEXKe2Qljb1EY0sJHwDV0HUF1NKFwtsHh/fU7qGHDgv+6fchzZcgU2/7noHo2gdjnmo0P2uDPw==}
+  eslint-plugin-unicorn@74.0.0:
+    resolution: {integrity: sha512-AGnsGi2SxHg1HEAXxn9nSnZfyjvTWkxm8E8hpd/9tD6dLjBUdcD7+D6ZN64HmmCXTSXlrwVyUqe20Uyb2CaurA==}
     engines: {node: '>=22'}
     peerDependencies:
       eslint: '>=10.4'
@@ -1843,12 +1843,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@book000/eslint-config@1.16.48(eslint@10.9.1)(typescript@6.0.3)':
+  '@book000/eslint-config@1.16.49(eslint@10.9.1)(typescript@6.0.3)':
     dependencies:
       '@typescript-eslint/parser': 8.68.0(eslint@10.9.1)(typescript@6.0.3)
       eslint: 10.9.1
       eslint-config-prettier: 10.1.8(eslint@10.9.1)
-      eslint-plugin-unicorn: 73.0.0(eslint@10.9.1)
+      eslint-plugin-unicorn: 74.0.0(eslint@10.9.1)
       globals: 17.11.0
       neostandard: 0.13.0(eslint@10.9.1)(typescript@6.0.3)
       typescript-eslint: 8.68.0(eslint@10.9.1)(typescript@6.0.3)
@@ -2489,7 +2489,7 @@ snapshots:
       graceful-fs: 4.2.11
       tapable: 2.3.3
 
-  entities@4.5.0: {}
+  entities@8.0.0: {}
 
   environment@1.1.0: {}
 
@@ -2770,7 +2770,7 @@ snapshots:
       string.prototype.matchall: 4.1.0
       string.prototype.repeat: 1.0.0
 
-  eslint-plugin-unicorn@73.0.0(eslint@10.9.1):
+  eslint-plugin-unicorn@74.0.0(eslint@10.9.1):
     dependencies:
       '@eslint-community/eslint-utils': 4.10.1(eslint@10.9.1)
       '@eslint/css-tree': 4.0.5
@@ -2779,7 +2779,7 @@ snapshots:
       ci-info: 4.4.0
       core-js-compat: 3.50.0
       detect-indent: 7.0.2
-      entities: 4.5.0
+      entities: 8.0.0
       eslint: 10.9.1
       find-up-simple: 1.0.1
       globals: 17.11.0
