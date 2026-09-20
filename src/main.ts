@@ -17,10 +17,7 @@ function isJSON(value: string): boolean {
 
 function isValidTokenJSON(data: object): data is { refresh_token: string } {
   try {
-    if (typeof data !== 'object') {
-      return false
-    }
-    return 'refresh_token' in data
+    return typeof data === 'object' ? 'refresh_token' in data : false
   } catch {
     return false
   }
