@@ -23,11 +23,7 @@ function calculateJapaneseRatio(text) {
   const latinCount = (text.match(LATIN_PATTERN) ?? []).length
   const total = japaneseCount + latinCount
 
-  if (total === 0) {
-    return 0
-  }
-
-  return japaneseCount / total
+  return total === 0 ? 0 : japaneseCount / total
 }
 
 /**
