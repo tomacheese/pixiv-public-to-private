@@ -1,5 +1,4 @@
 allowBuilds:
   esbuild: true
-confirmModulesPurge: false
 minimumReleaseAgeExclude:
   - '@book000/*'
