@@ -170,8 +170,8 @@ importers:
         specifier: 1.16.71
         version: 1.16.71(eslint@10.11.0)(typescript@6.0.3)
       '@book000/node-utils':
-        specifier: 1.25.119
-        version: 1.25.119(@opentelemetry/core@2.11.0(@opentelemetry/api@1.9.1))
+        specifier: 1.25.120
+        version: 1.25.120(@opentelemetry/core@2.11.0(@opentelemetry/api@1.9.1))
       '@book000/pixivts':
         specifier: 0.63.0
         version: 0.63.0
@@ -204,8 +204,8 @@ packages:
     peerDependencies:
       eslint: 10.11.0
 
-  '@book000/node-utils@1.25.119':
-    resolution: {integrity: sha512-E2ZHYiabwVejeuDhIN/LjJY3wTw+pY/fLP2MuBmA1e8UZlIKRd87pqEBH4bvDXeDLb6yQVXaLVTt58oc/AR2nw==}
+  '@book000/node-utils@1.25.120':
+    resolution: {integrity: sha512-1O8l4QhjjSm0vQ8gxClDVZnmZW9r/5wbh22OaukR1EEH3JhzNYW+vizpOG2k1czalJUV9gGa/Mm670iLOwFtAQ==}
 
   '@book000/pixivts@0.63.0':
     resolution: {integrity: sha512-UymyhIyXrN9nPvdzDNgxBluh9hzCgWMPDr3FALCTYW4zE84iShAhcAagtmo6dTzB9FOeGDgfi1+TOwvvN7tzUQ==}
@@ -1950,7 +1950,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@book000/node-utils@1.25.119(@opentelemetry/core@2.11.0(@opentelemetry/api@1.9.1))':
+  '@book000/node-utils@1.25.120(@opentelemetry/core@2.11.0(@opentelemetry/api@1.9.1))':
     dependencies:
       '@sentry/node': 10.75.0(@opentelemetry/core@2.11.0(@opentelemetry/api@1.9.1))
       cycle: 1.0.3
