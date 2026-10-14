@@ -36,17 +36,17 @@ function calculateJapaneseRatio(text) {
  * @returns An array of human-readable failure messages. Empty if both the
  *   title and body pass the check.
  */
-function checkPullRequestLanguage(title, body) {
+function checkPullRequestLanguage(title = '', body = '') {
   const failures = []
 
-  const titleRatio = calculateJapaneseRatio(title ?? '')
+  const titleRatio = calculateJapaneseRatio(title)
   if (titleRatio >= JAPANESE_RATIO_THRESHOLD) {
     failures.push(
       `PR title appears to be mostly Japanese (Japanese ratio: ${titleRatio.toFixed(2)}). Please write the PR title in English.`
     )
   }
 
-  const trimmedBody = (body ?? '').trim()
+  const trimmedBody = body.trim()
   if (trimmedBody.length > 0) {
     const bodyRatio = calculateJapaneseRatio(trimmedBody)
     if (bodyRatio >= JAPANESE_RATIO_THRESHOLD) {
