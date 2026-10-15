@@ -173,8 +173,8 @@ importers:
         specifier: 1.25.153
         version: 1.25.153(@babel/core@7.29.7(supports-color@8.1.1))
       '@book000/pixivts':
-        specifier: 0.63.1
-        version: 0.63.1
+        specifier: 0.64.0
+        version: 0.64.0
       '@types/node':
         specifier: 26.6.5
         version: 26.6.5
@@ -274,8 +274,8 @@ packages:
   '@book000/node-utils@1.25.153':
     resolution: {integrity: sha512-WpEQdxn1Ys1fOU+ncfm9E54bNa7Kk0J8tML9tdVCbqNh73prG2sam9OaFnCVTYPOHB5pQCtdAH+1n9++syIvJQ==}
 
-  '@book000/pixivts@0.63.1':
-    resolution: {integrity: sha512-SFnHBBj7pdktZVlV/bPFLOTKYcXjJ1TeYensoZdINtPto6lqevoBm0Bcv5Y6Op3hE55lSgBqHmuzIi0X6y/4fA==}
+  '@book000/pixivts@0.64.0':
+    resolution: {integrity: sha512-bX8N/yyeSDABnB3P7pqAZgg9RCsnG4C8Qojd1UaS09qNsn2NnHg1PRuBC5pv1RVIwRPJKSJPGeql0lF6yZumuA==}
 
   '@cacheable/memory@2.2.0':
     resolution: {integrity: sha512-CTLKqLItRCEixEAewD3/j9DB3/o96gpTPD4eJ1v+DGOlxZRZncRQkGYqqnAGCscYd6RNeXfGeiuCphsPtqyIfQ==}
@@ -2329,7 +2329,7 @@ snapshots:
       - rollup
       - webpack
 
-  '@book000/pixivts@0.63.1': {}
+  '@book000/pixivts@0.64.0': {}
 
   '@cacheable/memory@2.2.0':
     dependencies:
