@@ -167,8 +167,8 @@ importers:
   .:
     devDependencies:
       '@book000/eslint-config':
-        specifier: 1.16.105
-        version: 1.16.105(eslint@10.13.0(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)
+        specifier: 1.16.106
+        version: 1.16.106(eslint@10.13.0(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)
       '@book000/node-utils':
         specifier: 1.25.177
         version: 1.25.177
@@ -199,8 +199,8 @@ importers:
 
 packages:
 
-  '@book000/eslint-config@1.16.105':
-    resolution: {integrity: sha512-RbvOGfAxQ0YHWV7/rphLFLQN+GzzKNQ1SjY0C0Cb4+KNnEH19AF/BN+1/Q4NlLOLgmlQhcp8IUhpFHidg/jJ0g==}
+  '@book000/eslint-config@1.16.106':
+    resolution: {integrity: sha512-w27GBKKCMdT0OO9GpUk/IUbjrsk7pgiJOhwgco6SVzdoC5I2bh8GtQRO6FC0k0v3h6ebJokMeBqZjnhwj4Pj8A==}
     peerDependencies:
       eslint: 10.13.0
 
@@ -1107,8 +1107,8 @@ packages:
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0
 
-  eslint-plugin-unicorn@78.0.0:
-    resolution: {integrity: sha512-XTDqxcJeAmh2lhgU75TpuMDdFtPDnAU+DCW56nR5UzXTG+uOyvOGjV80O11my7kNb2bYSCPlWa8c4K8/rwlYog==}
+  eslint-plugin-unicorn@79.0.0:
+    resolution: {integrity: sha512-k7MWrjoVTVCnjKpgaxBuScPNSPomLvDpsd9uADpWrIFzrnwiec27eWhGrmmyuTj1bC3xVNYP4QfG3MEzEw6ifg==}
     engines: {node: '>=22'}
     peerDependencies:
       eslint: '>=10.4'
@@ -2091,12 +2091,12 @@ packages:
 
 snapshots:
 
-  '@book000/eslint-config@1.16.105(eslint@10.13.0(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)':
+  '@book000/eslint-config@1.16.106(eslint@10.13.0(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)':
     dependencies:
       '@typescript-eslint/parser': 8.72.0(eslint@10.13.0(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)
       eslint: 10.13.0(supports-color@8.1.1)
       eslint-config-prettier: 10.1.8(eslint@10.13.0(supports-color@8.1.1))
-      eslint-plugin-unicorn: 78.0.0(eslint@10.13.0(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)
+      eslint-plugin-unicorn: 79.0.0(eslint@10.13.0(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)
       globals: 17.13.0
       neostandard: 0.14.1(eslint@10.13.0(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)
       typescript-eslint: 8.72.0(eslint@10.13.0(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)
@@ -3018,7 +3018,7 @@ snapshots:
       '@eslint-community/eslint-utils': 4.10.1(eslint@10.13.0(supports-color@8.1.1))
       eslint: 10.13.0(supports-color@8.1.1)
 
-  eslint-plugin-unicorn@78.0.0(eslint@10.13.0(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3):
+  eslint-plugin-unicorn@79.0.0(eslint@10.13.0(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3):
     dependencies:
       '@eslint-community/eslint-utils': 4.10.1(eslint@10.13.0(supports-color@8.1.1))
       '@eslint/css-tree': 4.1.2
