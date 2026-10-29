@@ -170,8 +170,8 @@ importers:
         specifier: 1.16.106
         version: 1.16.106(eslint@10.13.0(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)
       '@book000/node-utils':
-        specifier: 1.25.179
-        version: 1.25.179
+        specifier: 1.25.180
+        version: 1.25.180
       '@book000/pixivts':
         specifier: 0.64.0
         version: 0.64.0
@@ -204,8 +204,8 @@ packages:
     peerDependencies:
       eslint: 10.13.0
 
-  '@book000/node-utils@1.25.179':
-    resolution: {integrity: sha512-hFZLrA0mGe2d/fD+IQKiTCrF+TmOlQbhbQFo3rkYVK/Ca1L/twoAqTHCcSqUm4KQmyvM/aOtGAMQMHip5tVwlQ==}
+  '@book000/node-utils@1.25.180':
+    resolution: {integrity: sha512-I9ivi1tVg+3xcyDRT1m/gqbaEYrp2cDa7m7ufChxNY9yfaZSZw6tqPCCM/jMaXS9fe1Q2lbzsTI6cOKDXxEoIA==}
 
   '@book000/pixivts@0.64.0':
     resolution: {integrity: sha512-bX8N/yyeSDABnB3P7pqAZgg9RCsnG4C8Qojd1UaS09qNsn2NnHg1PRuBC5pv1RVIwRPJKSJPGeql0lF6yZumuA==}
@@ -2105,7 +2105,7 @@ snapshots:
       - ts-declaration-location
       - typescript
 
-  '@book000/node-utils@1.25.179':
+  '@book000/node-utils@1.25.180':
     dependencies:
       '@sentry/node': 11.9.0
       cycle: 1.0.3
