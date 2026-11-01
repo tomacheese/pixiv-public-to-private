@@ -170,8 +170,8 @@ importers:
         specifier: 1.16.111
         version: 1.16.111(eslint@10.13.0(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)
       '@book000/node-utils':
-        specifier: 1.25.189
-        version: 1.25.189
+        specifier: 1.25.190
+        version: 1.25.190
       '@book000/pixivts':
         specifier: 0.64.0
         version: 0.64.0
@@ -204,8 +204,8 @@ packages:
     peerDependencies:
       eslint: 10.13.0
 
-  '@book000/node-utils@1.25.189':
-    resolution: {integrity: sha512-GYFKYZOfFZgz4AINffEA8ciGuTJmc99aPWnDeE8c90hhhMtqB2I763zRVY54pSOZXXf5NKJ/sF3tflSLdITakw==}
+  '@book000/node-utils@1.25.190':
+    resolution: {integrity: sha512-tJQNMVmvDI4AbOabDklxPOWuItoOteNF1EYehOMdgv/JvSw6Ze5e3i/GIPZni9LYpFNm6kpcuB7KF1gKYlw6eQ==}
 
   '@book000/pixivts@0.64.0':
     resolution: {integrity: sha512-bX8N/yyeSDABnB3P7pqAZgg9RCsnG4C8Qojd1UaS09qNsn2NnHg1PRuBC5pv1RVIwRPJKSJPGeql0lF6yZumuA==}
@@ -1620,8 +1620,8 @@ packages:
     resolution: {integrity: sha512-tEBHqDnIoM/1rXME1zgka9g6Q2lcoCkxHLuc7ODJ5BxbP5d4c2Z5cGgtXAku59200Cx7diuHTOYfSBD8n6mm8A==}
     engines: {node: '>=16 || 14 >=14.17'}
 
-  moment-timezone@0.6.5:
-    resolution: {integrity: sha512-KKzZAxGv2Qx4cnk6eSlvf4C+DLFW52vmMY5MN7UARY7GONbozkutylQG3DrrtmLCTXdQ5XZrqao9cI16bLFzXA==}
+  moment-timezone@0.6.6:
+    resolution: {integrity: sha512-LF5AAYsMduXFW2ungr/D9JqNq9ykZyhWgYG6wFtdGZW5ZlBDTBgTUFqW8EC7Fa+Dvs3IMZxlWkSR09sW2D/+0w==}
 
   moment@2.31.0:
     resolution: {integrity: sha512-0acOTfMiWOheYS4eoWb80yYMb/JLvVv9SHbs2PehaDzfUG0Bw855SKyk0IKTnPGa5+U2bmi3W68l1+sGLX/pvw==}
@@ -2105,12 +2105,12 @@ snapshots:
       - ts-declaration-location
       - typescript
 
-  '@book000/node-utils@1.25.189':
+  '@book000/node-utils@1.25.190':
     dependencies:
       '@sentry/node': 11.10.0
       cycle: 1.0.3
       jsonc-parser: 3.3.1
-      moment-timezone: 0.6.5
+      moment-timezone: 0.6.6
       winston: 3.19.0
       winston-daily-rotate-file: 5.0.0(winston@3.19.0)
       winston-transport: 4.9.0
@@ -3627,7 +3627,7 @@ snapshots:
 
   minipass@7.1.3: {}
 
-  moment-timezone@0.6.5:
+  moment-timezone@0.6.6:
     dependencies:
       moment: 2.31.0
 
