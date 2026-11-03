@@ -142,7 +142,7 @@ export abstract class BaseConverter<T> {
   /**
    * Determines whether this converter is enabled based on environment variables.
    * The environment variable should be in the format `ENABLE_{ITEM_TYPE_NAME}_CONVERTER` (e.g., `ENABLE_ILLUST_BOOKMARKS_CONVERTER`).
-   * If the environment variable is not set, it falls back to the `IsDefaultEnabled` property.
+   * If the environment variable is not set, it falls back to the `isDefaultEnabled` property.
    *
    * @returns A boolean indicating whether this converter is enabled.
    */
@@ -150,7 +150,7 @@ export abstract class BaseConverter<T> {
     const envVarName = `ENABLE_${this.itemTypeName.toUpperCase()}_CONVERTER`
     const envVarValue = process.env[envVarName]
     if (!envVarValue) {
-      // If the environment variable is not set, use IsDefaultEnabled
+      // If the environment variable is not set, use isDefaultEnabled
       return this.isDefaultEnabled
     }
 

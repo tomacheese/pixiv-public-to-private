@@ -1,6 +1,6 @@
 # pixiv-public-to-private
 
-Changes all illustrations and novels publicly bookmarked on pixiv to private bookmarks.
+Changes all illustrations and novels publicly bookmarked on pixiv to private bookmarks. Public followings can also be made private (disabled by default).
 
 This application is intended to change the visibility of bookmarks on an ongoing schedule.  
 If you expect to make temporary batch changes, you can use the following script created in the browser devtool.
@@ -51,7 +51,8 @@ Please save the obtained refresh token in `data/token.json`.
 The following environment variables are available:
 
 - `PIXIV_TOKEN_PATH`: pixiv token file path (default value: data/token.json)
-- `DELETE_BOOKMARK_FOR_DELETED_ITEMS`: If you have bookmarked a deleted item, whether to unbookmark it or not
+- `DELETE_BOOKMARK_FOR_DELETED_ITEMS`: Set to `true` to remove the bookmark when a bookmarked illustration or novel has been deleted (default: not removed; does not apply to followings)
+- `ENABLE_ILLUST_BOOKMARKS_CONVERTER`, `ENABLE_NOVEL_BOOKMARKS_CONVERTER`, `ENABLE_FOLLOWING_CONVERTER`: Enable or disable each converter (`true`, `1` or `yes` enable it; any other non-empty value disables it). When unset, illustration and novel bookmarks are enabled and followings are disabled
 
 ## License
 
