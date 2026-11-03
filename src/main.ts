@@ -23,19 +23,6 @@ function isValidTokenJSON(data: object): data is { refresh_token: string } {
   }
 }
 
-async function getPixivClient(inputRefreshToken: string): Promise<PixivClient> {
-  const logger = Logger.configure('getPixivClient')
-  try {
-    const pixivClient = await PixivClient.of(inputRefreshToken)
-    return pixivClient
-  } catch (error) {
-    logger.error(
-      `🚨 Failed to initialize pixiv client: ${error instanceof Error ? error.message : String(error)}`
-    )
-    throw error
-  }
-}
-
 async function getPixiv() {
   const logger = Logger.configure('getPixiv')
   const tokenPath = process.env.PIXIV_TOKEN_PATH ?? 'data/token.json'
@@ -61,7 +48,7 @@ async function getPixiv() {
     return
   }
 
-  const pixivClient = await getPixivClient(inputRefreshToken)
+  const pixivClient = await PixivClient.of(inputRefreshToken)
 
   fs.writeFileSync(
     tokenPath,
@@ -80,7 +67,18 @@ async function getPixiv() {
 async function main() {
   const logger = Logger.configure('main')
 
-  const pixivClient = await getPixiv()
+  let pixivClient: PixivClient | undefined
+  try {
+    pixivClient = await getPixiv()
+  } catch (error) {
+    // Report once, as a message-only log. The message includes the HTTP status
+    // (e.g. "HTTP 400"), so Sentry groups each status separately and stably.
+    logger.error(
+      `🚨 Failed to initialize pixiv client: ${error instanceof Error ? error.message : String(error)}`
+    )
+    process.exitCode = 1
+    return
+  }
   if (!pixivClient) {
     logger.error(`🚨 Failed to get Pixiv instance`)
     process.exitCode = 1
