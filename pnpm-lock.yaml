@@ -167,8 +167,8 @@ importers:
   .:
     devDependencies:
       '@book000/eslint-config':
-        specifier: 1.16.114
-        version: 1.16.114(eslint@10.14.0(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)
+        specifier: 1.16.115
+        version: 1.16.115(eslint@10.14.0(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)
       '@book000/node-utils':
         specifier: 1.26.1
         version: 1.26.1
@@ -199,8 +199,8 @@ importers:
 
 packages:
 
-  '@book000/eslint-config@1.16.114':
-    resolution: {integrity: sha512-5Y+uNtHBCZXrV+OA6K3ZwsDm42jGxAqmIr1vEKrheyb0QzKlqL9o6kevQPK4St/thfEq8v45t2qCA33h8uRDqA==}
+  '@book000/eslint-config@1.16.115':
+    resolution: {integrity: sha512-KECyxMCyTVHNrwz75vhf8nTvm2h7BaWmB4dpyg69Ne4YXYlP9/WdCjysuIbr1+YbeOvcCRKDEZG407ZLYyF2+w==}
     peerDependencies:
       eslint: 10.14.0
 
@@ -2091,7 +2091,7 @@ packages:
 
 snapshots:
 
-  '@book000/eslint-config@1.16.114(eslint@10.14.0(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)':
+  '@book000/eslint-config@1.16.115(eslint@10.14.0(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)':
     dependencies:
       '@typescript-eslint/parser': 8.72.1(eslint@10.14.0(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)
       eslint: 10.14.0(supports-color@8.1.1)
