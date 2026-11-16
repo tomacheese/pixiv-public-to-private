@@ -76,9 +76,31 @@ export class NovelBookmarksConverter extends BaseConverter<PixivNovelItem> {
     }
   }
 
+  /**
+   * Deletes the bookmark of a novel that has been deleted on pixiv.
+   * Throws `PixivRateLimitExceededError` on rate limit; any other failure is logged and sets `process.exitCode = 1`.
+   *
+   * @param item The bookmarked novel
+   */
   protected async removeForDeletedItem(item: PixivNovelItem): Promise<void> {
-    await this.pixivClient.novels.bookmarkDelete({
+    const result = await this.pixivClient.novels.bookmarkDelete({
       novelId: item.id,
     })
+    if (!result.isErr) return
+
+    if (result.error.type === 'rate_limit') {
+      throw new PixivRateLimitExceededError(
+        `Rate limit exceeded while deleting bookmark for novel ${item.id}`
+      )
+    }
+    this.logger.error(
+      `🚨 Failed to delete bookmark: ${item.id} (${result.error.type})`
+    )
+    if (result.error.type === 'api_error') {
+      this.logger.error(
+        `🚨 API error - statusCode: ${result.error.status}, body: ${JSON.stringify(result.error.body)}`
+      )
+    }
+    process.exitCode = 1
   }
 }
