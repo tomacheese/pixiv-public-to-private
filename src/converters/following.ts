@@ -26,6 +26,11 @@ export class FollowingConverter extends BaseConverter<PixivUserPreviewItem> {
     })
 
     if (result.isErr) {
+      if (result.error.type === 'rate_limit') {
+        throw new PixivRateLimitExceededError(
+          'Rate limit exceeded while fetching public following users'
+        )
+      }
       this.logger.error(
         `🚨 Failed to get public following users: ${result.error.type}`
       )
