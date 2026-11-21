@@ -23,6 +23,11 @@ export class IllustBookmarksConverter extends BaseConverter<PixivIllustItem> {
     })
 
     if (result.isErr) {
+      if (result.error.type === 'rate_limit') {
+        throw new PixivRateLimitExceededError(
+          'Rate limit exceeded while fetching public bookmark illusts'
+        )
+      }
       this.logger.error(
         `🚨 Failed to get public bookmark illusts: ${result.error.type}`
       )

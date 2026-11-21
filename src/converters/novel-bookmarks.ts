@@ -23,6 +23,11 @@ export class NovelBookmarksConverter extends BaseConverter<PixivNovelItem> {
     })
 
     if (result.isErr) {
+      if (result.error.type === 'rate_limit') {
+        throw new PixivRateLimitExceededError(
+          'Rate limit exceeded while fetching public bookmark novels'
+        )
+      }
       this.logger.error(
         `🚨 Failed to get public bookmark novels: ${result.error.type}`
       )
