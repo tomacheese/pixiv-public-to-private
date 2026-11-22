@@ -176,8 +176,8 @@ importers:
   .:
     devDependencies:
       '@book000/eslint-config':
-        specifier: 1.17.3
-        version: 1.17.3(eslint@10.15.0)(typescript@6.0.3)
+        specifier: 1.17.5
+        version: 1.17.5(eslint@10.15.0)(typescript@6.0.3)
       '@book000/node-utils':
         specifier: 1.26.35
         version: 1.26.35
@@ -208,8 +208,8 @@ importers:
 
 packages:
 
-  '@book000/eslint-config@1.17.3':
-    resolution: {integrity: sha512-p5Oroy5Kxq1dvZpiZDp3LAQQ+AuDdxub2L31IAouVP35MnfkwikkWuJwE0GFyzVWso0QqD7Pwa0j6FkgPM6Q3g==}
+  '@book000/eslint-config@1.17.5':
+    resolution: {integrity: sha512-cuO1fcTOVitRin2AsSF8jX/lKpnf3coFIPgP7weUwNY/fh/twCDkw0chtqPWXvCgqpBs6p5i6UfQc28E8rebOw==}
     peerDependencies:
       eslint: 10.15.0
 
@@ -704,10 +704,6 @@ packages:
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0 || ^10.0.0
       typescript: '>=4.8.4 <6.1.0'
-
-  '@typescript-eslint/types@8.72.2':
-    resolution: {integrity: sha512-Xfn37OLZx03+PCU7qWx9DTv2FCRh1E6fk2+wONeNY15HXIwtcwuveaSwVpGAUptkNmPQegRxW5JyRel9T7wrog==}
-    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@typescript-eslint/types@8.73.0':
     resolution: {integrity: sha512-O/1ytYzflF16QDKXx4/qOXg1IuZp+n7hr9t+S0nv7N/2Tl8rJiNCshztV1gcSUvHbPtoX3+zmNbtSAyVbzxVfw==}
@@ -2107,7 +2103,7 @@ packages:
 
 snapshots:
 
-  '@book000/eslint-config@1.17.3(eslint@10.15.0)(typescript@6.0.3)':
+  '@book000/eslint-config@1.17.5(eslint@10.15.0)(typescript@6.0.3)':
     dependencies:
       '@typescript-eslint/parser': 8.73.0(eslint@10.15.0)(typescript@6.0.3)
       eslint: 10.15.0
@@ -2418,7 +2414,7 @@ snapshots:
   '@stylistic/eslint-plugin@5.10.0(eslint@10.15.0)':
     dependencies:
       '@eslint-community/eslint-utils': 4.10.1(eslint@10.15.0)
-      '@typescript-eslint/types': 8.72.2
+      '@typescript-eslint/types': 8.73.0
       eslint: 10.15.0
       eslint-visitor-keys: 4.2.1
       espree: 10.4.0
@@ -2505,8 +2501,6 @@ snapshots:
     transitivePeerDependencies:
       - '@typescript/native'
       - supports-color
-
-  '@typescript-eslint/types@8.72.2': {}
 
   '@typescript-eslint/types@8.73.0': {}
 
