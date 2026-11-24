@@ -25,7 +25,10 @@ function isValidTokenJSON(data: object): data is { refresh_token: string } {
 
 async function getPixiv() {
   const logger = Logger.configure('getPixiv')
-  const tokenPath = process.env.PIXIV_TOKEN_PATH ?? 'data/token.json'
+  const tokenPath =
+    process.env.PIXIV_TOKEN_PATH ??
+    process.env.PIXIV_DATA_FILE ??
+    'data/token.json'
   if (!fs.existsSync(tokenPath)) {
     logger.error(`🚨 Token file does not exist: ${tokenPath}`)
     return
