@@ -28,6 +28,6 @@ COPY entrypoint.sh ./
 RUN chmod +x entrypoint.sh
 
 ENV NODE_ENV=production
-ENV PIXIV_TOKEN_PATH=/data/token.json
+ENV PIXIV_DATA_FILE=/data/token.json
 
 ENTRYPOINT [ "./entrypoint.sh" ]

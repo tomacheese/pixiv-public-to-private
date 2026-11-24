@@ -30,6 +30,8 @@ services:
       - type: bind
         source: ./data
         target: /data/
+    environment:
+      PIXIV_DATA_FILE: /data/token.json
     init: true
     restart: always
 ```
@@ -50,7 +52,8 @@ Please save the obtained refresh token in `data/token.json`.
 
 The following environment variables are available:
 
-- `PIXIV_TOKEN_PATH`: pixiv token file path (default value: data/token.json)
+- `PIXIV_DATA_FILE`: pixiv token file path (default: `data/token.json`, or `/data/token.json` in Docker)
+- `PIXIV_TOKEN_PATH`: legacy token file path; when set, it takes precedence over `PIXIV_DATA_FILE`
 - `DELETE_BOOKMARK_FOR_DELETED_ITEMS`: Set to `true` to remove the bookmark when a bookmarked illustration or novel has been deleted (default: not removed; does not apply to followings)
 - `ENABLE_ILLUST_BOOKMARKS_CONVERTER`, `ENABLE_NOVEL_BOOKMARKS_CONVERTER`, `ENABLE_FOLLOWING_CONVERTER`: Enable or disable each converter (`true`, `1` or `yes` enable it; any other non-empty value disables it). When unset, illustration and novel bookmarks are enabled and followings are disabled
 

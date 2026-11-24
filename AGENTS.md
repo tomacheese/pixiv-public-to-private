@@ -18,7 +18,7 @@ TypeScript (Node.js, ESM, pnpm) app that changes public pixiv illustration bookm
 - `src/converters/`: `illust-bookmarks.ts`, `novel-bookmarks.ts`, `following.ts`.
 - `src/exceptions.ts`: custom errors.
 
-Configuration (see `README.md`): `PIXIV_TOKEN_PATH` (default `data/token.json`), `DELETE_BOOKMARK_FOR_DELETED_ITEMS`, and `ENABLE_<ITEM_TYPE>_CONVERTER` (e.g. `ENABLE_ILLUST_BOOKMARKS_CONVERTER`; falls back to the converter's `isDefaultEnabled`).
+Configuration (see `README.md`): `PIXIV_DATA_FILE` (default `data/token.json`, or `/data/token.json` in Docker), legacy `PIXIV_TOKEN_PATH` (takes precedence when set), `DELETE_BOOKMARK_FOR_DELETED_ITEMS`, and `ENABLE_<ITEM_TYPE>_CONVERTER` (e.g. `ENABLE_ILLUST_BOOKMARKS_CONVERTER`; falls back to the converter's `isDefaultEnabled`).
 
 ## Commands
 
